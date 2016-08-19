@@ -1,0 +1,3 @@
+[submodule "mobilecsscomponents"]
+	path = mobilecsscomponents
+	url = git@54.223.153.229:root/mobilecsscomponents.git

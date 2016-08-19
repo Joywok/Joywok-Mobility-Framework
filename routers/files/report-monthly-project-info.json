@@ -1,0 +1,61 @@
+{
+  "code": 0,
+  "data": {
+    "item": {
+      "id": "suhH5KI9zY9sjRwN",
+      "name": "李丹丹测试项目，勿删改月报-10",
+      "pid": "eqMgl8ckAukpGacD",
+      "pname": "李丹丹测试项目，勿删改",
+      "managers": [
+        {
+          "id": "xnqRV7CuSjHm5VX8",
+          "name": "卢红兵",
+          "avatar": "/openfile/getfile?type=osns_n_avatar&size=large&id=9P9QQJ5Ft5LPA8Xi"
+        },
+        {
+          "id": "sMTEzwiMMfBa56Q8",
+          "name": "吴海涛",
+          "avatar": "/openfile/getfile?id=uiDM23elGMAyT0mN&type=osns_n_avatar"
+        }
+      ],
+      "assist_depts": [
+        {
+          "id": "DXzQSO0OQtPfLROO",
+          "name": "车联网技术研究中心"
+        },
+        {
+          "id": "9yeWuCigoNlp8CJ9",
+          "name": "物联网专网与平台研究室"
+        }
+      ],
+      "lead_dept": {
+        "id": "pGTZFk9NMcltzqu1",
+        "name": "美国研究所"
+      },
+      "normal_progress": "30%",
+      "labor_progress": "20%",
+      "research_progress": "25%",
+      "delayinfos": [
+        {
+          "id": "RujTXRep0qdUKRKG",
+          "name": "Wimo详细设计",
+          "plan_complete_time": 1431792000,
+          "days": "1",
+          "type": "achievement"
+        },
+        {
+          "id": "RujTXRep0qdUKRKA",
+          "name": "里程碑延误测试",
+          "plan_complete_time": 1431964800,
+          "days": "3",
+          "type": "milestone"
+        }
+      ],
+      "month": 1430409600,
+      "created_at": 1431705600,
+      "updated_at": 0
+    }
+  },
+  "msg": "",
+  "systime": 1431705600
+}

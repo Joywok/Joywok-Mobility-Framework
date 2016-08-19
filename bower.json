@@ -1,0 +1,24 @@
+{
+  "name": "ehr",
+  "version": "0.1.0",
+  "main": [
+    "src/styles/ehr/ehr.css",
+    "src/scripts/ehr/ehr.js"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3",
+    "bootstrap": "3.3.1",
+    "bootstrap3-dialog": ">=1.33.4",
+    "bootstrap-datepicker": ">1.3.0",
+    "bootstrap3-typeahead": "~3.0.3",
+    "bootstrap-tagsinput": "~0.4.2",
+    "remarkable-bootstrap-notify": "^3.1.3",
+    "backbone": "~1.1.2",
+    "backbone-forms": "master",
+    "marionette": "~2.4.1",
+    "moment": "~2.8.3",
+    "font-awesome": "~4.2.0",
+    "underscore": "~1.8.2"
+  },
+  "devDependencies": {}
+}

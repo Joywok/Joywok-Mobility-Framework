@@ -1,22 +1,23 @@
 
 /*
 * 路由文件
-* createDate:2016-08-20 10:25:51
+* createDate:2016-08-20 11:10:48
 * author: XXXXXX
 */
-Jma.module('Apps.Router', function(Router, Jma, Backbone, Marionette, $, _){
+Jma.module('Edit.Router', function(Router, Jma, Backbone, Marionette, $, _){
 
 	Router.startWithParent = true;
 
 	Router.Router = Jma.AppRouter.extend({
 		appRoutes:{
-			'apps':'apps',
+			'apps/qiandao/edit':'edit',
 		}
 	});
 
 	Router.Controller = Marionette.Controller.extend({
-		apps: function(){
-			Jma.module('Apps').StartApp();
+		edit: function(){
+			//console.log('edit')
+			Jma.module('Qiandao.Edit').StartApp();
 		}
 	});
 

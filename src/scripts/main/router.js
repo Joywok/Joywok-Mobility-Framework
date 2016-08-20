@@ -15,8 +15,8 @@ Jma.module('Router', function(Router, Jma, Backbone, Marionette, $, _){
     });
     Router.Controller = Marionette.Controller.extend({
         index: function(){
-            Backbone.history.navigate('#index')
-            Jma.Regist.StartApp();
+            Backbone.history.navigate('#index');
+            Jma.apps.StartApp();
         },
         post: function(){
             console.log(123);

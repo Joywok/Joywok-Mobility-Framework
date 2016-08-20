@@ -41,9 +41,13 @@ Jma.module('Qiandao',function(Qiandao, Jma, Backbone, Marionette, $, _){
     	}
     })
 
+
+
+
     Views.ListView = Marionette.CollectionView.extend({
     	template:Qiandao.Templates.CollectionViewTemplate,
     	childView:Views.ChildView,
-    	childViewContainer:'qiandao-c'
+    	childViewContainer:'qiandao-c',
+        emptyView:Views.emptyView
     })
 })

@@ -9,7 +9,6 @@ Jma.module('Qiandao',function(Qiandao, Jma, Backbone, Marionette, $, _){
     Qiandao.Views = Views;
 
     Views.loadingView = Marionette.ItemView.extend({
-    	className:'loadingView-w',
     	template:Qiandao.Templates.loadingViewTemplate
     })
 
@@ -19,8 +18,32 @@ Jma.module('Qiandao',function(Qiandao, Jma, Backbone, Marionette, $, _){
 
     Views.LayoutView = Marionette.LayoutView.extend({
     	template:Qiandao.Templates.LayoutViewTemplate,
+    	regions:{
+				list:'.qiandao-w'
+			},
     	onShow:function(){
     		this.addRegions({list:this.$el.find('.qiandao-w')})
     	}
+    })
+
+    Views.ChildView = Marionette.ItemView.extend({
+    	className:'qiandao-item',
+    	template:Qiandao.Templates.ChildViewTemplate,
+    	templateHelpers:function(){
+    		return {
+    			initContent:function(){
+    				return this.content
+    			},
+    			initTime:function(){
+    				return this.data
+    			}
+    		}
+    	}
+    })
+
+    Views.ListView = Marionette.CollectionView.extend({
+    	template:Qiandao.Templates.CollectionViewTemplate,
+    	childView:Views.ChildView,
+    	childViewContainer:'qiandao-c'
     })
 })

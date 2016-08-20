@@ -9,15 +9,21 @@ Jma.module('Qiandao', function(Qiandao, Jma, Backbone, Marionette, $, _){
 		initialize: function(options){
 			var self = this;
 			this.options = options;
-			this.loadingView = new Qiandao.Views.loadingView()
-			this.layoutview = new Qiandao.Views.LayoutView();
-			console.log(this.loadingView,'123');
-			this.layoutview.on('show',function(){
-				console.log(this.list)
-				this.list.show(self.loadingView)
+			this.loadingView = new Qiandao.Views.loadingView({
 			})
+			this.layoutview = new Qiandao.Views.LayoutView();
 
+			this.collection = new Qiandao.Entities.Collection()
 
+			this.layoutview.on('show',function(){
+				this.list.show(self.loadingView);
+				self.collection.fetch({success:function(collection,resp){
+					self.listView = new Qiandao.Views.ListView({
+						collection:self.collection
+					})
+					self.list.show(self.listView)
+				}})
+			})
 			Jma.mainRegion.show(this.layoutview)
 			console.log('Apps.Qiandao');
 		},

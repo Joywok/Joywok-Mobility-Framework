@@ -4,11 +4,11 @@
 * createDate:2016-08-16 15:50:55
 * author: XXXXXX
 */
-Ehr.module('registCenter.Views',function(Views, Ehr, Backbone, Marionette, $, _){
+Jma.module('registCenter.Views',function(Views, Jma, Backbone, Marionette, $, _){
 
 	 Views.registView = Marionette.ItemView.extend({
         className: 'regist-container',
-        template: Ehr.registCenter.Templates.registTemplate ,
+        template: Jma.registCenter.Templates.registTemplate ,
         initialize: function() {
 
         },

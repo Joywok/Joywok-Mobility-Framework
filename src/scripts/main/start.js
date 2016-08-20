@@ -1,3 +1,3 @@
 $(function(argument) {
-  Ehr.start();
+  Jma.start();
 });

@@ -4,7 +4,7 @@
 * createDate:2016-08-09 15:54:08
 * author: XXXXXX
 */
-Ehr.module('Demo.Entities', function(Entities, Ehr, Backbone, Marionette, $, _){
+Jma.module('Demo.Entities', function(Entities, Jma, Backbone, Marionette, $, _){
 
 	Entities.demoModel = Backbone.Model.extend({
 		urlRoot : 'urlPath',

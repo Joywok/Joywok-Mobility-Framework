@@ -5,7 +5,7 @@
  * date: 2016-03-31
  *
  *******************************************************************/
-Ehr.module('Templates', function(Templates, Ehr, Backbone, Marionette, $, _){
+Jma.module('Templates', function(Templates, Jma, Backbone, Marionette, $, _){
 
 	// 无Label 表单项模板
   Templates.Form_Field_template_0_12 = _.template('\

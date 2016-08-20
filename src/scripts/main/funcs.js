@@ -6,7 +6,7 @@
   *
   *******************************************************************/
 
- Ehr.module('Funcs', function(Dicts, Funcs, Backbone, Marionette, $, _) {
+ Jma.module('Funcs', function(Dicts, Funcs, Backbone, Marionette, $, _) {
      /*
       * 四舍五入保留小数不够补全0
       * val： 数值

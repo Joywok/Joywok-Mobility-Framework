@@ -4,7 +4,7 @@
 * createDate:2016-08-09 15:54:08
 * author: XXXXXX
 */
-Ehr.module('Demo.Dicts', function(Dicts, Ehr, Backbone, Marionette, $, _) {
+Jma.module('Demo.Dicts', function(Dicts, Jma, Backbone, Marionette, $, _) {
 
 	Dicts.demoDicts = 'demoDictsValue';
 

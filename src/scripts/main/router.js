@@ -4,9 +4,9 @@
  * creator： yjl
  * date: 2016-03-31
  *******************************************************************/
-Ehr.module('Router', function(Router, Ehr, Backbone, Marionette, $, _){
+Jma.module('Router', function(Router, Jma, Backbone, Marionette, $, _){
     Router.startWithParent = true;
-    Router.Router = Ehr.AppRouter.extend({
+    Router.Router = Jma.AppRouter.extend({
         appRoutes:{
             '':'index',
             // 'index':'index',
@@ -16,11 +16,11 @@ Ehr.module('Router', function(Router, Ehr, Backbone, Marionette, $, _){
     Router.Controller = Marionette.Controller.extend({
         index: function(){
             Backbone.history.navigate('#index')
-            Ehr.Regist.StartApp();
+            Jma.Regist.StartApp();
         },
         post: function(){
             console.log(123);
-            Ehr.Post.StartApp();
+            Jma.Post.StartApp();
         }
     });
     Router.on('start', function(){

@@ -4,11 +4,11 @@
 * createDate:2016-08-16 15:50:31
 * author: XXXXXX
 */
-Ehr.module('Post.Views',function(Views, Ehr, Backbone, Marionette, $, _){
+Jma.module('Post.Views',function(Views, Jma, Backbone, Marionette, $, _){
 
     Views.PostView= Marionette.ItemView.extend({
         className: 'Post',
-        template: Ehr.Post.Templates.PostTemplate,
+        template: Jma.Post.Templates.PostTemplate,
          initialize: function() {
         },
         templateHelpers: function() {

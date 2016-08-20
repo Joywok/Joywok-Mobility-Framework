@@ -3,20 +3,20 @@
  * createDate:2016-08-16 15:50:55
  * author: XXXXXX
  */
-Ehr.module('registCenter', function(registCenter, Ehr, Backbone, Marionette, $, _) {
+Jma.module('registCenter', function(registCenter, Jma, Backbone, Marionette, $, _) {
 
     registCenter.Controller = Marionette.Controller.extend({
         initialize: function(options) {
         	this.options=options;
-            this.registmodel = new Ehr.registCenter.Entities.Model();
-            this.view = new Ehr.registCenter.Views.registView({
+            this.registmodel = new Jma.registCenter.Entities.Model();
+            this.view = new Jma.registCenter.Views.registView({
                 model: this.registmodel
             });
             this.show();
         },
         show: function() {
             var self = this;
-            Ehr.mainRegion.show(self.view);
+            Jma.mainRegion.show(self.view);
         }
     });
     registCenter.StartApp = function(options) {

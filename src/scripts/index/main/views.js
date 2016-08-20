@@ -3,11 +3,11 @@
  * createDate:2016-08-11 10:53:23
  * author: XXXXXX
  */
-// Ehr.module('Regist.Views', function(Views, Ehr, Backbone, Marionette, $, _) {
+// Jma.module('Regist.Views', function(Views, Jma, Backbone, Marionette, $, _) {
 
 //     Views.registView = Marionette.ItemView.extend({
 //         className: 'regist-container',
-//         template: Ehr.Regist.Templates.ReigistTemplate,
+//         template: Jma.Regist.Templates.ReigistTemplate,
 //         initialize: function() {
 
 //         },
@@ -19,11 +19,11 @@
 //             "click button#post": 'post'
 //         },
 //         post: function() {
-//          var route=new Ehr.Router.Router({
-//             controller: new Ehr.Router.Controller
+//          var route=new Jma.Router.Router({
+//             controller: new Jma.Router.Controller
 //         });
 //          route.navigate('index/post');
-//             Ehr.module('Post').StartApp();
+//             Jma.module('Post').StartApp();
 
 //         }
 //     })
@@ -37,11 +37,11 @@
 * createDate:2016-08-16 15:50:31
 * author: XXXXXX
 */
-Ehr.module('Apps.Views',function(Views, Ehr, Backbone, Marionette, $, _){
+Jma.module('Apps.Views',function(Views, Jma, Backbone, Marionette, $, _){
 
     Views.HeaderItem= Marionette.ItemView.extend({
         className: 'navbar',
-        template: Ehr.Apps.Templates.HeaderTemplate ,
+        template: Jma.Apps.Templates.HeaderTemplate ,
          initialize: function() {
         },
         templateHelpers: function() {

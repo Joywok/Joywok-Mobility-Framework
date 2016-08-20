@@ -4,7 +4,7 @@
 * createDate:2016-08-10 15:17:52
 * author: XXXXXX
 */
-Ehr.module('Test', function(Test, Ehr, Backbone, Marionette, $, _){
+Jma.module('Test', function(Test, Jma, Backbone, Marionette, $, _){
 
 	Test.Controller = Marionette.Controller.extend({
 		initialize: function(options){

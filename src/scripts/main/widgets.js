@@ -20,11 +20,11 @@ $.notifyDefaults({
       '<a href="{3}" target="{4}" data-notify="url"></a>' +
     '</div>'
   });
-Ehr.Notify = $.notify;
+Jma.Notify = $.notify;
 
-Ehr.Dialog = BootstrapDialog;
+Jma.Dialog = BootstrapDialog;
   
-Ehr.Dialog.confirm = function(message, callback) {
+Jma.Dialog.confirm = function(message, callback) {
   $(document).addClass('overflow');
     return new BootstrapDialog({
         title: '确认',
@@ -54,7 +54,7 @@ Ehr.Dialog.confirm = function(message, callback) {
 };
   
   
-Ehr.Dialog.alert = function(message, callback) {
+Jma.Dialog.alert = function(message, callback) {
   return new BootstrapDialog({
       title: '警告',
       message: message,
@@ -74,12 +74,12 @@ Ehr.Dialog.alert = function(message, callback) {
   }).open();
 };
   
-Ehr.Dialog.configDefaultOptions({
+Jma.Dialog.configDefaultOptions({
 	title: '提示：',
 	closeByBackdrop: false,
 });
 
-Ehr.Controller = Marionette.Controller.extend({
+Jma.Controller = Marionette.Controller.extend({
 	Layout:Marionette.LayoutView,
 	getLayout:function(){
 		this.layout = this.layout||new this.Layout();

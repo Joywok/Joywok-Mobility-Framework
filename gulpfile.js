@@ -30,10 +30,8 @@ var AUTOPREFIXER_BROWSERS = [
 ];
 
 gulp.task('css', function(){
-
   var sass = require('gulp-ruby-sass');
   var concat = require('gulp-concat');
-
   var fs = require('fs');
   fs.readdir('src/scss/apps', function(err, files){
     if (err) {  
@@ -45,7 +43,7 @@ gulp.task('css', function(){
           sass(['src/scss/apps/'+item])
           .on('error', console.error.bind(console))
           .pipe(concat(appsName+'.css'))
-          .pipe(gulp.dest('../css'))
+          .pipe(gulp.dest('build/css'))
           .pipe($.size({title: 'styles:sass:'+appsName+'.css'}));  
         }
         
@@ -57,7 +55,6 @@ gulp.task('css', function(){
 
 
 gulp.task('js', function () {
-
   var rename = require('gulp-rename'),
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat');
@@ -71,10 +68,10 @@ gulp.task('js', function () {
         if(item != '.DS_Store'){
           gulp.src('src/scripts/'+item+'/**/*.js')
            .pipe(concat(item+'.js'))    //合并所有js到main.js
-           .pipe(gulp.dest('../js'))    //输出main.js到文件夹
+           .pipe(gulp.dest('build/js'))    //输出main.js到文件夹
            .pipe(rename({suffix: '.min'}))   //rename压缩后的文件名
            .pipe(uglify())    //压缩
-           .pipe(gulp.dest('../js'));  //输出
+           .pipe(gulp.dest('build/js'));  //输出
            console.log(item+'打包完成');
         }
         

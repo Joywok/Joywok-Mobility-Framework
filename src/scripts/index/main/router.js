@@ -4,11 +4,11 @@
 * createDate:2016-08-10 19:05:29
 * author: XXXXXX
 */
-// Ehr.module('Regist.Router', function(Router, Ehr, Backbone, Marionette, $, _){
+// Jma.module('Regist.Router', function(Router, Jma, Backbone, Marionette, $, _){
 
 // 	Router.startWithParent = true;
 
-// 	Router.Router = Ehr.AppRouter.extend({
+// 	Router.Router = Jma.AppRouter.extend({
 // 		appRoutes:{
 // 			"index":'index',		
 // 		}
@@ -17,7 +17,7 @@
 // 	Router.Controller = Marionette.Controller.extend({
 // 		 index: function(){
 //             Backbone.history.navigate('#index')
-//             Ehr.Regist.StartApp();
+//             Jma.Regist.StartApp();
 //         }
 // 	});
 
@@ -33,9 +33,9 @@
 /*
  *   路由
  */
-Ehr.module('Apps.Router', function(Router, Ehr, Backbone, Marionette, $, _) {
+Jma.module('Apps.Router', function(Router, Jma, Backbone, Marionette, $, _) {
     Router.startWithParent = true;
-    Router.Router = Ehr.AppRouter.extend({
+    Router.Router = Jma.AppRouter.extend({
         appRoutes: {
             '': 'index',
             'index/personal': 'index',
@@ -47,15 +47,15 @@ Ehr.module('Apps.Router', function(Router, Ehr, Backbone, Marionette, $, _) {
         index: function() {
             var self = this;
             Backbone.history.navigate('#index/personal');
-            Ehr.module('Apps').StartApp({ module: 'PersonInfo' });
+            Jma.module('Apps').StartApp({ module: 'PersonInfo' });
         },
         personinfo: function() {
-            Ehr.module('PersonInfo').StartApp();
-            Ehr.module('Apps').StartApp({ module: 'PersonInfo' });
+            Jma.module('PersonInfo').StartApp();
+            Jma.module('Apps').StartApp({ module: 'PersonInfo' });
         },
         regist: function() {
-                        Ehr.module('registCenter').StartApp();
-            Ehr.module('Apps').StartApp({ module: 'PersonInfo' });
+                        Jma.module('registCenter').StartApp();
+            Jma.module('Apps').StartApp({ module: 'PersonInfo' });
 
         }
     });

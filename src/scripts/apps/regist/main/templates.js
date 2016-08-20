@@ -4,7 +4,7 @@
 * createDate:2016-08-16 15:50:55
 * author: XXXXXX
 */
-Ehr.module('registCenter.Templates', function(Templates, Ehr, Backbone, Marionette, $, _){
+Jma.module('registCenter.Templates', function(Templates, Jma, Backbone, Marionette, $, _){
 
 Templates.registTemplate = _.template(' <div class="registerSel" style="margin-top: -20px;">\
              <div class="select">\

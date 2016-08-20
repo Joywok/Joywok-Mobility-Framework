@@ -4,16 +4,16 @@
 * createDate:2016-08-16 15:50:55
 * author: XXXXXX
 */
-Ehr.module('Apps.registCenter.Router', function(Router, Ehr, Backbone, Marionette, $, _){
+Jma.module('Apps.registCenter.Router', function(Router, Jma, Backbone, Marionette, $, _){
 
 	// Router.startWithParent = true;
 
-	Router.Router = Ehr.AppRouter.extend({
+	Router.Router = Jma.AppRouter.extend({
 	});
 
 	Router.Controller = Marionette.Controller.extend({
 		registCenter: function(){
-			Ehr.module('Apps.registCenter').StartApp();
+			Jma.module('Apps.registCenter').StartApp();
 		}
 	});
 

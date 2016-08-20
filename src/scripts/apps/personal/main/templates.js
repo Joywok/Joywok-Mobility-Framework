@@ -3,7 +3,7 @@
  * createDate:2016-08-16 15:51:29
  * author: XXXXXX
  */
-Ehr.module('Post.Templates', function(Templates, Ehr, Backbone, Marionette, $, _) {
+Jma.module('Post.Templates', function(Templates, Jma, Backbone, Marionette, $, _) {
     Templates.PostTemplate = _.template('<div class="list">\
                                           <div class="list-h"></div>\
                                           <div class="list-w">\

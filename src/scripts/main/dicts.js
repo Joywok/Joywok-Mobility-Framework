@@ -5,6 +5,6 @@
  * date: 2016-03-31
  *
  *******************************************************************/
-Ehr.module('Dicts', function(Dicts, Ehr, Backbone, Marionette, $, _) {
+Jma.module('Dicts', function(Dicts, Jma, Backbone, Marionette, $, _) {
 
 });

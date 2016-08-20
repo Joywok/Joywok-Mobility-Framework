@@ -1,9 +1,9 @@
 /*
  *   路由
  */
-Ehr.module('Apps.Router', function(Router, Ehr, Backbone, Marionette, $, _) {
+Jma.module('Apps.Router', function(Router, Jma, Backbone, Marionette, $, _) {
     Router.startWithParent = true;
-    Router.Router = Ehr.AppRouter.extend({
+    Router.Router = Jma.AppRouter.extend({
         appRoutes: {
             '': 'index',
             'index/cancel': 'cancel',
@@ -15,21 +15,21 @@ Ehr.module('Apps.Router', function(Router, Ehr, Backbone, Marionette, $, _) {
         index: function() {
             var self = this;
             Backbone.history.navigate('#index/regist');
-            Ehr.module('Apps').StartApp();
-             Ehr.module('registCenter').StartApp();
+            Jma.module('Apps').StartApp();
+             Jma.module('registCenter').StartApp();
         },
         post: function() {
-            Ehr.module('Post').StartApp();
-            Ehr.module('Apps').StartApp();
+            Jma.module('Post').StartApp();
+            Jma.module('Apps').StartApp();
         },
         regist: function() {
-            Ehr.module('registCenter').StartApp();
-            Ehr.module('Apps').StartApp();
+            Jma.module('registCenter').StartApp();
+            Jma.module('Apps').StartApp();
 
         },
         cancel:function(){
-              Ehr.module('Cancel').StartApp();
-            Ehr.module('Apps').StartApp();
+              Jma.module('Cancel').StartApp();
+            Jma.module('Apps').StartApp();
 
         }
 

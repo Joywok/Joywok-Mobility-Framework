@@ -4,14 +4,14 @@
 * createDate:2016-08-11 10:53:23
 * author: XXXXXX
 */
-// Ehr.module('Regist.Entities', function(Entities, Ehr, Backbone, Marionette, $, _){
+// Jma.module('Regist.Entities', function(Entities, Jma, Backbone, Marionette, $, _){
 
 // 	Entities.Model = Backbone.Model.extend({
 		
 // 	});
 
 // })
-Ehr.module('Apps.Entities', function(Entities, Ehr, Backbone, Marionette, $, _){
+Jma.module('Apps.Entities', function(Entities, Jma, Backbone, Marionette, $, _){
 
 Entities.Model = Backbone.Model.extend({
 		

@@ -5,7 +5,7 @@
  * date: 2016-03-31
  *
  *******************************************************************/
-Ehr.module('Views',function(Views, Ehr, Backbone, Marionette, $, _){
+Jma.module('Views',function(Views, Jma, Backbone, Marionette, $, _){
 	
     Views.Layout = Marionette.LayoutView.extend({
         template: 'demo',
@@ -92,7 +92,7 @@ Ehr.module('Views',function(Views, Ehr, Backbone, Marionette, $, _){
 
 
       Views.EmptyView = Marionette.ItemView.extend({
-        template: Ehr.Templates.emptyTemplate,
+        template: Jma.Templates.emptyTemplate,
       });
 
 })

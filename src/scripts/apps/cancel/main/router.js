@@ -4,16 +4,16 @@
 * createDate:2016-08-16 15:50:55
 * author: XXXXXX
 */
-Ehr.module('Apps.Cancel.Router', function(Router, Ehr, Backbone, Marionette, $, _){
+Jma.module('Apps.Cancel.Router', function(Router, Jma, Backbone, Marionette, $, _){
 
 	// Router.startWithParent = false;
 
-	Router.Router = Ehr.AppRouter.extend({
+	Router.Router = Jma.AppRouter.extend({
 	});
 
 	Router.Controller = Marionette.Controller.extend({
 		Cancel: function(){
-			Ehr.module('Apps.Cancel').StartApp();
+			Jma.module('Apps.Cancel').StartApp();
 		}
 	});
 

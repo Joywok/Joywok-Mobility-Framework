@@ -4,7 +4,7 @@
 * createDate:2016-08-09 15:54:08
 * author: XXXXXX
 */
-Ehr.module('Demo.Templates', function(Templates, Ehr, Backbone, Marionette, $, _){
+Jma.module('Demo.Templates', function(Templates, Jma, Backbone, Marionette, $, _){
 
 	Templates.testTemplate = _.template('<div class="list">\
                 <div class="list-h"></div>\

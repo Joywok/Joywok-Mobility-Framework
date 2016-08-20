@@ -1,3 +1,136 @@
+
+/*
+* 字典文件
+* createDate:2016-08-10 19:05:29
+* author: XXXXXX
+*/
+Jma.module('Regist.Dicts', function(Dicts, Jma, Backbone, Marionette, $, _) {
+
+	Dicts.demoDicts = 'demoDictsValue';
+
+});
+
+
+/*
+* 数据文件
+* createDate:2016-08-11 10:53:23
+* author: XXXXXX
+*/
+// Jma.module('Regist.Entities', function(Entities, Jma, Backbone, Marionette, $, _){
+
+// 	Entities.Model = Backbone.Model.extend({
+		
+// 	});
+
+// })
+Jma.module('Apps.Entities', function(Entities, Jma, Backbone, Marionette, $, _){
+
+Entities.Model = Backbone.Model.extend({
+		
+	});
+})
+
+
+/*
+ * 主文件
+ * createDate:2016-08-11 10:53:23
+ * author: XXXXXX
+ */
+Jma.module('Regist', function(Regist, Jma, Backbone, Marionette, $, _) {
+
+    Regist.Controller = Marionette.Controller.extend({
+        initialize: function(options) {
+            this.options = options;
+            console.log('Regist');
+            this.registmodel = new Jma.Regist.Entities.Model();
+            this.view = new Jma.Regist.Views.registView({
+                model: this.registmodel
+            });
+            this.show();
+        },
+        show: function() {
+            var self = this;
+            Jma.mainRegion.show(self.view);
+        }
+    });
+    Regist.StartApp = function(options) {
+        Regist.Controllers = new Regist.Controller(options);
+    };
+    Regist.StopApp = function(options) {
+        console.log('stop');
+    };
+
+})
+
+
+/*
+* 路由文件
+* createDate:2016-08-10 19:05:29
+* author: XXXXXX
+*/
+// Jma.module('Regist.Router', function(Router, Jma, Backbone, Marionette, $, _){
+
+// 	Router.startWithParent = true;
+
+// 	Router.Router = Jma.AppRouter.extend({
+// 		appRoutes:{
+// 			"index":'index',		
+// 		}
+// 	});
+
+// 	Router.Controller = Marionette.Controller.extend({
+// 		 index: function(){
+//             Backbone.history.navigate('#index')
+//             Jma.Regist.StartApp();
+//         }
+// 	});
+
+// 	Router.on('start', function(){
+// 		new Router.Router({
+// 			controller: new Router.Controller
+// 		});
+// 	});
+
+// });
+
+
+/*
+ *   路由
+ */
+Jma.module('Apps.Router', function(Router, Jma, Backbone, Marionette, $, _) {
+    Router.startWithParent = true;
+    Router.Router = Jma.AppRouter.extend({
+        appRoutes: {
+            '': 'index',
+            'index/personal': 'index',
+            'index/personinfo': 'personinfo',
+            'index/regist': 'regist'
+        }
+    });
+    Router.Controller = Marionette.Controller.extend({
+        index: function() {
+            var self = this;
+            Backbone.history.navigate('#index/personal');
+            Jma.module('Apps').StartApp({ module: 'PersonInfo' });
+        },
+        personinfo: function() {
+            Jma.module('PersonInfo').StartApp();
+            Jma.module('Apps').StartApp({ module: 'PersonInfo' });
+        },
+        regist: function() {
+                        Jma.module('registCenter').StartApp();
+            Jma.module('Apps').StartApp({ module: 'PersonInfo' });
+
+        }
+    });
+    Router.on('start', function() {
+        new Router.Router({
+            controller: new Router.Controller
+        });
+    });
+
+});
+
 /*
  * 模板文件
  * createDate:2016-08-11 10:53:23
@@ -108,3 +241,58 @@ Jma.module('Apps.Templates', function(Templates, Jma, Backbone, Marionette, $, _
 
 
 });
+
+/*
+ * 视图文件
+ * createDate:2016-08-11 10:53:23
+ * author: XXXXXX
+ */
+// Jma.module('Regist.Views', function(Views, Jma, Backbone, Marionette, $, _) {
+
+//     Views.registView = Marionette.ItemView.extend({
+//         className: 'regist-container',
+//         template: Jma.Regist.Templates.ReigistTemplate,
+//         initialize: function() {
+
+//         },
+//         templateHelpers: function() {
+//             var self = this;
+//             return {};
+//         },
+//         events: {
+//             "click button#post": 'post'
+//         },
+//         post: function() {
+//          var route=new Jma.Router.Router({
+//             controller: new Jma.Router.Controller
+//         });
+//          route.navigate('index/post');
+//             Jma.module('Post').StartApp();
+
+//         }
+//     })
+
+
+
+// })
+
+/*
+* 视图文件
+* createDate:2016-08-16 15:50:31
+* author: XXXXXX
+*/
+Jma.module('Apps.Views',function(Views, Jma, Backbone, Marionette, $, _){
+
+    Views.HeaderItem= Marionette.ItemView.extend({
+        className: 'navbar',
+        template: Jma.Apps.Templates.HeaderTemplate ,
+         initialize: function() {
+        },
+        templateHelpers: function() {
+            var self = this;
+            return {};
+        },
+    });
+
+
+})

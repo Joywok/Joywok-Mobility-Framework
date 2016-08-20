@@ -1,4 +1,4 @@
-Ehr.module('Components', function(Components, Ehr, Backbone, Marionette, $, _){
+Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _){
 	Components.Dicts = {};
   
 	Components.Dicts.emojis = [
@@ -72,10 +72,10 @@ Ehr.module('Components', function(Components, Ehr, Backbone, Marionette, $, _){
 	  this.complete = true;
 	  this.submitButton = null;
 	  //组件share 判空补丁
-	  Ehr.Components.Form.validators.required = function(options) {
+	  Jma.Components.Form.validators.required = function(options) {
 	    options = _.extend({
 	      type: 'required',
-	      message: Ehr.Components.Form.validators.errMessages.required
+	      message: Jma.Components.Form.validators.errMessages.required
 	    }, options);
 	    return function required(value) {
 	        // console.log(value);
@@ -364,7 +364,7 @@ Ehr.module('Components', function(Components, Ehr, Backbone, Marionette, $, _){
 	  itemValue:'id',
 	  itemText:'name',
 	},
-	// Collection: Ehr.Entities.Collection,
+	// Collection: Jma.Entities.Collection,
 	Collection: Backbone.Collection,
 	initialize: function(options) {
 	  var that = this;
@@ -1281,7 +1281,7 @@ Ehr.module('Components', function(Components, Ehr, Backbone, Marionette, $, _){
 	  itemText:'name',
 	  items: 100
 	},
-	Collection: Ehr.Entities.ShareDepts,
+	Collection: Jma.Entities.ShareDepts,
 	onRender: function(){
 	    var self = this;
 	    this.constructor.__super__.onRender.apply(this, arguments);
@@ -1646,11 +1646,11 @@ Ehr.module('Components', function(Components, Ehr, Backbone, Marionette, $, _){
 	});
 
 	// datalist start
-	Components.Pills = Ehr.Views.List.extend({
+	Components.Pills = Jma.Views.List.extend({
 		className: 'nav nav-pills'
 	});
 
-	Components.FilterItem = Ehr.Views.Item.extend({
+	Components.FilterItem = Jma.Views.Item.extend({
 		onClick:function(e){
 			var params = $.param(this.model.toJSON());
 			Backbone.history.navigate(params);
@@ -1660,19 +1660,19 @@ Ehr.module('Components', function(Components, Ehr, Backbone, Marionette, $, _){
 
 	Components.Filter = Components.Pills.extend({
 		childView: Components.FilterItem,
-		emptyView: Ehr.Views.ItemView
+		emptyView: Jma.Views.ItemView
 	});
 
-	Components.GroupItem = Ehr.Views.Item.extend({
+	Components.GroupItem = Jma.Views.Item.extend({
 		className: 'list-group-item'
 	});
 
-	Components.ListGroup = Ehr.Views.List.extend({
+	Components.ListGroup = Jma.Views.List.extend({
 		className: 'list-group',
 		childView: Components.GroupItem
 	});
 
-	Components.Pagination = Ehr.Views.List.extend({
+	Components.Pagination = Jma.Views.List.extend({
 	className: 'pagination pull-right',
 	defaults: {
 		first: '&laquo;',
@@ -1726,17 +1726,17 @@ Ehr.module('Components', function(Components, Ehr, Backbone, Marionette, $, _){
 	}
 	});
 
-	Components.DataList = Ehr.Views.Layout.extend({
+	Components.DataList = Jma.Views.Layout.extend({
 		className: 'data-list',
-		template: Ehr.Templates.datalist,
+		template: Jma.Templates.datalist,
 		FilterView: Components.Filter,
 		ListView: Components.ListGroup,
 		PaginationView: Components.Pagination,
 		initialize: function(options) {
-		  var collection = new Ehr.Entities.Collection(options.filter||[]);
+		  var collection = new Jma.Entities.Collection(options.filter||[]);
 		  this.filter = new this.FilterView({collection:collection});
 		  this.list = new this.ListView({collection: this.collection});
-		  this.pagination = new this.PaginationView({collection: this.collection,model:options.filterModel||new Ehr.Entities.Model()});
+		  this.pagination = new this.PaginationView({collection: this.collection,model:options.filterModel||new Jma.Entities.Model()});
 		},
 		onShow: function() {
 		  this.filterRegion.show(this.filter);

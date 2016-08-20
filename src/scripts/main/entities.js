@@ -5,7 +5,7 @@
  * date: 2016-03-31
  *
  *******************************************************************/
-Ehr.module('Entities', function(Entities, Ehr, Backbone, Marionette, $, _){
+Jma.module('Entities', function(Entities, Jma, Backbone, Marionette, $, _){
 
    
 })

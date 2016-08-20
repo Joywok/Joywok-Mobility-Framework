@@ -3,7 +3,7 @@
  * createDate:2016-08-16 15:51:29
  * author: XXXXXX
  */
-Ehr.module('Cancel.Templates', function(Templates, Ehr, Backbone, Marionette, $, _) {
+Jma.module('Cancel.Templates', function(Templates, Jma, Backbone, Marionette, $, _) {
     Templates.CancelTemplate = _.template('<div class="list">\
                                           <div class="list-h"></div>\
                                           <div class="list-w">\

@@ -4,7 +4,7 @@
 * createDate:2016-08-10 15:17:52
 * author: XXXXXX
 */
-Ehr.module('Test.Views',function(Views, Ehr, Backbone, Marionette, $, _){
+Jma.module('Test.Views',function(Views, Jma, Backbone, Marionette, $, _){
 
 	Views.demoLayoutView = Marionette.LayoutView.extend({
 		className: 'main-content',

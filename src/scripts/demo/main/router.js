@@ -4,11 +4,11 @@
 * createDate:2016-08-09 15:54:08
 * author: XXXXXX
 */
-Ehr.module('Demo.Router', function(Router, Ehr, Backbone, Marionette, $, _){
+Jma.module('Demo.Router', function(Router, Jma, Backbone, Marionette, $, _){
 
 	Router.startWithParent = true;
 
-	Router.Router = Ehr.AppRouter.extend({
+	Router.Router = Jma.AppRouter.extend({
 		appRoutes:{
 			'demo':'demo',
 		}
@@ -17,7 +17,7 @@ Ehr.module('Demo.Router', function(Router, Ehr, Backbone, Marionette, $, _){
 	Router.Controller = Marionette.Controller.extend({
 		demo: function(){
 			//console.log('demo')
-			Ehr.module('Demo').StartApp();
+			Jma.module('Demo').StartApp();
 		}
 	});
 

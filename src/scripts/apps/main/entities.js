@@ -1,12 +1,31 @@
 
 /*
 * 数据文件
-* createDate:2016-08-16 15:50:31
+* createDate:2016-08-20 10:25:51
 * author: XXXXXX
 */
 Jma.module('Apps.Entities', function(Entities, Jma, Backbone, Marionette, $, _){
 
-Entities.Model = Backbone.Model.extend({
-		
+	Entities.demoModel = Backbone.Model.extend({
+		urlRoot : 'urlPath',
+		parse: function(data){
+			if(data.err){
+				return '请求失败';
+			}else{
+				return data;
+			}
+		}
 	});
+
+	Entities.demoCollection = Backbone.Collection.extend({
+		url : 'urlPath',
+		model:Entities.demoModel,parse: function(data){
+			if(data.err){
+				return '请求失败';
+			}else{
+				return data;
+			}
+		}
+	});
+
 })

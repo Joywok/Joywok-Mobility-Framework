@@ -5,18 +5,17 @@
  * date: 2016-03-31
  *******************************************************************/
 Jma.module('Router', function(Router, Jma, Backbone, Marionette, $, _){
-    Router.startWithParent = true;
     Router.Router = Jma.AppRouter.extend({
         appRoutes:{
             '':'index',
-            // 'index':'index',
+            'apps':'index',
             // 'index/post':'post'
         }
     });
     Router.Controller = Marionette.Controller.extend({
         index: function(){
-            Backbone.history.navigate('#index');
-            Jma.apps.StartApp();
+            Backbone.history.navigate('#apps');
+            Jma.Apps.StartApp();
         },
         post: function(){
             console.log(123);

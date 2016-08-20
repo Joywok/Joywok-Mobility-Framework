@@ -10,13 +10,13 @@ Jma.module('Apps.Router', function(Router, Jma, Backbone, Marionette, $, _){
 
 	Router.Router = Jma.AppRouter.extend({
 		appRoutes:{
-			'apps':'apps',
+			'qiandao':'qiandao',
 		}
 	});
 
 	Router.Controller = Marionette.Controller.extend({
-		apps: function(){
-			Jma.module('Apps').StartApp();
+		qiandao: function(){
+			Jma.module('Apps.Qiandao').StartApp();
 		}
 	});
 

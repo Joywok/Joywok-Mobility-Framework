@@ -9,14 +9,19 @@ Jma.module('Qiandao', function(Qiandao, Jma, Backbone, Marionette, $, _){
 	var router = {};
 	router.Router = Jma.AppRouter.extend({
 		appRoutes:{
-			'qiandao/info':'info',
+			'apps/qiandao/info?(:id)':'info',
 			'apps/qiandao/edit':'edit',
 		}
 	});
 
 	router.Controller = Marionette.Controller.extend({
-		info: function(){
-			console.log('qiandao--info')
+		info: function(options){
+			var data = {};
+			_.each(options.split('&'),function(item){
+				var datas = item.split('=')
+				data[datas[0]] = datas[1]
+			});
+			Jma.module('Qiandao.Info').StartApp(data);
 		},
 		edit:function(){
 			Jma.module('Qiandao.Edit').StartApp();

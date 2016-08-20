@@ -28,6 +28,21 @@
     })
 
 
+router.route('/api/qiandao/:id')
+  .all(function(req,res,next){next()})
+  .get(function(req,res,next){
+    var url = req.url.split('/');
+    var id = url[url.length-1];
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    var data = fs.readFileSync('routers/files/qiandao.json');
+    var datas = eval("("+data+")");
+    _.each(datas["datas"],function(item){
+      if(id==item["id"]){
+        res.end(JSON.stringify({code:0,data:item,systime:Date.parse(new Date())}));
+        next();
+      }
+    })
+  })
 // router.route('/spms/as/as')
 // .all(function(req,res,next){next()})
 // .get(function(req,res,next){

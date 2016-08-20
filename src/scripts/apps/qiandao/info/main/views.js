@@ -4,57 +4,35 @@
 * createDate:2016-08-20 11:10:51
 * author: XXXXXX
 */
-Jma.module('Info.Views',function(Views, Jma, Backbone, Marionette, $, _){
+Jma.module('Qiandao.Info',function(Info, Jma, Backbone, Marionette, $, _){
+    var Views = {};
+    Info.Views = Views
+    Views.LayoutView = Marionette.LayoutView.extend({
+    	className:'qiandao-info',
+    	template:Info.Templates.LayoutViewTemplate,
+    	regions:{
+				container:'.qiandao-info-w'
+			},
+    	onShow:function(){
+    		this.addRegions({container:this.$el.find('.qiandao-info-w')})
+    	}
+    })
 
-	Views.demoLayoutView = Marionette.LayoutView.extend({
-		className: 'main-content',
-		template: 'template',
-		regions: {
-			demoRegion : '#demo',
-		},
-        triggers:{
-            'click .demo' : 'demo',
-        },
-        events: {
-            'click .demo' : 'demo'
-        },
-        demo: function(){
-        	console.log('demo for events function')
-        }
-    });
 
-	Views.demomItemView = Marionette.ItemView.extend({
-		template: 'template',
-		initialize: function(){},
-		getTemplate: function(){
-			return '返回逻辑模板';
-		},
-		templateHelpers: function(){
-            var self = this;
+    Views.InfoView = Marionette.LayoutView.extend({
+        className:'qiandao-info',
+        template:Info.Templates.InfoViewTemplate,
+        templateHelpers:function(){
             return {
-                demo: function(){
-                	return 'value';
+                initContent:function(){
+                    console.log(this,'123');
+                    return this.content
+                },
+                initDate:function(){
+                    return (moment(this.date*1000).format('YYYY-MM-DD'))
                 }
-            };
-        },
-		onRender: function(){},
-		modelEvents: {
-            'change': 'render',
-        },
-        triggers: {
-            'change': 'render',
+            }
         }
-	});
-
-	Views.demomCollectionView = Marionette.CollectionView.extend({
-		template: 'template',
-		tagName: 'div',
-        className: 'classname',
-        childView: Views.demomItemView,
-        emptyView: Views.demoEmptyView,
-        triggers:{
-            'change': 'render',
-        }
-	});
+    })
 
 })

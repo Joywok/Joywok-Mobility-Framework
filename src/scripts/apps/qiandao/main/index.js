@@ -24,7 +24,6 @@ Jma.module('Qiandao', function(Qiandao, Jma, Backbone, Marionette, $, _){
 				}})
 			})
 			Jma.mainRegion.show(this.layoutview)
-			console.log('Apps.Qiandao');
 		},
 	});
 	Qiandao.StartApp =  function(options){

@@ -17,8 +17,8 @@ Jma.module('Qiandao', function(Qiandao, Jma, Backbone, Marionette, $, _){
 																							</div>')
 
 	Templates.ChildViewTemplate = _.template('<div class="qiandao-item-c">\
-																							<div class="qiandao-item-content"><%= initContent() %></div>\
-																								<div class="qiandao-item-time"><%= initTime() %></div>\
+																							<a href="#apps/qiandao/info?id=<%= id %>"><div class="qiandao-item-time"><%= initTime() %></div></a>\
+																							<a href="#apps/qiandao/info?id=<%= id %>"><div class="qiandao-item-content ellipsis"><%= initContent() %></div></a>\
 																						</div>')
 	Templates.CollectionViewTemplate = _.template('<div class="qiandao-c></div>')
 

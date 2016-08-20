@@ -35,7 +35,7 @@ Jma.module('Qiandao',function(Qiandao, Jma, Backbone, Marionette, $, _){
     				return this.content
     			},
     			initTime:function(){
-    				return this.date
+    				return moment(this.date*1000).format('YYYY-MM-DD')
     			}
     		}
     	}

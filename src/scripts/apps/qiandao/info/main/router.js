@@ -4,26 +4,28 @@
 * createDate:2016-08-20 11:10:51
 * author: XXXXXX
 */
-Jma.module('Info.Router', function(Router, Jma, Backbone, Marionette, $, _){
+Jma.module('Qiandao.Info', function(Info, Jma, Backbone, Marionette, $, _){
 
-	Router.startWithParent = true;
+	Info.startWithParent = true;
 
-	Router.Router = Jma.AppRouter.extend({
+	var router = {};
+
+	router.Router = Jma.AppRouter.extend({
 		appRoutes:{
 			// 'apps/qiandao/info':'info',
 		}
 	});
 
-	Router.Controller = Marionette.Controller.extend({
+	router.Controller = Marionette.Controller.extend({
 		info: function(){
 			//console.log('info')
 			// Jma.module('Qiandao.Info').StartApp();
 		}
 	});
 
-	Router.on('start', function(){
-		new Router.Router({
-			controller: new Router.Controller
+	Info.on('start', function(){
+		new router.Router({
+			controller: new router.Controller
 		});
 	});
 

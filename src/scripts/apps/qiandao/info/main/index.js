@@ -8,8 +8,24 @@ Jma.module('Qiandao.Info', function(Info, Jma, Backbone, Marionette, $, _){
 
 	Info.Controller = Marionette.Controller.extend({
 		initialize: function(options){
+			var self = this;
 			this.options = options;
-			console.log('Qiandao.Info');
+			this.model = new Info.Entities.model({
+				id:options['id']
+			});
+			this.loadingView = new Jma.Qiandao.Views.loadingView();
+			console.log(this.loadingView,'123');
+			this.layoutview = new Info.Views.LayoutView();
+			this.layoutview.on('show',function(){
+				this.container.show(self.loadingView);
+				self.model.fetch({success:function(model,resp){
+					self.infoView = new Info.Views.InfoView({
+						model:self.model
+					})
+					self.layoutview.container.show(self.infoView)
+				}})	
+			})
+			Jma.mainRegion.show(this.layoutview)
 		},
 	});
 

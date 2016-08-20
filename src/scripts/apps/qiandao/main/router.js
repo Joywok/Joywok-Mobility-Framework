@@ -10,6 +10,7 @@ Jma.module('Qiandao', function(Qiandao, Jma, Backbone, Marionette, $, _){
 	router.Router = Jma.AppRouter.extend({
 		appRoutes:{
 			'qiandao/info':'info',
+			'qiandao/edit':'edit',
 		}
 	});
 
@@ -17,6 +18,9 @@ Jma.module('Qiandao', function(Qiandao, Jma, Backbone, Marionette, $, _){
 		info: function(){
 			console.log('qiandao--info')
 			// Jma.module('Qiandao').StartApp();
+		},
+		edit:function(){
+			console.log('qiandao-edit')
 		}
 	});
 

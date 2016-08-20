@@ -4,28 +4,13 @@
 * createDate:2016-08-20 11:10:32
 * author: XXXXXX
 */
-Jma.module('Qiandao.Entities', function(Entities, Jma, Backbone, Marionette, $, _){
+Jma.module('Qiandao', function(Qiandao, Jma, Backbone, Marionette, $, _){
 
-	Entities.demoModel = Backbone.Model.extend({
-		urlRoot : 'urlPath',
-		parse: function(data){
-			if(data.err){
-				return '请求失败';
-			}else{
-				return data;
-			}
-		}
-	});
+	
+	var Entities = {};
 
-	Entities.demoCollection = Backbone.Collection.extend({
-		url : 'urlPath',
-		model:Entities.demoModel,parse: function(data){
-			if(data.err){
-				return '请求失败';
-			}else{
-				return data;
-			}
-		}
-	});
+
+
+	Qiandao.Entities = Entities
 
 })

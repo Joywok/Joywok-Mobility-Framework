@@ -6,27 +6,27 @@
 Jma.module('Qiandao.Edit', function(Edit, Jma, Backbone, Marionette, $, _) {
     Edit.Controller = Marionette.Controller.extend({
         initialize: function(options) {
-        	this.options = options;
-			console.log('Qiandao.');
-            this.show();
-        },
-        show: function() {
-           //  var editview=new Jma.Edit.Views.EditLayoutView;
-           //   Jma.mainRegion.show(editview);
+            var self = this;
+            this.options = options;
+            this.layoutview = new Jma.Edit.Views.EditLayoutView();
+            this.collection = new Jma.Edit.Entities.Collection();
+            var form = Jma.Components.Form;
+            var model = new Backbone.Model({
+                schema: {
+                    birthday: { title: 'When were you born', type: 'DatePickerCheck' }
+                }
+            });
+            var datepicker = new form.editors.DatePickerCheck({
+                  schema: {
+                    birthday: { title: 'When were you born', type: 'DatePickerCheck' }
+                }
 
-           //  var model = new Backbone.Model({               // dates:SPMS_GV.systime
-           //  });
-           //  var form = Jma.Components.Form;
-           //  var datepicker = new form.editors.DatePickerCheck({
-           //      model: model,
-           //      key: 'dates',
-           //      weekStart: 1,
-           //      // schema: {
-           //      //     editorAttrs: { readonly: "readonly" },
-           //      //     template: Jma.Edit.Templates.RecordTemplate
-           //      // }
-           //  });
-           // this.editview.dateRegion.show(datepicker);
+            });
+            this.layoutview.on('show', function() {
+                this.dateRegion.show(datepicker);
+            });
+            Jma.mainRegion.show(this.layoutview)
+            console.log('Qiandao.Edit');
         }
     });
 

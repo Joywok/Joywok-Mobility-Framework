@@ -5,22 +5,22 @@
 * author: XXXXXX
 */
 Jma.module('Qiandao', function(Qiandao, Jma, Backbone, Marionette, $, _){
-
 	Qiandao.startWithParent = true;
-
 	var router = {};
-
-
 	router.Router = Jma.AppRouter.extend({
 		appRoutes:{
-			'qiandao':'qiandao',
+			'qiandao/info':'info',
+			'qiandao/edit':'edit',
 		}
 	});
 
 	router.Controller = Marionette.Controller.extend({
-		qiandao: function(){
-			//console.log('qiandao')
-			Jma.module('Apps.Qiandao').StartApp();
+		info: function(){
+			console.log('qiandao--info')
+			// Jma.module('Qiandao').StartApp();
+		},
+		edit:function(){
+			console.log('qiandao-edit')
 		}
 	});
 

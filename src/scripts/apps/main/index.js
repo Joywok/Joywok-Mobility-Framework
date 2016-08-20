@@ -12,7 +12,6 @@ Jma.module('Apps', function(Apps, Jma, Backbone, Marionette, $, _){
 
 			this.layoutView.on('show',function(){
 			})
-
 			Jma.mainRegion.show(this.layoutView)
 		},
 	});

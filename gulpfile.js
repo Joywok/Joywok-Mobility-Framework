@@ -99,7 +99,7 @@ gulp.task('js', function () {
 
 
 
-gulp.task('serve',['concatRoutes'],function(){
+gulp.task('serve',['css','concatRoutes'],function(){
   var routerFs = require('./routers/router')(router);
   browserSync({
     notify: false,
@@ -114,6 +114,7 @@ gulp.task('serve',['concatRoutes'],function(){
   });
 
   gulp.watch(['routers/router/*.js'],['concatRoutes']);
+  gulp.watch(['src/scss/apps/*.scss'],['css']);
 
 });
 

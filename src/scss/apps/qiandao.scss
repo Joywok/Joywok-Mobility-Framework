@@ -1,0 +1,55 @@
+body{
+	background: #f4f4f4;
+}
+.qiandao{
+	position: absolute;
+	top:0;right: 0;bottom: 0;left: 0;
+	overflow: hidden;
+	.qiandao-title{
+		width: 100%;
+		height: 50px;
+		background: #fff;
+		box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+		font-size: 18px;color: #858585;
+		line-height: 50px;
+		text-align: center;
+	}
+	.qiandao-new{
+		float: right;
+		margin:0 10px 0 0;
+		font-size: 14px;color: #494949;
+		height: 50px;line-height: 50px;
+		cursor: pointer;
+	}
+	.qiandao-w{
+		position: absolute;
+		top:100px;
+		left:0;right: 0;bottom: 0;
+		overflow-y: auto;
+	}
+	.qiandao-list-item{
+			background:#fff;
+			padding:0 15px;
+			.qiandao-item-c{
+				line-height: 40px;
+				padding:10px 0;
+				border-top: 1px solid #ccc;
+				overflow:hidden;
+				.qiandao-item-content{
+					float: left;line-height: 40px;
+				}
+				.qiandao-item-time{
+					float: right;line-height: 40px;
+				}
+			}
+		}
+	.qiandao-list-item:first-child{
+		.qiandao-item-c{
+			border:none;
+		}
+	}
+	.qiandao-loding{
+		margin:100px 0 0;
+		text-align: center;font-size: 16px;color: #b0b0b0;
+	}
+}

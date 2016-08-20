@@ -10,6 +10,13 @@ Jma.module('Qiandao', function(Qiandao, Jma, Backbone, Marionette, $, _){
 	var Entities = {};
 
 
+	Entities.Collection = Backbone.Collection.extend({
+		url:'/api/qiandao',
+		parse:function(resp){
+			return resp['datas'];
+		}
+	})
+
 
 	Qiandao.Entities = Entities
 

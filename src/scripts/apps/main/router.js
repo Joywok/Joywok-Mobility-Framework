@@ -10,18 +10,13 @@ Jma.module('Apps', function(Apps, Jma, Backbone, Marionette, $, _){
 	
 	router.Router = Jma.AppRouter.extend({
 		appRoutes:{
-			'qiandao':'qiandao',
-			'apps/qiandao/edit':'edit'
+			'apps/qiandao':'qiandao',
 		}
 	});
 
 	router.Controller = Marionette.Controller.extend({
 		qiandao: function(){
-			Jma.module('Apps.Qiandao').StartApp();
-		},
-		edit: function(){
-			console.log(Jma,'123',如果你走这里的话，你的Qiandao模块启动了me ?，你的)
-			// Jma.module('Qiandao.Edit').StartApp();
+			Jma.module('Qiandao').StartApp();
 		}
 	});
 

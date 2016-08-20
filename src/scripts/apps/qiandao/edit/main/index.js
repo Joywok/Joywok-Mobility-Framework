@@ -17,14 +17,9 @@ Jma.module('Qiandao.Edit', function(Edit, Jma, Backbone, Marionette, $, _) {
                 model: this.model,
                 key: "date"
             });
-            datepicker.on('date:change',function(){
-                console.log(this,'123123');
-                // self.collection.fetchData({stamp:this.startTime});
-            })
             this.layoutview.on('show', function() {
                 this.dateRegion.show(datepicker);
                 // this.textRegion.show(EditWord);
-
             });
             Jma.mainRegion.show(this.layoutview)
             console.log('Qiandao.Edit');

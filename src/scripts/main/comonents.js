@@ -1749,12 +1749,18 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
     Components.Form.editors.DatePickerCheck = Components.Form.editors.Text.extend({
         render: function() {
             // Call the parent's render method
+            var self =  this;
             Backbone.Form.editors.Text.prototype.render.call(this);
             // Then make the editor's element a datepicker.
             this.$el.datepicker({
                 format: 'yyyy-mm-dd',
                 autoclose: true,
-                weekStart: 1
+                weekStart: 1,
+
+            }).on('changeDate', function(ev){
+                // console.log()
+                var value = ev.date.valueOf() / 1000;
+                self.model.set(self.key,value)
             });
             return this;
         },

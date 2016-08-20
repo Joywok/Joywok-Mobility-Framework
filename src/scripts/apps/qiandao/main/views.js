@@ -27,7 +27,7 @@ Jma.module('Qiandao',function(Qiandao, Jma, Backbone, Marionette, $, _){
     })
 
     Views.ChildView = Marionette.ItemView.extend({
-    	className:'qiandao-item',
+    	className:'qiandao-list-item',
     	template:Qiandao.Templates.ChildViewTemplate,
     	templateHelpers:function(){
     		return {
@@ -35,7 +35,7 @@ Jma.module('Qiandao',function(Qiandao, Jma, Backbone, Marionette, $, _){
     				return this.content
     			},
     			initTime:function(){
-    				return this.data
+    				return this.date
     			}
     		}
     	}

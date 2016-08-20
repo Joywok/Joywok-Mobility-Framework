@@ -2,7 +2,8 @@ body{
 	background: #f4f4f4;
 }
 .qiandao{
-	position: relative;
+	position: absolute;
+	top:0;right: 0;bottom: 0;left: 0;
 	overflow: hidden;
 	.qiandao-title{
 		width: 100%;
@@ -20,12 +21,32 @@ body{
 		height: 50px;line-height: 50px;
 		cursor: pointer;
 	}
-	.qiandao-c{
+	.qiandao-w{
 		position: absolute;
 		top:100px;
 		left:0;right: 0;bottom: 0;
 		overflow-y: auto;
-		.qiandao-list-item{}
+	}
+	.qiandao-list-item{
+			background:#fff;
+			padding:0 15px;
+			.qiandao-item-c{
+				line-height: 40px;
+				padding:10px 0;
+				border-top: 1px solid #ccc;
+				overflow:hidden;
+				.qiandao-item-content{
+					float: left;line-height: 40px;
+				}
+				.qiandao-item-time{
+					float: right;line-height: 40px;
+				}
+			}
+		}
+	.qiandao-list-item:first-child{
+		.qiandao-item-c{
+			border:none;
+		}
 	}
 	.qiandao-loding{
 		margin:100px 0 0;

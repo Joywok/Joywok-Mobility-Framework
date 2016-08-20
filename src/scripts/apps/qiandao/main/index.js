@@ -12,7 +12,6 @@ Jma.module('Qiandao', function(Qiandao, Jma, Backbone, Marionette, $, _){
 			this.loadingView = new Qiandao.Views.loadingView({
 			})
 			this.layoutview = new Qiandao.Views.LayoutView();
-
 			this.collection = new Qiandao.Entities.Collection()
 
 			this.layoutview.on('show',function(){
@@ -21,7 +20,7 @@ Jma.module('Qiandao', function(Qiandao, Jma, Backbone, Marionette, $, _){
 					self.listView = new Qiandao.Views.ListView({
 						collection:self.collection
 					})
-					self.list.show(self.listView)
+					self.layoutview.list.show(self.listView)
 				}})
 			})
 			Jma.mainRegion.show(this.layoutview)

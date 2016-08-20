@@ -5,17 +5,18 @@
  */
 Jma.module('Edit.Views', function(Views, Jma, Backbone, Marionette, $, _) {
 
-    Views.EditLayoutView = Marionette.LayoutView.extend({
-        className: 'edit-content',
-        template: Jma.Edit.Templates.EditTemplate,
-        regions: {
-            dateRegion: '#dateSelect',
-        },
-        events: {
-            'click .editSave': 'save'
-        }
-    });
-
-
-
-})
+            Views.EditLayoutView = Marionette.LayoutView.extend({
+                className: 'edit-content',
+                template: Jma.Edit.Templates.EditTemplate,
+                regions: {
+                    dateRegion: '#dateSelect',
+                    textRegion: '#leaveWord'
+                },
+                events: {
+                    'click .editSave': 'save'
+                },
+                save: function() {
+                    this.model.save();
+                }
+            })
+        })

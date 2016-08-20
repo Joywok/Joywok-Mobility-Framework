@@ -11,8 +11,8 @@ Jma.module('Edit.Templates', function(Templates, Jma, Backbone, Marionette, $, _
          <textarea placeholder="你想说点什么呢？" id="content"></textarea>\
          </div>\
          <div class="qiandaoDate" id="qiandaoDate">\
-         <label style="width:38%;text-align:center">选择日期：</label>\
-         <div id="dateSelect" style="display:inline-block;width:60%;text-align:left"></div>\
+         <label style="width:28%;text-align:center">选择日期：</label>\
+         <div id="dateSelect" style="display:inline-block;width:70%;text-align:left"></div>\
          </div>\
          <div class="saveBtn" id="saveInfo" style="margin:10px 0;">\
          <a href="#apps/qiandao">\

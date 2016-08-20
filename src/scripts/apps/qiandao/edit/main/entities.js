@@ -5,7 +5,7 @@
 * author: XXXXXX
 */
 Jma.module('Edit.Entities', function(Entities, Jma, Backbone, Marionette, $, _){	
-	Entities.Collection = Backbone.Collection.extend({		
+	Entities.model = Backbone.Model.extend({		
 		url:'/api/qiandao',
 		parse:function(resp){
 			return resp['datas'];

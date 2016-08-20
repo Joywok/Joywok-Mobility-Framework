@@ -4,9 +4,8 @@
  * author: XXXXXX
  */
 Jma.module('Qiandao.Edit', function(Edit, Jma, Backbone, Marionette, $, _) {
-
     Edit.Controller = Marionette.Controller.extend({
-        initialize: function() {
+        initialize: function(options) {
         	this.options = options;
 			console.log('Qiandao.');
             this.show();

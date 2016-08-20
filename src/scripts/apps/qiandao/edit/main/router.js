@@ -10,14 +10,14 @@ Jma.module('Edit.Router', function(Router, Jma, Backbone, Marionette, $, _){
 
 	Router.Router = Jma.AppRouter.extend({
 		appRoutes:{
-			'apps/qiandao/edit':'edit',
+			// 'apps/qiandao/edit':'edit',
 		}
 	});
 
 	Router.Controller = Marionette.Controller.extend({
 		edit: function(){
 			//console.log('edit')
-			Jma.module('Qiandao.Edit').StartApp();
+			// Jma.module('Qiandao.Edit').StartApp();
 		}
 	});
 

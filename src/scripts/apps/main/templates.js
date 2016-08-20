@@ -9,8 +9,7 @@ Jma.module('Apps', function(Apps, Jma, Backbone, Marionette, $, _){
 	var Templates ={};
 
 	Templates.LayoutViewTemplate = _.template('\
-		<div class=""><a href="#qiandao">进入签到应用</a></div>\
-		<div class=""><a href="#apps/qiandao/edit">进入编辑页面</a></div>\
+		<div class=""><a href="#apps/qiandao">进入签到应用</a></div>\
 		')
 
 	Apps.Templates = Templates;

@@ -29,6 +29,21 @@ var AUTOPREFIXER_BROWSERS = [
   'bb >= 10'
 ];
 
+
+var express = require('express');
+var router = express.Router();
+var _ = require('underscore');
+var fs = require('fs');
+
+
+gulp.task('concatRoutes',function(){
+  var concat = require('gulp-concat');
+  gulp.src(['routers/a.js','routers/router/*.js','routers/b.js'])
+    .pipe(concat('router.js'))
+    .pipe(gulp.dest('routers'))
+})
+
+
 gulp.task('css', function(){
   var sass = require('gulp-ruby-sass');
   var concat = require('gulp-concat');
@@ -84,16 +99,22 @@ gulp.task('js', function () {
 
 
 
-gulp.task('serve',function(){
-    browserSync({
-        notify: false,
-        server: {
-            baseDir: ['src', 'test','.'],
-            routes:{
-                "/bower_components":"bower_components"
-            }
-        }
-    });
+gulp.task('serve',['concatRoutes'],function(){
+  var routerFs = require('./routers/router')(router);
+  browserSync({
+    notify: false,
+    server: {
+      baseDir: ['src', 'test','.'],
+      routes:{
+        "/bower_components":"bower_components",
+        "/test":"test"
+      },
+      middleware:router
+    }
+  });
+
+  gulp.watch(['routers/router/*.js'],['concatRoutes']);
+
 });
 
 gulp.task('default', ['serve']);

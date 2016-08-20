@@ -4,8 +4,9 @@
 * createDate:2016-08-20 10:25:51
 * author: XXXXXX
 */
-Jma.module('Apps.Dicts', function(Dicts, Jma, Backbone, Marionette, $, _) {
+Jma.module('Apps', function(Apps, Jma, Backbone, Marionette, $, _) {
 
-	Dicts.demoDicts = 'demoDictsValue';
+	var Dicts = {};
+	Apps.Dicts = Dicts
 
 });

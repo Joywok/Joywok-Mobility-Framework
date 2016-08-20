@@ -7,14 +7,18 @@
 Jma.module('Apps', function(Apps, Jma, Backbone, Marionette, $, _){
 	Apps.Controller = Marionette.Controller.extend({
 		initialize: function(options){
-			console.log('Apps,到这个里面了')
 			this.options = options;
+			this.layoutView = new Apps.Views.LayoutView();
+
+			this.layoutView.on('show',function(){
+			})
+
+			Jma.mainRegion.show(this.layoutView)
 		},
 	});
 	Apps.StartApp =  function(options){
 		Apps.Controllers = new Apps.Controller(options);
 	};
-
 	Apps.StopApp = function(options){
 		console.log('stop');
 	};

@@ -9,7 +9,6 @@ Jma.module('Router', function(Router, Jma, Backbone, Marionette, $, _){
         appRoutes:{
             '':'index',
             'apps':'index',
-            // 'index/post':'post'
         }
     });
     Router.Controller = Marionette.Controller.extend({

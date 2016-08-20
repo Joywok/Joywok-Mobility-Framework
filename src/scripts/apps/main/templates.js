@@ -4,8 +4,12 @@
 * createDate:2016-08-20 10:25:51
 * author: XXXXXX
 */
-Jma.module('Apps.Templates', function(Templates, Jma, Backbone, Marionette, $, _){
+Jma.module('Apps', function(Apps, Jma, Backbone, Marionette, $, _){
 
-	Templates.testTemplate = _.template('html代码');
+	var Templates ={};
+
+	Templates.LayoutViewTemplate = _.template('<div class=""><a href="#qiandao">进入签到应用</a></div>')
+
+	Apps.Templates = Templates;
 
 });

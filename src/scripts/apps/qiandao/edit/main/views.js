@@ -6,11 +6,11 @@
 */
 Jma.module('Edit.Views',function(Views, Jma, Backbone, Marionette, $, _){
 
-	Views.demoLayoutView = Marionette.LayoutView.extend({
-		className: 'main-content',
-		template: 'template',
+	Views.EditLayoutView = Marionette.LayoutView.extend({
+		className: 'edit-content',
+		template:   Jma.Edit.Templates.EditTemplate,
 		regions: {
-			demoRegion : '#demo',
+			dateRegion : '#qiandaoDate',
 		},
         triggers:{
             'click .demo' : 'demo',

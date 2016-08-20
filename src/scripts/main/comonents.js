@@ -1746,6 +1746,125 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _){
 	});
   // datalist end
 
+
+  Components.Form.editors.DatePickerCheck = Components.Form.editors.Text.extend({
+        defaultValue: '',
+        defaults: {
+            format: 'yyyy-mm-dd',
+            autoclose: true,
+            language: 'zh-CN'
+        },
+        initialize: function(options) {
+            var that = this;
+            this.startTime = 0;
+            this.endTime = 0;
+            this.weekStart = 7;
+            _.extend(this, options);
+            // console.log(options,this.weekStart)
+            Components.Form.editors.Text.prototype.initialize.call(this, options);
+            this.defaultValue = this.value;
+            var value = moment(this.value * 1000);
+            // console.log(this.value)
+            this.value = moment(value.format('YYYY') + '-' + value.format('MM') + '-' + value.format('DD')).format('X');
+            // console.log(this.value)
+            this.$el.addClass('datepicker-input');
+            this.options = _.defaults(options, this.defaults);
+            this.$el.datepicker(this.options)
+                .on('hide', function(e) {
+                    that.setValue(parseInt(e.date.getTime() / 1000));
+                    that.form && that.form.trigger(that.options.key + ':change', that.form, that) || that.trigger('change', that);
+                })
+            this.DatePicker = this.$el.data('datepicker');
+            this.DatePicker.setDate(new Date(this.value * 1000));
+            this.setValue(this.value);
+        },
+        render: function() {
+            var self = this;
+            this.$container = $('<div class="col-sm-12 project-form-value">\
+               <div class="datepicker-container">\
+                  <div class="btn last-btn"><i class="fa fa-angle-left"></i></div>\
+                  <span data-editor class="datepicker-c"></span>\
+                  <div class="btn next-btn"><i class="fa fa-angle-right"></i></div>\
+               </div>\
+             </div>')
+            this._init_bindEvent();
+            setTimeout(function() {
+                self.$el.parent().append(self.$container);
+                self.$container.find('.datepicker-c').append(self.$el);
+            }, 0)
+            return this;
+        },
+        _init_bindEvent: function() {
+            var self = this;
+            this.$container.delegate('.last-btn', 'click', function() {
+                var time = parseInt(self.value);
+                self.DatePicker.setDate(new Date(time * 1000));
+                self.setValue(time);
+                // console.log('上一个');
+                console.log('上一个', moment(time * 1000).format('YYYY-MM-DD'))
+                self.form && self.form.trigger(self.options.key + ':change', self.form, self) || self.trigger('change', self);
+            })
+            this.$container.delegate('.next-btn', 'click', function() {
+                var time = parseInt(self.value) + 7 * 86400;
+                self.DatePicker.setDate(new Date(time * 1000));
+                // console.log('下一个',moment(time * 1000).format('YYYY-MM-DD HH:mm'))
+                self.setValue(time);
+                // console.log('下一个')
+                self.form && self.form.trigger(self.options.key + ':change', self.form, self) || self.trigger('change', self);
+            })
+        },
+        getValue: function() {
+            return this.value;
+        },
+        setValue: function(value) {
+            this.value = value;
+            this.getDate(value);
+        },
+        getDate: function(value) {
+           var self = this;
+      this.getTime(value);
+      var yyyy = moment(this.startTime*1000).format('YYYY');
+      var startTimeMonth = moment(this.startTime*1000).format('MM');
+      var nowMonthDays = moment(this.startTime*1000).daysInMonth();
+      var endTimeMonth = moment(this.endTime*1000).format('MM');
+      var startMonthDay = 0;
+      var startTimeSecond = parseInt(moment(yyyy+'-'+startTimeMonth+'-0'+1).format('X'));
+      // console.log(moment(yyyy+'-'+startTimeMonth+'-0'+1))
+      var array = _.range(0,nowMonthDays);
+      for(var i in array){
+        var data = moment((startTimeSecond+array[i]*86400)*1000);
+        // console.log(data.format('X'),self.value)
+        if(parseInt(data.format('E')) == self.weekStart){
+          startMonthDay++;
+        }
+        if(self.value >= parseInt(data.format('X')) && self.value < parseInt(data.format('X'))+86399){
+          break
+        }
+      }
+      // this.$el.val(moment(this.startTime*1000).format('YYYY年MM月')+'   第'+startMonthDay+'周');
+            this.$el.val(moment(this.startTime * 1000).format('YYYY年MM月DD日'));
+
+        },
+        getTime: function(value) {
+            value = parseInt(value);
+            var nowDay = moment(value * 1000).format('E');
+
+            // console.log(nowDay)
+
+            var lNum = 1,
+                rNum = 1;
+            if (nowDay - this.weekStart < 0) {
+                lNum = nowDay - this.weekStart + 7
+            } else {
+                lNum = nowDay - this.weekStart
+            }
+            rNum = 7 - lNum;
+            this.startTime = value ;
+            this.endTime = value + (rNum - 1) * 86400 + 86399;
+        }
+    })
+
+
 });
   
   

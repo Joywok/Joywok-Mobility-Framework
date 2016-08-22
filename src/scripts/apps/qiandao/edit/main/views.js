@@ -16,7 +16,7 @@ Jma.module('Edit.Views', function(Views, Jma, Backbone, Marionette, $, _) {
                     'click .editSave': 'save'
                 },
                 save: function() {
-                    this.model.set({content:this.$el.find('textarea').val()})
+                    // this.model.set({content:this.$el.find('textarea').val()})
                     this.model.save();
                 }
             })

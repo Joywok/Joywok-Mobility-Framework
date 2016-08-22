@@ -258,6 +258,7 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
             var that = this;
             Components.Form.editors.Text.prototype.initialize.call(this, options);
             this.value = this.defaultValue;
+            this.value = (new Date()).getTime() / 1000;
             this.defaultValue = this.value;
             this.$el.addClass('datepicker-input');
             // all the customized options should be set on schema.options
@@ -306,7 +307,7 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
         initialize: function(options) {
             var that = this;
             Components.Form.editors.Text.prototype.initialize.call(this, options);
-            // this.value = this.defaultValue;
+            this.value = this.defaultValue;
             this.defaultValue = this.value;
             this.$el.addClass('datepicker-input');
             this.options = _.defaults(options, this.defaults);
@@ -1756,10 +1757,12 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
                 format: 'yyyy-mm-dd',
                 autoclose: true,
                 weekStart: 1,
+
             }).on('changeDate', function(ev) {
                 // console.log()
                 var value = ev.date.valueOf() / 1000;
                 self.model.set(self.key, value);
+
             });
             return this;
         },
@@ -1770,5 +1773,6 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
             this.$el.val(moment(value).format('YYYY-MM-DD'));
         }
     });
+
 
 });

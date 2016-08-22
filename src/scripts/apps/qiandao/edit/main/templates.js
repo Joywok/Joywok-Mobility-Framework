@@ -8,7 +8,6 @@ Jma.module('Edit.Templates', function(Templates, Jma, Backbone, Marionette, $, _
     Templates.EditTemplate = _.template('\
         <div class="edit">\
          <div class="qiandaoLeaveWord" id="leaveWord">\
-       \
          </div>\
          <div class="qiandaoDate" id="qiandaoDate">\
          <div id="dateSelect" ></div>\
@@ -21,9 +20,7 @@ Jma.module('Edit.Templates', function(Templates, Jma, Backbone, Marionette, $, _
         </div>')
     Templates.EditDateTemplate = _.template('<form class="form-horizontal list-form" role="form">\
         <div class="col-md-12">\
-           \
              <div data-fieldsets></div>\
-           \
             </div>\
         </form>');
 
@@ -33,29 +30,5 @@ Jma.module('Edit.Templates', function(Templates, Jma, Backbone, Marionette, $, _
             </div>\
         </form>\
     ');
-    Templates.Form_Field_template = _.template('<div class="form-group field-<%= key %>">\
-        <label class="col-sm-0 control-label" for="<%= editorId %>">\
-            <% if (titleHTML){ %><%= titleHTML %>\
-            <% } else { %><%- title %><% } %>\
-        </label>\
-        <div class="col-sm-12">\
-            <span data-editor></span>\
-            <p class="help-block" data-error></p>\
-            <p class="help-block"><%= help %></p>\
-        </div>\
-    </div>\
-    ');
-
-
-
-    Templates.Form_Field_template_151000_nomax = _.template('\
-      <div class="form-group field-<%= key %>">\
-        <label class="col-md-1 control-label" style="width: 15.1000%" for="<%= editorId %>"><%= description %> <%= title %></label>\
-        <div class="col-md-1 project-form-value" style="width: 84.9000%" >\
-        <span data-editor></span>\
-        <p class="help-block" data-error></p>\
-        <p class="help-block"><%= help %></p>\
-        </div>\
-      </div>\
-    ');
+   
 });

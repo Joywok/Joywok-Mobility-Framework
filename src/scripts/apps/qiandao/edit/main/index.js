@@ -16,7 +16,7 @@ Jma.module('Qiandao.Edit', function(Edit, Jma, Backbone, Marionette, $, _) {
                 key: "date",
                 template:Jma.Edit.Templates.EditDateTemplate,
                  schema: {
-                    date: { title: '日期', type: 'DatePickerCheck' }
+                    date: { title: '日期', type: 'DatePicker' }
                 },
             });     
             var EditWord = new Jma.Components.Form({

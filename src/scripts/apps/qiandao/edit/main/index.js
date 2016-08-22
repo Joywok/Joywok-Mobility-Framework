@@ -10,6 +10,7 @@ Jma.module('Qiandao.Edit', function(Edit, Jma, Backbone, Marionette, $, _) {
             this.options = options;
             this.model = new Jma.Edit.Entities.model();
             this.layoutview = new Jma.Edit.Views.EditLayoutView({ model: this.model });
+
             var datepicker = new Jma.Components.Form({
                 model: this.model,
                 key: "date",
@@ -26,6 +27,11 @@ Jma.module('Qiandao.Edit', function(Edit, Jma, Backbone, Marionette, $, _) {
                 },
                 model: this.model
             });
+            this.layoutview.on('save',function(){
+                datepicker.commit();
+                EditWord.commit();
+                console.log(self.model.toJSON())
+            })
             this.layoutview.on('show', function() {
                 this.dateRegion.show(datepicker);
                 this.textRegion.show(EditWord);

@@ -30,7 +30,7 @@ Jma.module('Qiandao.Edit', function(Edit, Jma, Backbone, Marionette, $, _) {
             this.layoutview.on('save',function(){
                 datepicker.commit();
                 EditWord.commit();
-                console.log(self.model.toJSON())
+                self.model.save()
             })
             this.layoutview.on('show', function() {
                 this.dateRegion.show(datepicker);

@@ -9,18 +9,17 @@
 ```
 ├── build                  #项目生成后的代码
 ├── mobilecsscomponents    #MobileCss组件
-├── routers	  	           #用于本地开发模拟后台的路由文件，其下面File为数据文件
-└── 31day_data_features.txt #31天所有数据的n维特征
+├── routers                #用于本地开发模拟后台的路由文件，其下面File为数据文件
 
 主要开发文件[src]
 
 ├── fonts                  #Font-awasome字体文件
-├── scripts			 	   #主要开发代码
+├── scripts                #主要开发代码
     ├── apps			 	   #子模块代码文件
     ├── main			 	   #基础框架代码文件
-├── scss	  	           #css编译前代码
-├── styles	  	           #css编译后代码
-└── index.html            #主要入口文件
+├── scss                   #css编译前代码
+├── styles                 #css编译后代码
+└── index.html             #主要入口文件
 
 
 ```

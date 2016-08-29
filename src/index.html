@@ -14,24 +14,6 @@
     <link rel="stylesheet" type="text/css" href="/build/css/qiandao.css">
 </head>
 <style type="text/css">
-* {
-    margin: 0;
-    padding: 0;
-}   
-.list .list-w .list-item .list-item-w .list-item-val {
-    text-align: left;
-}
-.list .list-w .list-item .list-item-w label {
-    margin: 0 20px 0 10px;
-}
-.bar-active{
-    background-color:#00c8df;
-
-}
-.bar-active a{
-    color:#fff;
-    padding: 15px 45%;
-}
 </style>
 
 <body>
@@ -66,57 +48,32 @@
     <script type="text/javascript" src="/scripts/main/comonents.js"></script>
     <script type="text/javascript" src="/scripts/main/widgets.js"></script>
     <script type="text/javascript" src="/scripts/main/start.js"></script>
-    <script type="text/javascript">
-    $(function() {
-            // $('.selectpicker').selectpicker();
-            getDate = function() {
-                var presentDate = new Date();
-                var year = presentDate.getFullYear();
-                var month = presentDate.getMonth() + 1;
-                var date = presentDate.getDate();
-                var weekday = presentDate.getDay();
-                var riqi = year + '-' + month + '-' + date;
-                return {
-                    date: {
-                        riqi: riqi,
-                        weekday: "星期" + weekday
-                    }
-                }
-            };
-            console.log(getDate().date.riqi)
-            $("#riqi").text(getDate().date.riqi);
-            $('#weekday').text(getDate().date.weekday)
+    <!-- 项目文件-->
 
-        setInterval(function() {
-            var time = (new Date()).toLocaleTimeString();
-            $("#time").attr('value', time);
-        }, 1);
-    })
-    </script>
-    <script type="text/javascript" src="/src/scripts/apps/main/dicts.js"></script>
-    <script type="text/javascript" src="/src/scripts/apps/main/entities.js"></script>
-    <script type="text/javascript" src="/src/scripts/apps/main/router.js"></script>
-    <script type="text/javascript" src="/src/scripts/apps/main/templates.js"></script>
-    <script type="text/javascript" src="/src/scripts/apps/main/views.js"></script>
-    <script type="text/javascript" src="/src/scripts/apps/main/index.js"></script>
-    <script type="text/javascript" src="/src/scripts/apps/qiandao/main/dicts.js"></script>
-    <script type="text/javascript" src="/src/scripts/apps/qiandao/main/entities.js"></script>
-    <script type="text/javascript" src="/src/scripts/apps/qiandao/main/router.js"></script>
-    <script type="text/javascript" src="/src/scripts/apps/qiandao/main/templates.js"></script>
-    <script type="text/javascript" src="/src/scripts/apps/qiandao/main/views.js"></script>
-    <script type="text/javascript" src="/src/scripts/apps/qiandao/main/index.js"></script>
-    <script type="text/javascript" src="/src/scripts/apps/qiandao/edit/main/dicts.js"></script>
-    <script type="text/javascript" src="/src/scripts/apps/qiandao/edit/main/entities.js"></script>
-    <script type="text/javascript" src="/src/scripts/apps/qiandao/edit/main/router.js"></script>
-    <script type="text/javascript" src="/src/scripts/apps/qiandao/edit/main/templates.js"></script>
-    <script type="text/javascript" src="/src/scripts/apps/qiandao/edit/main/views.js"></script>
-    <script type="text/javascript" src="/src/scripts/apps/qiandao/edit/main/index.js"></script>
-    <script type="text/javascript" src="/src/scripts/apps/qiandao/info/main/dicts.js"></script>
-    <script type="text/javascript" src="/src/scripts/apps/qiandao/info/main/entities.js"></script>
-    <script type="text/javascript" src="/src/scripts/apps/qiandao/info/main/router.js"></script>
-    <script type="text/javascript" src="/src/scripts/apps/qiandao/info/main/templates.js"></script>
-    <script type="text/javascript" src="/src/scripts/apps/qiandao/info/main/views.js"></script>
-    <script type="text/javascript" src="/src/scripts/apps/qiandao/info/main/index.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/main/dicts.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/main/entities.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/main/router.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/main/templates.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/main/views.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/main/index.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/punch/main/dicts.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/punch/main/entities.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/punch/main/router.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/punch/main/templates.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/punch/main/views.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/punch/main/index.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/setting/main/dicts.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/setting/main/entities.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/setting/main/router.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/setting/main/templates.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/setting/main/views.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/setting/main/index.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/statistics/main/dicts.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/statistics/main/entities.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/statistics/main/router.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/statistics/main/templates.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/statistics/main/views.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/statistics/main/index.js"></script>
 </body>
 
 </html>

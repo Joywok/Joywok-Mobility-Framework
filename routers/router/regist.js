@@ -1,7 +1,3 @@
-var _ = require('underscore');
-var fs = require('fs');
-
-module.exports = function(router){
  router.route('/api/punch')
     .all(function(req,res,next){
       next()
@@ -58,7 +54,3 @@ module.exports = function(router){
       })
       next()
     })
-
-
-//结尾
-}

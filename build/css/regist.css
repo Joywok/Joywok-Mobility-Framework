@@ -1,36 +1,80 @@
-/*
-Error: Invalid CSS after "regist.scss": expected "{", was ""
-        on line 1 of src/scss/apps/regist.scss
+* {
+  margin: 0;
+  padding: 0; }
 
-1: regist.scss
+html {
+  font-size: 10px;
+  color: #333; }
 
-Backtrace:
-src/scss/apps/regist.scss:1
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:1189:in `expected'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:1125:in `expected'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:1120:in `tok!'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:656:in `block'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:649:in `ruleset'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:675:in `block_child'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:665:in `block_contents'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:125:in `stylesheet'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:41:in `parse'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/engine.rb:406:in `_to_tree'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/engine.rb:281:in `render'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:494:in `update_stylesheet'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:209:in `each'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/plugin.rb:82:in `update_stylesheets'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/exec/sass_scss.rb:340:in `watch_or_update'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/exec/sass_scss.rb:51:in `process_result'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/exec/base.rb:52:in `parse'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/exec/base.rb:19:in `parse!'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/bin/sass:13:in `<top (required)>'
-/usr/local/bin/sass:23:in `load'
-/usr/local/bin/sass:23:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid CSS after \"regist.scss\": expected \"{\", was \"\"\A         on line 1 of src/scss/apps/regist.scss\A \A 1: regist.scss"; }
+.regist-nav .nav-tabs {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  background-color: #fff; }
+  .regist-nav .nav-tabs .item {
+    margin: 5px 0;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1; }
+
+.personInfo {
+  border-bottom: 2px solid #efefef; }
+
+.personInfo > div {
+  margin-top: 10px; }
+  .personInfo > div .person-avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    float: left;
+    margin: 0 8px; }
+  .personInfo > div .person {
+    display: block;
+    line-height: 25px;
+    font-size: 1.4rem; }
+  .personInfo > div .person span {
+    display: block;
+    line-height: 25px; }
+  .personInfo > div .person span.fontColor {
+    font-size: 1.2rem;
+    color: #494949; }
+  .personInfo > div .date {
+    position: absolute;
+    top: 15px;
+    line-height: 30px;
+    right: 10px;
+    background-color: #e9f1ff;
+    color: #157efb;
+    border-radius: 3px;
+    padding: 1px 10px; }
+
+.punchRecord {
+  margin-top: 10px; }
+  .punchRecord .record-list .record .list-item {
+    line-height: 16px; }
+    .punchRecord .record-list .record .list-item span:nth-child(1) {
+      margin-top: -2px;
+      display: inline-block;
+      text-align: center;
+      width: 15px;
+      height: 15px;
+      background-color: #666;
+      border-radius: 50%;
+      color: #fff;
+      position: relative;
+      left: 10px;
+      top: -1px;
+      margin-right: 10px; }
+    .punchRecord .record-list .record .list-item span:nth-child(2) {
+      font-size: 1.4rem;
+      color: #333; }
+    .punchRecord .record-list .record .list-item span:nth-child(4) {
+      margin: 5px 30px;
+      display: block; }

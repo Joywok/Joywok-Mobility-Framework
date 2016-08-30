@@ -6,25 +6,18 @@
 */
 Jma.module('Punch.Entities', function(Entities, Jma, Backbone, Marionette, $, _){
 
-	Entities.demoModel = Backbone.Model.extend({
-		urlRoot : 'urlPath',
-		parse: function(data){
-			if(data.err){
-				return '请求失败';
-			}else{
-				return data;
-			}
+
+	Entities.recordCollection = Backbone.Collection.extend({
+		url:'/api/punch',
+		parse:function(resp){
+			console.log(resp['timeCards'])
+			return resp['timeCards'];
 		}
 	});
-
-	Entities.demoCollection = Backbone.Collection.extend({
-		url : 'urlPath',
-		model:Entities.demoModel,parse: function(data){
-			if(data.err){
-				return '请求失败';
-			}else{
-				return data;
-			}
+	Entities.personModel =Backbone.Model.extend({
+		url:'/api/personInfo',
+		parse:function(resp){		
+			return resp['datas'];
 		}
 	});
 

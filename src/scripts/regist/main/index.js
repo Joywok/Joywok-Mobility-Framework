@@ -10,7 +10,11 @@ Jma.module('Regist', function(Regist, Jma, Backbone, Marionette, $, _){
 		initialize: function(options){
 			this.options = options;
 			console.log('Regist');
-		},
+			this.navView=new Jma.Regist.Views.navView();
+			this.navView.on('show',function(){
+			});
+			Jma.footerRegion.show(this.navView)
+		}
 	});
 
 	Regist.StartApp =  function(options){

@@ -12,7 +12,7 @@ Jma.module('Regist.Punch', function(Punch, Jma, Backbone, Marionette, $, _) {
             var self = this;
             this.layoutView = new Jma.Punch.Views.punchLayoutView();
             this.collection = new Jma.Punch.Entities.recordCollection();
-            this.model = new Jma.Punch.Entities.personModel ();
+            this.model = new Jma.Punch.Entities.personModel();
             // this.list.show(self.loadingView);
             this.layoutView.on('show', function() {
                 self.collection.fetch({
@@ -24,18 +24,16 @@ Jma.module('Regist.Punch', function(Punch, Jma, Backbone, Marionette, $, _) {
                     }
                 });
                 self.model.fetch({
-                    success: function(model,resp){
+                    success: function(model, resp) {
                         self.personInfoView = new Jma.Punch.Views.personItemView({
                             model: self.model
                         });
-                         self.layoutView.personInfo.show(self.personInfoView);
+                        self.layoutView.personInfo.show(self.personInfoView);
                     }
-                
+
                 })
-               
+
             })
-            this.navView=new Jma.Regist.Views.navView();
-             Jma.footerRegion.show(this.navView);
             Jma.mainRegion.show(this.layoutView);
         },
     });

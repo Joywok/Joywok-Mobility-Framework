@@ -5,8 +5,5 @@
  */
 Jma.module('Regist.Views', function(Views, Jma, Backbone, Marionette, $, _) {
 
-    Views.navView = Marionette.ItemView.extend({
-        className: 'nav',
-        template: Jma.Regist.Templates.navTemplate
-    });
+  
 })

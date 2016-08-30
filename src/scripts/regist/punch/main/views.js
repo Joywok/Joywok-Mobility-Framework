@@ -10,7 +10,8 @@ Jma.module('Punch.Views', function(Views, Jma, Backbone, Marionette, $, _) {
         template: Jma.Punch.Templates.LayoutTemplate,
         regions: {
             personInfo: '#personInfo',
-            punchRecord: '#punchRecord'
+            punchRecord: '#punchRecord',
+            punchAction: '#punchAction'
         },
         onShow: function() {
             this.addRegions({ punchRecord: this.$el.find('#punchRecord') });
@@ -52,7 +53,6 @@ Jma.module('Punch.Views', function(Views, Jma, Backbone, Marionette, $, _) {
         template: Jma.Punch.Templates.recordItemTemplate,
         templateHelpers: function() {
             return {
-
               Location:function(){
                     return this.location
                 },
@@ -60,7 +60,6 @@ Jma.module('Punch.Views', function(Views, Jma, Backbone, Marionette, $, _) {
                     return moment(this.date * 1000).format('YYYY-MM-DD')
                 },
                 Content:function(){
-                    // console.log(typeof(this.type));
                     if(this.type=="1"){
                        return "<span>上</span>\
                                <span>上班打卡时间</span>"
@@ -91,5 +90,9 @@ Jma.module('Punch.Views', function(Views, Jma, Backbone, Marionette, $, _) {
             'change': 'render',
         }
     });
+    // Views.punchActionView=Marionette.ItemView.extend({
+    //     template:Jma.Punch.Templates.punchActionTemplate,
+    //     className:''
+    // })
 
 })

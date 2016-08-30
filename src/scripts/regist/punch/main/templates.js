@@ -17,6 +17,8 @@ Jma.module('Punch.Templates', function(Templates, Jma, Backbone, Marionette, $, 
         </div>\
     	<div class="punchRecord" id="punchRecord">\
     	</div>\
+        <div class="punch-action" id="punchAction">\
+        </div>\
     	</div>');
      Templates.personInfoTemplate=_.template('\
             <div class="person-avatar"><img src="<%=avatar()%>"/></div>\
@@ -35,6 +37,8 @@ Jma.module('Punch.Templates', function(Templates, Jma, Backbone, Marionette, $, 
            ');
 
      Templates.recordTemplate=_.template('<div class="record"></div>');
+
+      Templates.punchActionTemplate=_.template('<div class="action"></div>');
      
 
 

@@ -6,6 +6,7 @@
 */
 Jma.module('Statistics.Templates', function(Templates, Jma, Backbone, Marionette, $, _){
 
-	Templates.testTemplate = _.template('html代码');
-
+	Templates.LayoutView = _.template('');
+	Templates.emptyView = _.template('')
+	Templates.ItemView = _.template('<div class=""></div>');
 });

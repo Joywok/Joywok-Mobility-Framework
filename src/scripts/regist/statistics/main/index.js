@@ -9,7 +9,6 @@ Jma.module('Regist.Statistics', function(Statistics, Jma, Backbone, Marionette, 
 	Statistics.Controller = Marionette.Controller.extend({
 		initialize: function(options){
 			this.options = options;
-			console.log('Regist.Statistics');
 		},
 	});
 

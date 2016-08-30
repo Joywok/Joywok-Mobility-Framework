@@ -18,10 +18,32 @@
 </style>
 
 <body>
-    <button class="xxxxx" type="button">xxxx</button>
-    <nav id="nav"></nav>
+    <nav id="nav">
+        <div class="regist-nav">
+            <div class="nav-tabs">
+                <a class="tabs-punch item active" href="#regist/punch">
+                    <div class="punch-icon">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    </div>
+                    <div class="punch-val">打卡</div>
+                </a>
+                <a class="tabs-statistics item" href="#regist/statistics">
+                    <div class="statistics-icon">
+                        <i class="fa fa-cog" aria-hidden="true"></i>
+                    </div>
+                    <div class="statistics-val">统计</div>
+                </a>
+                <a class="tabs-setting item" href="#regist/setting">
+                    <div class="setting-icon">
+                        <i class="fa fa-cog" aria-hidden="true"></i>
+                    </div>
+                    <div class="setting-val">设置</div>
+                </a>
+            </div>
+        </div>
+    </nav>
     <header id="header"></header>
-    <main id="main" class="main "></main>
+    <main id="main" class="main"></main>
     <div id="footer"></div>
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
@@ -51,7 +73,6 @@
     <script type="text/javascript" src="/scripts/main/widgets.js"></script>
     <script type="text/javascript" src="/scripts/main/start.js"></script>
     <!-- 项目文件-->
-
     <script type="text/javascript" src="/src/scripts/regist/main/dicts.js"></script>
     <script type="text/javascript" src="/src/scripts/regist/main/entities.js"></script>
     <script type="text/javascript" src="/src/scripts/regist/main/router.js"></script>
@@ -77,9 +98,8 @@
     <script type="text/javascript" src="/src/scripts/regist/statistics/main/views.js"></script>
     <script type="text/javascript" src="/src/scripts/regist/statistics/main/index.js"></script>
 </body>
-
 <script type="text/javascript">
-  $(function(){
+$(function() {
     // $('.xxxxx').click(function(){
     //   new Jma.Dialog.confirm({
     //     content:'xxxxx',
@@ -104,13 +124,13 @@
     // })
 
     // var model = new Backbone.Model();
-//    var form = new Jma.Components.Form.editors.OpenBar({
-//      model:model,
-//      key:'aaa',
-//      schema:{
-//        editorAttrs:{readonly:"readonly"},
-//      }
-//    })
+    //    var form = new Jma.Components.Form.editors.OpenBar({
+    //      model:model,
+    //      key:'aaa',
+    //      schema:{
+    //        editorAttrs:{readonly:"readonly"},
+    //      }
+    //    })
     // var form = new Jma.Components.Form.editors.selectUser({
     //   model:model,
     //   key:'user',
@@ -125,8 +145,9 @@
     //     editorAttrs:{readonly:"readonly"}
     //   }
     // })
-    
+
     // Jma.mainRegion.show(form)
-  })
+})
 </script>
+
 </html>

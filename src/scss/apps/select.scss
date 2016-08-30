@@ -1,0 +1,58 @@
+.select-user{
+  padding:5px 20px;
+  border-top:1px solid #e3e3e3;
+  border-bottom:1px solid #e3e3e3;
+  background: #fff;
+  .select-user-w{
+    height: 30px;
+    line-height:30px;
+    .select-user-add{
+      cursor: pointer;
+      overflow: hidden;
+      .select-user-add-ico{
+        float: left;
+        margin:5px 0 0 0;
+        width: 20px;
+        height:20px;
+        -webkit-border-radius:20px;
+        -moz-border-radius:20px;
+        border-radius:20px;
+        background: #40dc5a;
+        font-size:14px;
+        color: #fff;
+        text-align: center;
+        line-height: 20px;
+      }
+      .select-user-add-val{
+        float: left;
+        margin-left:10px;
+      }
+    }
+  }
+}
+
+.select-user-list{
+  position: fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  background: #fff;
+
+  .select-user-list-c{
+    position: absolute;
+    top:45px;
+    left:0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+  }
+}
+
+
+.Form-date{
+  width: 150px;
+  input{
+    background: none;
+  }
+}

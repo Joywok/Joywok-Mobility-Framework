@@ -1,1 +1,96 @@
-regist.scss
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 10px;
+    color: #333;
+}
+.regist-nav {
+    .nav-tabs {
+        width: 100%;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex;
+        text-align: center;
+        background-color: #fff;
+        .item {
+            margin: 5px 0;
+            -webkit-flex: 1;
+            -moz-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+        }
+    }
+}
+.personInfo{
+    border-bottom:2px solid #efefef;
+}
+.personInfo>div {
+    margin-top: 10px;
+    .person-avatar img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        float: left;
+        margin: 0 8px;
+    }
+    .person {
+        display: block;
+        line-height: 25px;
+        font-size: 1.4rem;
+    }
+    .person span {
+        display: block;
+        line-height: 25px;
+    }
+    .person span.fontColor {
+        font-size: 1.2rem;
+        color: #494949;
+    }
+    .date {
+        position: absolute;
+        top: 15px;
+        line-height: 30px;
+        right: 10px;
+        background-color: rgb(233, 241, 255);
+        color: #157efb;
+        border-radius: 3px;
+        padding: 1px 10px;
+    }
+}
+
+.punchRecord {
+    margin-top: 10px;
+    .record-list .record .list-item {
+        line-height: 16px;
+        span:nth-child(1) {
+            margin-top:-2px;
+            display: inline-block;
+            text-align: center;
+            width: 15px;
+            height: 15px;
+            background-color: #666;
+            border-radius: 50%;
+            color: #fff;
+            position:relative;
+            left:10px;
+            top:-1px;
+            margin-right: 10px;
+        }
+        span:nth-child(2) {
+            font-size: 1.4rem;
+            color: #333;
+        }
+        span:nth-child(4) {
+            margin: 5px 30px;
+            display: block;
+
+        }
+    }
+}

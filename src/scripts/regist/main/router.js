@@ -11,13 +11,24 @@ Jma.module('Regist.Router', function(Router, Jma, Backbone, Marionette, $, _){
 	Router.Router = Jma.AppRouter.extend({
 		appRoutes:{
 			'regist':'regist',
+			'regist/punch':'punch',
+			'regist/setting':'setting',
+			'regist/statistics':'statistics'
 		}
 	});
 
 	Router.Controller = Marionette.Controller.extend({
 		regist: function(){
-			//console.log('regist')
 			Jma.module('Regist').StartApp();
+		},
+		punch: function(){
+			Jma.module('Regist.Punch').StartApp();
+		},
+		setting: function(){
+			Jma.module('Regist.Setting').StartApp();
+		},
+		statistics: function(){
+			Jma.module('Regist.Statistics').StartApp();
 		}
 	});
 

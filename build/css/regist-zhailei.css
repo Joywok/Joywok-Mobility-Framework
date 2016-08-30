@@ -1,0 +1,94 @@
+.loading {
+  margin: 100px 0;
+  text-align: center;
+  font-size: 16px;
+  color: #b0b0b0; }
+
+.empty-view {
+  margin: 100px 0;
+  text-align: center;
+  font-size: 16px;
+  color: #b0b0b0; }
+
+.form-select {
+  border: none;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none; }
+  .form-select .form-select-w {
+    border: none;
+    height: 25px;
+    line-height: 25px;
+    outline: none;
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 5px 15px;
+    border-radius: 0; }
+
+.regist-list {
+  position: fixed;
+  top: 0;
+  bottom: 40px;
+  left: 0;
+  right: 0; }
+  .regist-list .regist-list-title {
+    padding: 5px 10px;
+    border-bottom: 1px solid #e0e0e0;
+    overflow: hidden; }
+    .regist-list .regist-list-title .regist-list-user .regist-list-user-pic {
+      margin: 0 10px 0 0;
+      float: left; }
+    .regist-list .regist-list-title .regist-list-user .regist-list-user-pic img {
+      width: 40px;
+      height: 40px;
+      border-radius: 40px; }
+    .regist-list .regist-list-title .regist-list-user .regist-list-user-info {
+      display: block;
+      overflow: hidden; }
+    .regist-list .regist-list-title .regist-list-user .regist-list-user-name {
+      margin-top: 5px;
+      font-size: 13px;
+      color: #494949; }
+    .regist-list .regist-list-title .regist-list-changeDate {
+      margin-top: 8px;
+      float: right; }
+  .regist-list .regist-list-c {
+    position: absolute;
+    top: 54px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: auto; }
+    .regist-list .regist-list-c .regist-list-item-w {
+      border-bottom: 1px solid #ddd; }
+    .regist-list .regist-list-c .regist-list-item-header {
+      display: block;
+      vertical-align: top;
+      height: 48px;
+      line-height: 48px;
+      padding: 0 10px;
+      background: #fff;
+      overflow: hidden;
+      cursor: pointer; }
+      .regist-list .regist-list-c .regist-list-item-header .regist-list-item-date {
+        float: left; }
+      .regist-list .regist-list-c .regist-list-item-header .regist-list-item-val {
+        float: right; }
+    .regist-list .regist-list-c .regist-list-item-c {
+      display: none;
+      border-top: 1px solid #ddd;
+      line-height: 1;
+      height: auto; }
+      .regist-list .regist-list-c .regist-list-item-c .list-item {
+        line-height: 1;
+        height: auto; }
+      .regist-list .regist-list-c .regist-list-item-c .list-item-w {
+        border: none;
+        padding: 10px 0;
+        border-top: 1px dashed #ddd; }
+      .regist-list .regist-list-c .regist-list-item-c .list-item:first-child .list-item-w {
+        border-top: none; }
+      .regist-list .regist-list-c .regist-list-item-c .regist-lbs {
+        margin-top: 5px; }
+    .regist-list .regist-list-c .regist-list-item-w.show .regist-list-item-c {
+      display: block; }

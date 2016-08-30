@@ -1946,4 +1946,30 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
         this.input.val(data);
       }
     })
+
+    Components.Form.editors.FormSelect = Components.Form.editors.Base.extend({
+      className:'form-select',
+      render:function(){
+        console.log(this)
+        // <option value ="volvo">Volvo</option>\
+        var html = _.map(this.schema.list,function(i){
+            return '<option value="'+i["val"]+'" action-id="'+i["key"]+'">'+i["val"]+'</option>'
+        }).join('')
+        this.$el.html('<select class="form-select-w">'+html+'</select>')
+        this._init_bindEvent();
+      },
+      _init_bindEvent:function(){
+        this.select = this.$el.delegate('.form-select-w');
+        this.select.val(this.model.get(this.key) || this.schema.list[0]['key']);
+        this.select.on('change',function(evt){
+            console.log($(evt.currentTarget));
+        })
+      },
+      getValue: function() {
+        return this.select.val()
+      },
+      setValue: function(value) {
+        this.select.val(value)
+      }
+    })
 });

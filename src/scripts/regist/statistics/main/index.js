@@ -10,7 +10,7 @@ Jma.module('Regist.Statistics', function(Statistics, Jma, Backbone, Marionette, 
 		initialize: function(options){
 			var self = this;
 			this.options = options;
-			this.model = new Backbone.Model({date:'8'})
+			this.model = new Backbone.Model({date:8})
 			this.collection = new Statistics.Entities.Collection();
 			this.layoutView = new Statistics.View.LayoutView();
 			this.layoutView.on('show',function(){

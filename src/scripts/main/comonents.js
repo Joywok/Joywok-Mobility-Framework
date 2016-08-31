@@ -1963,7 +1963,7 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
 
         // $("#sel  option[value='s2'] ").attr("selected",true)
         // console.log(this.model.get(this.key))
-        // this.select.find('option[value='+(this.model.get(this.key) || this.schema.list[0]['key'])+']').attr("selected",true)
+        this.select.find('option[value='+(this.model.get(this.key) || this.schema.list[0]['key'])+']').attr("selected",true)
 
         this.select.on('change',function(evt){
             self.trigger('change')

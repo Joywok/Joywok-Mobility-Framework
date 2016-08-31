@@ -1908,7 +1908,6 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
           // self.collection.fetch({success:function(collection,resp){
             // console.log(resp)
           // }})
-
         })
       }
     })
@@ -1953,16 +1952,21 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
         console.log(this)
         // <option value ="volvo">Volvo</option>\
         var html = _.map(this.schema.list,function(i){
-            return '<option value="'+i["val"]+'" action-id="'+i["key"]+'">'+i["val"]+'</option>'
+            return '<option value="'+i["key"]+'">'+i["val"]+'</option>'
         }).join('')
         this.$el.html('<select class="form-select-w">'+html+'</select>')
         this._init_bindEvent();
       },
       _init_bindEvent:function(){
         this.select = this.$el.delegate('.form-select-w');
-        this.select.val(this.model.get(this.key) || this.schema.list[0]['key']);
+        // this.select.val(this.model.get(this.key) || this.schema.list[0]['key']);
+
+        // $("#sel  option[value='s2'] ").attr("selected",true)
+        // console.log(this.model.get(this.key))
+        // this.select.find('option[value='+(this.model.get(this.key) || this.schema.list[0]['key'])+']').attr("selected",true)
+
         this.select.on('change',function(evt){
-            console.log($(evt.currentTarget));
+            self.trigger('change')
         })
       },
       getValue: function() {

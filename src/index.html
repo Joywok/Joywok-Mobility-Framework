@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="/build/css/select.css">
     <link rel="stylesheet" type="text/css" href="/build/css/regist.css">
     <link rel="stylesheet" type="text/css" href="/bower_components/mobile-datepicker/mobiscroll.css">
+    <link rel="stylesheet" type="text/css" href="/build/css/regist-zhailei.css">
 </head>
 <style type="text/css">
 </style>
@@ -57,7 +58,7 @@
     <script src="/bower_components/moment/locale/zh-cn.js"></script>
     <script src="/bower_components/bootstrap3-dialog/dist/js/bootstrap-dialog.js"></script>
     <script src="/bower_components/remarkable-bootstrap-notify/dist/bootstrap-notify.js"></script>
-    <script src="/bower_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
+    <!-- <script src="/bower_components/bootstrap-select/dist/js/bootstrap-select.js"></script> -->
     <script src="/bower_components/backbone-forms/distribution/backbone-forms.js"></script>
     <script src="/bower_components/backbone-forms/distribution/templates/bootstrap3.js" type="text/javascript"></script>
     <script src="/bower_components/mobile-datepicker/mobiscroll_002.js"></script>
@@ -111,39 +112,7 @@ $(function() {
         $(this).addClass('active').siblings().removeClass('active');
     })
 
-
-
-    var currYear = (new Date()).getFullYear();
-    var opt = {};
-    opt.date = {
-        preset: 'date'
-    };
-    opt.datetime = {
-        preset: 'datetime'
-    };
-    opt.time = {
-        preset: 'time'
-    };
-    opt.default = {
-        theme: 'android-ics light', //皮肤样式
-        display: 'modal', //显示方式 
-        mode: 'scroller', //日期选择模式
-        dateFormat: 'yyyy-mm-dd',
-        lang: 'zh',
-        showNow: true,
-        nowText: "今天",
-        startYear: currYear - 10, //开始年份
-        endYear: currYear + 10 //结束年份
-    };
-
-    // var date = $.extend(opt['date'], opt['default']);
-    $("#appDate").mobiscroll($.extend(opt['date'], opt['default']));
-
-    // var optDateTime = $.extend(opt['datetime'], opt['default']);
-    // var optTime = $.extend(opt['time'], opt['default']);
-    // $("#appDateTime").mobiscroll(optDateTime).datetime(optDateTime);
-    // $("#appTime").mobiscroll(optTime).time(optTime);
-
+// 
 
 
 
@@ -170,7 +139,7 @@ $(function() {
     //   })
     // })
 
-    // var model = new Backbone.Model();
+    
     //    var form = new Jma.Components.Form.editors.OpenBar({
     //      model:model,
     //      key:'aaa',
@@ -185,15 +154,32 @@ $(function() {
     //     editorAttrs:{readonly:"readonly"}
     //   }
     // })
-    // var form = new Jma.Components.Form.editors.Date({
+    // var model = new Backbone.Model();
+    // var form = new Jma.Components.Form.editors.FormSelect({
     //   model:model,
-    //   key:'date',
+    //   key:'select',
     //   schema:{
-    //     editorAttrs:{readonly:"readonly"}
+    //     editorAttrs:{readonly:"readonly"},
+    //     list:[
+    //         {key:1,val:'2016-01'},
+    //         {key:2,val:'2016-02'},
+    //         {key:3,val:'2016-03'},
+    //         {key:4,val:'2016-04'},
+    //         {key:5,val:'2016-05'},
+    //         {key:6,val:'2016-06'},
+    //         {key:7,val:'2016-07'},
+    //         {key:8,val:'2016-08'},
+    //         {key:9,val:'2016-09'},
+    //         {key:10,val:'2016-10'},
+    //         {key:11,val:'2016-11'},
+    //         {key:12,val:'2016-12'}
+    //       ]
     //   }
     // })
-
-    // Jma.mainRegion.show(form)
+    // setTimeout(function(){
+    //     Jma.mainRegion.show(form)    
+    // },100)
+    
 })
 </script>
 

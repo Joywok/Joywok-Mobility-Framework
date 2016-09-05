@@ -4,28 +4,18 @@
 * createDate:2016-08-29 10:54:07
 * author: XXXXXX
 */
-Jma.module('Statistics.Entities', function(Entities, Jma, Backbone, Marionette, $, _){
+Jma.module('Regist.Statistics', function(Statistics, Jma, Backbone, Marionette, $, _){
 
-	Entities.demoModel = Backbone.Model.extend({
-		urlRoot : 'urlPath',
-		parse: function(data){
-			if(data.err){
-				return '请求失败';
-			}else{
-				return data;
-			}
+	var Entities = {};
+
+	Entities.Model = Backbone.Model.extend({})
+	Entities.Collection = Backbone.Collection.extend({
+		url:'/api/zhailei',
+		parse:function(data){
+			return data['data'];
 		}
 	});
 
-	Entities.demoCollection = Backbone.Collection.extend({
-		url : 'urlPath',
-		model:Entities.demoModel,parse: function(data){
-			if(data.err){
-				return '请求失败';
-			}else{
-				return data;
-			}
-		}
-	});
 
+	Statistics.Entities = Entities;
 })

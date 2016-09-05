@@ -1905,6 +1905,21 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
                     // self.collection.fetch({success:function(collection,resp){
                     // console.log(resp)
                     // }})
+          UserList.css({left:clientW+'px',width:clientW+'px'})
+          $('body').append(UserList);
+          UserList.stop().animate({left:0});
+          UserList.delegate('.back','click',function(){
+            UserList.remove();
+          })
+          UserList.delegate('.save','click',function(){
+            UserList.remove();
+          })
+          self.container = UserList.find('.list-w');
+          self.collection.reset([{id:'1111',name:'22222',checked:false}])
+          // self.collection.fetch({success:function(collection,resp){
+            // console.log(resp)
+          // }})
+       
 
             })
         }
@@ -2002,4 +2017,35 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
             this.input.val(data);
         }
     });
+
+    Components.Form.editors.FormSelect = Components.Form.editors.Base.extend({
+      className:'form-select',
+      render:function(){
+        console.log(this)
+        // <option value ="volvo">Volvo</option>\
+        var html = _.map(this.schema.list,function(i){
+            return '<option value="'+i["key"]+'">'+i["val"]+'</option>'
+        }).join('')
+        this.$el.html('<select class="form-select-w">'+html+'</select>')
+        this._init_bindEvent();
+      },
+      _init_bindEvent:function(){
+        this.select = this.$el.delegate('.form-select-w');
+        // this.select.val(this.model.get(this.key) || this.schema.list[0]['key']);
+
+        // $("#sel  option[value='s2'] ").attr("selected",true)
+        // console.log(this.model.get(this.key))
+        this.select.find('option[value='+(this.model.get(this.key) || this.schema.list[0]['key'])+']').attr("selected",true)
+
+        this.select.on('change',function(evt){
+            self.trigger('change')
+        })
+      },
+      getValue: function() {
+        return this.select.val()
+      },
+      setValue: function(value) {
+        this.select.val(value)
+      }
+    })
 });

@@ -28,22 +28,22 @@
              return fixedNum + '';
          }
      };
-    Funcs.getDate = function() {
-            var presentDate = new Date();
-            var year = presentDate.getFullYear();
-            var month = presentDate.getMonth() + 1;
-            var date = presentDate.getDate();
-            var weekday = presentDate.getDay();
-            var riqi = year + '-' + month + '-' + date;
-            return {
-                date: {
-                    riqi: riqi,
-                    weekday:"星期"+weekday
-                }
-            }
-        };
-     Funcs.getWeekDay=function(datevalue){
-     	var newDate=new Date(datevalue)
+     Funcs.getDate = function() {
+         var presentDate = new Date();
+         var year = presentDate.getFullYear();
+         var month = presentDate.getMonth() + 1;
+         var date = presentDate.getDate();
+         var weekday = presentDate.getDay();
+         var riqi = year + '-' + month + '-' + date;
+         return {
+             date: {
+                 riqi: riqi,
+                 weekday: "星期" + weekday
+             }
+         }
+     };
+     Funcs.getWeekDay = function(datevalue) {
+         var newDate = new Date(datevalue)
          var str = "";
          switch (newDate.getDay()) {
              case 1:
@@ -70,4 +70,5 @@
          }
          return str;
      }
+
  });

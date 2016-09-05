@@ -13,28 +13,28 @@
     <link rel="stylesheet" type="text/css" href="/mobilecsscomponents/joywok-mobile.css">
     <link rel="stylesheet" type="text/css" href="/build/css/select.css">
     <link rel="stylesheet" type="text/css" href="/build/css/regist.css">
+    <link rel="stylesheet" type="text/css" href="/bower_components/mobile-datepicker/mobiscroll.css">
 </head>
 <style type="text/css">
 </style>
-
 <body>
     <nav id="nav">
         <div class="regist-nav">
             <div class="nav-tabs">
-                <a class="tabs-punch item active" href="#regist/punch">
-                    <div class="punch-icon">
+                <a class="tabs-Attendance item " href="#regist/Attendance">
+                    <div class="Attendance-icon icon">
                         <i class="fa fa-map-marker" aria-hidden="true"></i>
                     </div>
-                    <div class="punch-val">打卡</div>
+                    <div class="Attendance-val">打卡</div>
                 </a>
                 <a class="tabs-statistics item" href="#regist/statistics">
-                    <div class="statistics-icon">
-                        <i class="fa fa-cog" aria-hidden="true"></i>
+                    <div class="statistics-icon icon">
+                       <i class="fa fa-bar-chart" aria-hidden="true"></i>
                     </div>
                     <div class="statistics-val">统计</div>
                 </a>
                 <a class="tabs-setting item" href="#regist/setting">
-                    <div class="setting-icon">
+                    <div class="setting-icon icon">
                         <i class="fa fa-cog" aria-hidden="true"></i>
                     </div>
                     <div class="setting-val">设置</div>
@@ -60,6 +60,11 @@
     <script src="/bower_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
     <script src="/bower_components/backbone-forms/distribution/backbone-forms.js"></script>
     <script src="/bower_components/backbone-forms/distribution/templates/bootstrap3.js" type="text/javascript"></script>
+    <script src="/bower_components/mobile-datepicker/mobiscroll_002.js"></script>
+    <script src="/bower_components/mobile-datepicker/mobiscroll_004.js"></script>
+    <script src="/bower_components/mobile-datepicker/mobiscroll_003.js"></script>
+    <script src="/bower_components/mobile-datepicker/mobiscroll.js"></script>
+    <script src="/bower_components/mobile-datepicker/mobiscroll_005.js"></script>
     <!--主程序文件引入 -->
     <script type="text/javascript" src="/scripts/main/index.js"></script>
     <script type="text/javascript" src="/scripts/main/dicts.js"></script>
@@ -79,12 +84,13 @@
     <script type="text/javascript" src="/src/scripts/regist/main/templates.js"></script>
     <script type="text/javascript" src="/src/scripts/regist/main/views.js"></script>
     <script type="text/javascript" src="/src/scripts/regist/main/index.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/punch/main/dicts.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/punch/main/entities.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/punch/main/router.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/punch/main/templates.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/punch/main/views.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/punch/main/index.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/attendance/main/dicts.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/attendance/main/funcs.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/attendance/main/entities.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/attendance/main/router.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/attendance/main/templates.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/attendance/main/views.js"></script>
+    <script type="text/javascript" src="/src/scripts/regist/attendance/main/index.js"></script>
     <script type="text/javascript" src="/src/scripts/regist/setting/main/dicts.js"></script>
     <script type="text/javascript" src="/src/scripts/regist/setting/main/entities.js"></script>
     <script type="text/javascript" src="/src/scripts/regist/setting/main/router.js"></script>
@@ -100,6 +106,47 @@
 </body>
 <script type="text/javascript">
 $(function() {
+
+    $('#nav').find('.item').on('click', function() {
+        $(this).addClass('active').siblings().removeClass('active');
+    })
+
+
+
+    var currYear = (new Date()).getFullYear();
+    var opt = {};
+    opt.date = {
+        preset: 'date'
+    };
+    opt.datetime = {
+        preset: 'datetime'
+    };
+    opt.time = {
+        preset: 'time'
+    };
+    opt.default = {
+        theme: 'android-ics light', //皮肤样式
+        display: 'modal', //显示方式 
+        mode: 'scroller', //日期选择模式
+        dateFormat: 'yyyy-mm-dd',
+        lang: 'zh',
+        showNow: true,
+        nowText: "今天",
+        startYear: currYear - 10, //开始年份
+        endYear: currYear + 10 //结束年份
+    };
+
+    // var date = $.extend(opt['date'], opt['default']);
+    $("#appDate").mobiscroll($.extend(opt['date'], opt['default']));
+
+    // var optDateTime = $.extend(opt['datetime'], opt['default']);
+    // var optTime = $.extend(opt['time'], opt['default']);
+    // $("#appDateTime").mobiscroll(optDateTime).datetime(optDateTime);
+    // $("#appTime").mobiscroll(optTime).time(optTime);
+
+
+
+
     // $('.xxxxx').click(function(){
     //   new Jma.Dialog.confirm({
     //     content:'xxxxx',

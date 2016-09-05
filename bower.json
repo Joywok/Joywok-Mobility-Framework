@@ -19,7 +19,8 @@
     "moment": "~2.8.3",
     "font-awesome": "~4.2.0",
     "underscore": "~1.8.2",
-    "bootstrap-select": "^1.11.0"
+    "bootstrap-select": "^1.11.0",
+    "bootstrap-datepicker-mobile": "^0.0.1"
   },
   "devDependencies": {}
 }

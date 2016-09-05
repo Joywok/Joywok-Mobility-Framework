@@ -1773,95 +1773,92 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
             this.$el.val(moment(value).format('YYYY-MM-DD'));
         }
     });
-
-
     Components.Form.editors.OpenBar = Components.Form.editors.Base.extend({
-      className:'togger',
-      render:function(){
-        var self = this;
-        this.$container = $('<input type="checkbox" class="togger-btn" id="togger-'+this.key+'"/>\
-                                <label for="togger-'+this.key+'">\
+        className: 'togger',
+        render: function() {
+            var self = this;
+            this.$container = $('<input type="checkbox" class="togger-btn" id="togger-' + this.key + '"/>\
+                                <label for="togger-' + this.key + '">\
                                   <i></i>\
                                 </label>')
 
-        this.checkbox = this.$container.find('.togger-btn');
-        if(this.model.get(this.key)){
-          this.checkbox.attr({checked:'checked'})
-        }
-        this._init_bindEvent();
-        setTimeout(function(){
-          self.$el.append(self.$container);
-        },0)
-      },
-      _init_bindEvent:function(){
-        var self = this;
-        this.checkbox.on('change',function(){
-          var data = 0;
-          if(self.checkbox[0].checked) data = 1;
-          self.value = data;
-        })
-      },
-      getValue: function() {
-        return this.value;
-      },
-      setValue: function(value) {
-        this.value = value;
-        if(value){
-          this.checkbox.attr({checked:true});
-        }else{
-          this.checkbox.removeAttr({checked:true})
-        }
-      },
-    })
+            this.checkbox = this.$container.find('.togger-btn');
+            if (this.model.get(this.key)){
+                this.checkbox.attr({ checked: 'checked' })
+            }
+            this._init_bindEvent();
 
+            setTimeout(function() {
+                self.$el.append(self.$container);
+            }, 0)
+        },
+        _init_bindEvent: function() {
+            var self = this;
+            this.checkbox.on('change', function() {
+                var data = 0;
+                if (self.checkbox[0].checked) data = 1;
+                self.value = data;
+            })
+        },
+        getValue: function() {
+            return this.value;
+        },
+        setValue: function(value) {
+            this.value = value;
+            if (value) {
+                this.checkbox.attr({ checked: true });
+            } else {
+                this.checkbox.removeAttr({ checked: true })
+            }
+        },
+    })
     Components.Form.editors.selectUser_view = Backbone.View.extend({
-      className:'list-item',
-      initialize:function(){
-      },
-      render:function(){
-        this.$el.html('<div class="list-item-w">\
-                        <label>'+this.model.get("name")+'</label>\
+        className: 'list-item',
+        initialize: function() {},
+        render: function() {
+            this.$el.html('<div class="list-item-w">\
+                        <label>' + this.model.get("name") + '</label>\
                         <div class="checkbox-w">\
-                          <input type="checkbox" id="'+this.model.get("id")+'-checkbox-1"/>\
-                          <label for="'+this.model.get("id")+'-checkbox-1"></label>\
+                          <input type="checkbox" id="' + this.model.get("id") + '-checkbox-1"/>\
+                          <label for="' + this.model.get("id") + '-checkbox-1"></label>\
                          </div>\
                       </div>');
-        this._init_bind()
-        return this;
-      },
-      _init_bind:function(){
-        var self = this;
-        this.checkbox = this.$el.find('input');
-        this.checkbox.bind('change',function(evt){
-          var target = $(evt.currentTarget);
-          var data = 0;
-          if(target[0]['checked']){
-            data = 1;
-          }
-          self.model.set({checked:data})
-        })
-      }
+            this._init_bind()
+            return this;
+        },
+        _init_bind: function() {
+            var self = this;
+            this.checkbox = this.$el.find('input');
+            this.checkbox.bind('change', function(evt) {
+                var target = $(evt.currentTarget);
+                var data = 0;
+                if (target[0]['checked']) {
+                    data = 1;
+                }
+                self.model.set({ checked: data })
+            })
+        }
     })
     Components.Form.editors.selectUser_commection = Backbone.Collection.extend({})
     Components.Form.editors.selectUser = Components.Form.editors.Base.extend({
-      className:'select-user',
-      initialize:function(){
-        _.bindAll(this,'addOne','addAll')
-        this.collection = new Components.Form.editors.selectUser_commection()
-        this.collection.bind('add',this.addOne);
-        this.collection.bind('reset' ,this.addAll);
-      },
-      addOne:function(model){
-        var view = new Components.Form.editors.selectUser_view({model:model});
-        this.container.append(view.render().el)
-      },
-      addAll:function(){
-        this.container.html('');
-        this.collection.each(this.addOne);
-      },
-      render:function(){
-        var self = this;
-        this.$container = $('<div class="select-user-w">\
+        className: 'select-user',
+        initialize: function() {
+            _.bindAll(this, 'addOne', 'addAll')
+            this.collection = new Components.Form.editors.selectUser_commection()
+            this.collection.bind('add', this.addOne);
+            this.collection.bind('reset', this.addAll);
+        },
+        addOne: function(model) {
+            var view = new Components.Form.editors.selectUser_view({ model: model });
+            this.container.append(view.render().el)
+        },
+        addAll: function() {
+            this.container.html('');
+            this.collection.each(this.addOne);
+        },
+        render: function() {
+            var self = this;
+            this.$container = $('<div class="select-user-w">\
                               <div class="select-user-add">\
                                 <div class="select-user-add-ico">\
                                   <i class="fa fa-plus"></i>\
@@ -1871,17 +1868,17 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
                               <div class="select-user-c"></div>\
                             </div>')
 
-        this._init_bindEvent();
-        setTimeout(function(){
-          self.$el.append(self.$container);
-        },0)
-      },
-      _init_bindEvent:function(){
-        var self = this;
-        this.$container.delegate('.select-user-add','click',function(){
-          var clientW = document.documentElement.clientWidth || document.documentElement.clientWidth;
-          var clientH = document.documentElement.clientHeight || document.documentElement.clientHeight;
-          var UserList = $('<div class="select-user-list">\
+            this._init_bindEvent();
+            setTimeout(function() {
+                self.$el.append(self.$container);
+            }, 0)
+        },
+        _init_bindEvent: function() {
+            var self = this;
+            this.$container.delegate('.select-user-add', 'click', function() {
+                var clientW = document.documentElement.clientWidth || document.documentElement.clientWidth;
+                var clientH = document.documentElement.clientHeight || document.documentElement.clientHeight;
+                var UserList = $('<div class="select-user-list">\
                               <div class="bar bar-header">\
                                <div class="bar-w">\
                                 <button type="button" class="btn back">返回</button>\
@@ -1894,56 +1891,115 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
                               </div>\
                               <div class="select-user-select hide"></div>\
                             </div>')
-          UserList.css({left:clientW+'px',width:clientW+'px'})
-          $('body').append(UserList);
-          UserList.stop().animate({left:0});
-          UserList.delegate('.back','click',function(){
-            UserList.remove();
-          })
-          UserList.delegate('.save','click',function(){
-            UserList.remove();
-          })
-          self.container = UserList.find('.list-w');
-          self.collection.reset([{id:'1111',name:'22222',checked:false}])
-          // self.collection.fetch({success:function(collection,resp){
-            // console.log(resp)
-          // }})
+                UserList.css({ left: clientW + 'px', width: clientW + 'px' })
+                $('body').append(UserList);
+                UserList.stop().animate({ left: 0 });
+                UserList.delegate('.back', 'click', function(){
+                    UserList.remove();
+                })
+                UserList.delegate('.save', 'click', function() {
+                    UserList.remove();
+                })
+                self.container = UserList.find('.list-w');
+                self.collection.reset([{ id: '1111', name: '22222', checked: false }])
+                    // self.collection.fetch({success:function(collection,resp){
+                    // console.log(resp)
+                    // }})
 
-        })
-      }
+            })
+        }
     })
-
     Components.Form.editors.Date = Components.Form.editors.Base.extend({
-      className:'Form-date',
-      render:function(){
-        this.$el.html('<div class="Form-date-w">\
+        className: 'Form-date',
+        render: function() {
+            this.$el.html('<div class="Form-date-w">\
                         <input type="date"/>\
                        </div>')
-        this._init_bindEvent();
-      },
-      _init_bindEvent:function(){
-        var self = this;
-        this.input = this.$el.find('input');
-        var data = this.formateData(Date.parse(new Date())/1000);
-        this.input.val(data);
-        this.input.on('change',function(){
-            self.model.set(self.key,self.getValue());
-        })
-      },
-      formateData:function(time){
-        var date = new Date(time*1000);
-        var yyyy = date.getFullYear();
-        var mm = date.getMonth()+1;
-        var dd = date.getDay();
-        return (yyyy+"-"+(mm<10?'0'+mm:mm)+"-"+(dd<10?'0'+dd:dd))
-      },
-      getValue: function() {
-        var data = Date.parse(new Date(this.input))/1000
-        return data
-      },
-      setValue: function(value) {
-        var data = this.formateData(Date.parse(new Date(value))/1000);
-        this.input.val(data);
-      }
+            this._init_bindEvent();
+        },
+        _init_bindEvent: function() {
+            var self = this;
+            this.input = this.$el.find('input');
+            var data = this.formateData(Date.parse(new Date()) / 1000);
+            this.input.val(data);
+            this.input.on('change', function() {
+                self.model.set(self.key, self.getValue());
+            })
+        },
+        formateData: function(time) {
+            var date = new Date(time * 1000);
+            var yyyy = date.getFullYear();
+            var mm = date.getMonth() + 1;
+            var dd = date.getDate();
+            return (yyyy + "-" + (mm < 10 ? '0' + mm : mm) + "-" + (dd < 10 ? '0' + dd : dd))
+        },
+        getValue: function() {
+            var data = Date.parse(new Date(this.input)) / 1000;
+            return data
+        },
+        setValue: function(value) {
+            var data = this.formateData(Date.parse(new Date(value)) / 1000);
+            this.input.val(data);
+        }
     })
+    Components.Form.editors.calendarPicker = Components.Form.editors.Base.extend({
+        className: 'Form-date',
+        render: function() {
+            this.$el.html('<div class="Form-date-w">\
+                             <div class="date-select">\
+                                  <input  value="" class="" readonly="readonly" name="appDate" id="appDate" type="text">\
+                                  <i class="fa fa-chevron-down" aria-hidden="true"></i>\
+                             </div>\
+                           </div>')
+            this._init_bindEvent();
+        },
+        _init_bindEvent: function() {
+
+            var self = this;
+            this.input = this.$el.find('input');
+             this.dateSelect = this.$el.find('.date-select');
+            var data = this.formateData(Date.parse(new Date()) / 1000);
+            this.input.val(data);
+            this.input.on('change', function() {
+                self.model.set(self.key, self.getValue());
+            })
+
+            this.dateSelect.on('click', function() {
+                console.log(123);
+                var currYear = (new Date()).getFullYear();
+                var opt = {};
+                opt.date = {
+                    preset: 'date'
+                };
+                opt.default = {
+                    theme: 'android-ics light', //皮肤样式
+                    display: 'modal', //显示方式 
+                    mode: 'scroller', //日期选择模式
+                    dateFormat: 'yyyy-mm-dd',
+                    lang: 'zh',
+                    showNow: true,
+                    nowText: "今天",
+                    startYear: currYear - 10, //开始年份
+                    endYear: currYear + 10 //结束年份
+                };
+
+                $("#appDate").mobiscroll($.extend(opt['date'], opt['default']));
+            })
+        },
+        formateData: function(time) {
+            var date = new Date(time * 1000);
+            var yyyy = date.getFullYear();
+            var mm = date.getMonth() + 1;
+            var dd = date.getDate();
+            return (yyyy + "-" + (mm < 10 ? '0' + mm : mm) + "-" + (dd < 10 ? '0' + dd : dd))
+        },
+        getValue: function() {
+            var data = Date.parse(new Date(this.input)) / 1000;
+            return data
+        },
+        setValue: function(value) {
+            var data = this.formateData(Date.parse(new Date(value)) / 1000);
+            this.input.val(data);
+        }
+    });
 });

@@ -110,18 +110,18 @@
         regions:{
             title:'.regist-list-title',
             container:'.regist-list-c'
-        },
-        templateHelpers:function(){
+        },`
+       ` templateHelpers:function(){
             return {
                 initUser:function(){
                     return this.user
                 }
             }
-        },
-        onShow:function(){
+        },`
+       ` onShow:function(){
             this.addRegion('date',this.$el.find('.regist-list-changeDate'))
             this.addRegion('container',this.$el.find('.regist-list-c'))
-        }
+        }`
     })`
     如果view当中需要渲染数据,通过函数tempalteHelpers来返回数据（此数据为model中数据,在index.js中,会通过相关声明指定view的model 
 
@@ -138,11 +138,11 @@
 			.
 			.
 		}
-	});
-	Router.Controller = Marionette.Controller.extend({
+	})`
+	`Router.Controller = Marionette.Controller.extend({
 			forward: function(){
 			Jma.module('app').StartApp();//启动项目或者是子项目			
-		},
+		}`,
 		Attendance: function(){
 			Jma.module('Regist.Attendance').StartApp();//同上
 		}
@@ -180,7 +180,8 @@
 			    })`
 
 * select组件
-  `var form = new Jma.Components.Form.editors.FormSelect({
+
+ `var form = new Jma.Components.Form.editors.FormSelect({
       model:model,
       key:'select',
       schema:{
@@ -207,7 +208,7 @@
 
   $('.xxxxx')触发事件,实例化Jma.Dialog.confirm
 
- `$('.xxxxx').click(function(){
+`$('.xxxxx').click(function(){
       new Jma.Dialog.confirm({
         content:'xxxxx',
         hasClose:true,

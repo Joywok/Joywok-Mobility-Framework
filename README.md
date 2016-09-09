@@ -94,7 +94,7 @@
            
       })`             
 
-     url:数据请求地址,parrse:返回数据
+     url:数据请求地址,parse:返回数据
 
 * views.js  是用来显示entities.js中model或者collection的数据到页面的,同时它也可用来监听DOM上的事件然后做出响应。
 

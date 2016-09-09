@@ -78,32 +78,25 @@
     ├──app                
         ├── main          
         ├── project
-              ├── dicts.js       #字典文件
-              ├── entities.js    #数据文件  
-              ├── index.js       #主文件
-              ├── router.js      #路由文件 用来控制同一页面不同内容的跳转
-              ├── templates.js  ＃模板文件
-              ├── views.js       #视图文件  
-├──app   
-         ├── main              
-         ├── project
-               ├── main    
-               ├── subproject    
-                        ├── main      
-  
+                ├── dicts.js       #字典文件
+                ├── entities.js    #数据文件  
+                ├── index.js       #主文件
+                ├── router.js      #路由文件 用来控制同一页面不同内容的跳转
+                ├── templates.js  ＃模板文件
+                ├── views.js       #视图文件  
 
 * templates.js文件,就是页面中需要展示的布局,在tempaltes文件中声明不同的模板,将在view层中展示
 
 * entities.js  数据文件,请求后台数据，根据需要在该文件中设置请求数据的地址,view层中数据的渲染均来源该文件。
 
-     `Entities.Collection = Backbone.Collection.extend({
-        	url:'/api/zhailei',
-          parse:function(data){
-          return data['data'];
-           }
-        })`
+    `Entities.Collection = Backbone.Collection.extend({
+        url:'/api/zhailei',
+        parse:function(data){
+        return data['data'];
+         }
+      })`
 
-	   url:数据请求地址,parrse:返回数据
+     url:数据请求地址,parrse:返回数据
 
 * views.js  是用来显示entities.js中model或者collection的数据到页面的,同时它也可用来监听DOM上的事件然后做出响应。
 

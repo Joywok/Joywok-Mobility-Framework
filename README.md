@@ -58,7 +58,10 @@
 1. 当创建一个新项目时,  通过执行. createModulejs.sh x 生成项目  
 例如:创建项目app,通过执行. createModulejs.sh app 即可, 每一个创建项目都会生成一个main文件夹,该文件夹包含以下文件
  ├──app                         
-    ├── main            
+    ├── main 
+          ├── scripts                #主要开发代码
+          ├── apps                   #子模块代码文件
+          ├── main             
           ├── dicts.js       #字典文件    
           ├── entities.js    #数据文件      
           ├── index.js       #主要入口文件    
@@ -66,7 +69,10 @@
           ├── templates.js  ＃模板文件   
           ├── views.js       #视图文件    
 		
-
+├── fonts                  #Font-awasome字体文件
+├── scripts                #主要开发代码
+    ├── apps                   #子模块代码文件
+    ├── main   
 
 2. 根据项目模块,执行 . createModulejs.sh x (模块）xx 生成项目模块xx
 

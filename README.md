@@ -74,7 +74,7 @@
 2.  根据项目模块,执行 . createModulejs.sh x (模块）xx 生成项目模块xx
 
 
-	   例如:. createModulejs.sh  app  project   同样每一个模块当中也会有一个main文件           
+	   例如:. createModulejs.sh  app  project   同样每一个模块当中也会有一个main文件                  
 
      ├──app    
         ├─ main     
@@ -85,12 +85,12 @@
 * templates.js文件,就是页面中需要展示的布局,在tempaltes文件中声明不同的模板,将在view层中展示
 
 * entities.js  数据文件,请求后台数据，根据需要在该文件中设置请求数据的地址,view层中数据的渲染均来源该文件。    
-
+```
     `Entities.Collection = Backbone.Collection.extend({          
-        url:'/api/zhailei',         
-        parse:function(data){         
-        return data['data']; 
-            }        
+            url:'/api/zhailei',         
+           parse:function(data){         
+           return data['data']; 
+              }        
            
       })`             
 

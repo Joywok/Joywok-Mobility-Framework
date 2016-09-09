@@ -75,7 +75,7 @@
 
 
 	   例如:. createModulejs.sh  app  project   同样每一个模块当中也会有一个main文件                  
-
+```
      ├──app    
         ├─ main     
         ├─ project    

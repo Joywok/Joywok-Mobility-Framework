@@ -56,15 +56,18 @@
 ####使用方法		
 
 1. 当创建一个新项目时,  通过执行. createModulejs.sh x 生成项目  
+
+
 例如:创建项目app,通过执行. createModulejs.sh app 即可, 每一个创建项目都会生成一个main文件夹,该文件夹包含以下文件
-    ├─app                         
+
+   <!--  ├─app                         
         ├─ main             
             ├── dicts.js       #字典文件    
             ├── entities.js    #数据文件      
             ├── index.js       #主要入口文件    
             ├── router.js      #路由文件 用来控制同一页面不同内容的跳转    
             ├── templates.js  ＃模板文件   
-            ├── views.js       #视图文件    
+            ├── views.js       #视图文件     -->
     ├── app                  #Font-awasome字体文件
           ├── main                #主要开发代码
                 ├── dicts.js                   #子模块代码文件

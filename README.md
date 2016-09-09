@@ -81,25 +81,26 @@
 ├──app                
     ├── main          
     ├── project
-          ├── dicts.js       #字典文件
-          ├── entities.js    #数据文件  
-          ├── index.js       #主文件
-          ├── router.js      #路由文件 用来控制同一页面不同内容的跳转
-          ├── templates.js  ＃模板文件
-          ├── views.js       #视图文件  
+           ├── dicts.js       #字典文件
+           ├── entities.js    #数据文件  
+           ├── index.js       #主文件
+           ├── router.js      #路由文件 用来控制同一页面不同内容的跳转
+           ├── templates.js  ＃模板文件
+           ├── views.js       #视图文件  
 
 
 * templates.js文件,就是页面中需要展示的布局,在tempaltes文件中声明不同的模板,将在view层中展示
 
 * entities.js  数据文件,请求后台数据，根据需要在该文件中设置请求数据的地址,view层中数据的渲染均来源该文件。
 
-    `Entities.Collection = Backbone.Collection.extend({
-	     	url:'/api/zhailei',
-		    parse:function(data){
-		    	return data['data'];
-		    }
-	   })`
-	url:数据请求地址,parrse:返回数据
+      `Entities.Collection = Backbone.Collection.extend({
+	        	url:'/api/zhailei',
+		        parse:function(data){
+		       	return data['data'];
+		        }
+	       })`
+
+	   url:数据请求地址,parrse:返回数据
 
 * views.js  是用来显示entities.js中model或者collection的数据到页面的,同时它也可用来监听DOM上的事件然后做出响应。
 
@@ -110,18 +111,18 @@
             regions:{
                title:'.regist-list-title',
                 container:'.regist-list-c'
-            },`
-          ` templateHelpers:function(){
+            },
+            templateHelpers:function(){
                 return {
                     initUser:function(){
                         return this.user
                    }
                }
-            },`
-           ` onShow:function(){
+            },
+             onShow:function(){
                 this.addRegion('date',this.$el.find('.regist-list-changeDate'))
                 this.addRegion('container',this.$el.find('.regist-list-c'))
-            }`
+            }
     })`
 
      如果view当中需要渲染数据,通过函数tempalteHelpers来返回数据（此数据为model中数据,在index.js中,会通过相关声明指定view的model 
@@ -131,22 +132,22 @@
 
 * router.js    路由文件 ,如果想通过改变路由展示页面指定内容,可操作路由文件		
 
-	   `Router.Router = Jma.AppRouter.extend({
-	     	appRoutes:{
-		    	'':'forward',
-		    	'app/Attendance':'Attendance',
+	    `Router.Router = Jma.AppRouter.extend({
+	          	appRoutes:{
+		       	'':'forward',
+		        	'app/Attendance':'Attendance',
 			
-	     	}
-	   })`
+	        	}
+	      })
 
-	   `Router.Controller = Marionette.Controller.extend({
-	   		forward: function(){
-	   		Jma.module('app').StartApp();//启动项目或者是子项目			
-	   	}`,
-	   	Attendance: function(){
-	   		Jma.module('Regist.Attendance').StartApp();//同上
-	   	}
-	   })`
+	      Router.Controller = Marionette.Controller.extend({
+	      		forward: function(){
+	       		Jma.module('app').StartApp();//启动项目或者是子项目			
+	       	},
+	       	Attendance: function(){
+	       		Jma.module('Regist.Attendance').StartApp();//同上
+	       	}
+	      })
 
 * index.js    主文件
 

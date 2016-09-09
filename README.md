@@ -58,13 +58,13 @@
 1. 当创建一个新项目时,  通过执行. createModulejs.sh x 生成项目  
 例如:创建项目app,通过执行. createModulejs.sh app 即可, 每一个创建项目都会生成一个main文件夹,该文件夹包含以下文件
  ├──app                         
-    ├── main         
-          ├── dicts.js       #字典文件
-          ├── entities.js    #数据文件  
-          ├── index.js       #主文件
-          ├── router.js      #路由文件 用来控制同一页面不同内容的跳转
-          ├── templates.js  ＃模板文件
-          ├── views.js       #视图文件 
+    ├── main            
+          ├── dicts.js       #字典文件    
+          ├── entities.js    #数据文件      
+          ├── index.js       #主要入口文件    
+          ├── router.js      #路由文件 用来控制同一页面不同内容的跳转    
+          ├── templates.js  ＃模板文件   
+          ├── views.js       #视图文件    
 		
 
 
@@ -117,7 +117,9 @@
             this.addRegion('container',this.$el.find('.regist-list-c'))
         }
     })`
-    	如果view当中需要渲染数据,通过函数tempalteHelpers来返回数据（此数据为model中数据,在index.js中,会通过相关声明指定view的model  或collection）,例如上述,只需在数据需要显示区,调用<=%initUser()=>即可
+    如果view当中需要渲染数据,通过函数tempalteHelpers来返回数据（此数据为model中数据,在index.js中,会通过相关声明指定view的model 
+
+     或collection）,例如上述,只需在数据需要显示区,调用<=%initUser()=>即可
  
 
 * router.js    路由文件 ,如果想通过改变路由展示页面指定内容,可操作路由文件		
@@ -139,18 +141,19 @@
 			Jma.module('Regist.Attendance').StartApp();//同上
 		}
 	})`
+
 * index.js    主文件
 
 	实例化collection,model,view,渲染页面
 
 3. 若模块中含有子模块,执行. createModulejs.sh x （模块）xx (子模块）xxx  生成项目模块的子模块xxx	
 
-	├──app                
-    ├── main          
-    ├── project
-           ├── main
-           ├── subproject
-                     ├── main			
+	├──app   
+      ├── main              
+      ├── project
+            ├── main    
+            ├── subproject    
+                    ├── main			
 
 4. 通过mobilecsscomponents中关联组件,实现view层样式
 

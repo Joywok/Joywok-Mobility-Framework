@@ -90,7 +90,13 @@
               ├── router.js      #路由文件 用来控制同一页面不同内容的跳转
               ├── templates.js  ＃模板文件
               ├── views.js       #视图文件  
-
+├──app   
+         ├── main              
+         ├── project
+               ├── main    
+               ├── subproject    
+                        ├── main      
+  
 
 * templates.js文件,就是页面中需要展示的布局,在tempaltes文件中声明不同的模板,将在view层中展示
 

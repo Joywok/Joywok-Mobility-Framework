@@ -68,13 +68,7 @@
             ├── router.js      #路由文件 用来控制同一页面不同内容的跳转    
             ├── templates.js  ＃模板文件   
             ├── views.js       #视图文件  
-            
-      ├──app   
-         ├── main              
-         ├── project
-               ├── main    
-               ├── subproject    
-                        ├── main      
+  
   
 
 2. 根据项目模块,执行 . createModulejs.sh x (模块）xx 生成项目模块xx

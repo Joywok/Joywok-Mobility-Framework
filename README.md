@@ -76,7 +76,6 @@
 
 	   例如:. createModulejs.sh  app  project   同样每一个模块当中也会有一个main文件           
 
-
      ├──app    
         ├─ main     
         ├─ project    
@@ -87,13 +86,13 @@
 
 * entities.js  数据文件,请求后台数据，根据需要在该文件中设置请求数据的地址,view层中数据的渲染均来源该文件。    
 
-
-    `Entities.Collection = Backbone.Collection.extend({       
+    `Entities.Collection = Backbone.Collection.extend({          
         url:'/api/zhailei',         
-        parse:function(data){      
-        return data['data'];       
-         }    
-      })`         
+        parse:function(data){         
+        return data['data']; 
+            }        
+           
+      })`             
 
      url:数据请求地址,parrse:返回数据
 

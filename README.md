@@ -77,11 +77,11 @@
 	例如:. createModulejs.sh  app  project   同样每一个模块当中也会有一个main文件       
 
 
-    ├─app        
-        ├─ main  
-        ├─ project             
-            ├── main      
-              
+    ├─app
+        ├─ main
+        ├─ project
+            ├─ main
+            
 
 * templates.js文件,就是页面中需要展示的布局,在tempaltes文件中声明不同的模板,将在view层中展示
 

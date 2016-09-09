@@ -11,7 +11,7 @@ Jma.module('Regist.Router', function(Router, Jma, Backbone, Marionette, $, _){
 	Router.Router = Jma.AppRouter.extend({
 		appRoutes:{
 			'regist':'regist',
-			'regist/punch':'punch',
+			'regist/Attendance':'Attendance',
 			'regist/setting':'setting',
 			'regist/statistics':'statistics'
 		}
@@ -21,8 +21,8 @@ Jma.module('Regist.Router', function(Router, Jma, Backbone, Marionette, $, _){
 		regist: function(){
 			Jma.module('Regist').StartApp();
 		},
-		punch: function(){
-			Jma.module('Regist.Punch').StartApp();
+		Attendance: function(){
+			Jma.module('Regist.Attendance').StartApp();
 		},
 		setting: function(){
 			Jma.module('Regist.Setting').StartApp();

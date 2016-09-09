@@ -1,60 +1,28 @@
-
 /*
-* 视图文件
-* createDate:2016-08-29 10:53:39
-* author: XXXXXX
-*/
-Jma.module('Setting.Views',function(Views, Jma, Backbone, Marionette, $, _){
+ * 视图文件
+ * createDate:2016-08-29 10:53:39
+ * author: XXXXXX
+ */
+Jma.module('Setting.Views', function(Views, Jma, Backbone, Marionette, $, _) {
 
-	Views.demoLayoutView = Marionette.LayoutView.extend({
-		className: 'main-content',
-		template: 'template',
-		regions: {
-			demoRegion : '#demo',
-		},
-        triggers:{
-            'click .demo' : 'demo',
+
+    Views.LayoutView = Marionette.LayoutView.extend({
+        template: Jma.Setting.Templates.LayoutTemplate,
+        regions: {
+            add: '.add'
         },
-        events: {
-            'click .demo' : 'demo'
-        },
-        demo: function(){
-        	console.log('demo for events function')
+        onShow: function() {
+            this.addRegions({ add: this.$el.find('.add') })
         }
-    });
+    })
 
-	Views.demomItemView = Marionette.ItemView.extend({
-		template: 'template',
-		initialize: function(){},
-		getTemplate: function(){
-			return '返回逻辑模板';
-		},
-		templateHelpers: function(){
-            var self = this;
-            return {
-                demo: function(){
-                	return 'value';
-                }
-            };
+    Views.itemView=Marionette.ItemView.extend({
+        template:Jma.Setting.Templates.itemTemplate,
+        events:{
+            'click .add-group':'showAdd'
         },
-		onRender: function(){},
-		modelEvents: {
-            'change': 'render',
-        },
-        triggers: {
-            'change': 'render',
-        }
-	});
-
-	Views.demomCollectionView = Marionette.CollectionView.extend({
-		template: 'template',
-		tagName: 'div',
-        className: 'classname',
-        childView: Views.demomItemView,
-        emptyView: Views.demoEmptyView,
-        triggers:{
-            'change': 'render',
-        }
-	});
-
+        showAdd:function(){
+          Jma.module('Setting.Addgroup').StartApp();
+       }
+    })
 })

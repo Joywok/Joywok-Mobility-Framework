@@ -95,7 +95,7 @@ Jma.module('Regist.Attendance', function(Attendance, Jma, Backbone, Marionette, 
         Attendance.Controllers = new Attendance.Controller(options);
     };
     Attendance.StopApp = function(options) {
-        console.log('stop');
+
     };
 
 })

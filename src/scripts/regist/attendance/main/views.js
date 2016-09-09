@@ -16,7 +16,9 @@ Jma.module('Attendance.Views', function(Views, Jma, Backbone, Marionette, $, _) 
         },
         onShow: function() {
             this.addRegions({ AttendanceRecord: this.$el.find('#AttendanceRecord') });
-            this.addRegions({ personInfo: this.$el.find('#personInfo') })
+            this.addRegions({ personInfo: this.$el.find('#personInfo') });
+            this.addRegions({ AttendanceAction: this.$el.find('#AttendanceAction') });
+            this.addRegions({ date: this.$el.find('#date')})
         },
     });
 

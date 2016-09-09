@@ -1777,13 +1777,25 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
         className: 'togger',
         render: function() {
             var self = this;
-            this.$container = $('<input type="checkbox" class="togger-btn" id="togger-' + this.key + '"/>\
-                                <label for="togger-' + this.key + '">\
-                                  <i></i>\
-                                </label>')
-
+            console.log(this.schema);
+            this.$container = $('\
+                <div class="list">\
+                <div class=list-w>\
+                <div class="list-item list-item-file">\
+                                        <div class="toggle green">\
+                                              <p>\
+                                             <input type="checkbox" name="my-checkbox" class="togger-btn" id="togger-' + this.key + '"/>\
+                                             </p>\
+                                       </div>\
+                                        <div class="list-item-w">\
+                                            <div class="list-item-val ellipsis">' + this.schema.editorAttrs.title + '</div>\
+                                        </div>\
+                                        </div>\
+                                        </div>\
+                                    </div>')
             this.checkbox = this.$container.find('.togger-btn');
-            if (this.model.get(this.key)){
+            this.checkbox.bootstrapSwitch();
+            if (this.model.get(this.key)) {
                 this.checkbox.attr({ checked: 'checked' })
             }
             this._init_bindEvent();
@@ -1819,7 +1831,7 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
             this.$el.html('<div class="list-item-w">\
                         <label>' + this.model.get("name") + '</label>\
                         <div class="checkbox-w">\
-                          <input type="checkbox" id="' + this.model.get("id") + '-checkbox-1"/>\
+                          <input type="checkbox" id="' + this.model.get("id") + '-checkbox-1" name="radio-1"/>\
                           <label for="' + this.model.get("id") + '-checkbox-1"></label>\
                          </div>\
                       </div>');
@@ -1839,7 +1851,17 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
             })
         }
     })
-    Components.Form.editors.selectUser_commection = Backbone.Collection.extend({})
+    Components.Form.editors.selectUser_commectionModel = Backbone.Model.extend({
+        urlRoot : 'api/member'
+
+    });
+    Components.Form.editors.selectUser_commection = Backbone.Collection.extend({
+        url: 'api/member',
+        model: Components.Form.editors.selectUser_commectionModel,
+        parse: function(resp) {
+            return resp['data'];
+        }
+    })
     Components.Form.editors.selectUser = Components.Form.editors.Base.extend({
         className: 'select-user',
         initialize: function() {
@@ -1861,11 +1883,12 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
             this.$container = $('<div class="select-user-w">\
                               <div class="select-user-add">\
                                 <div class="select-user-add-ico">\
-                                  <i class="fa fa-plus"></i>\
+                                 <i class="fa fa-chevron-right" aria-hidden="true"></i>\
                                 </div>\
-                                <div class="select-user-add-val">新增组</div>\
+                                <div class="select-user-add-val">选择考勤人员</div>\
                               </div>\
                               <div class="select-user-c"></div>\
+                             \
                             </div>')
 
             this._init_bindEvent();
@@ -1883,47 +1906,98 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
                                <div class="bar-w">\
                                 <button type="button" class="btn back">返回</button>\
                                 <button type="button" class="btn right save">保存</button>\
-                                <h1 class="ellipsis">选择用户</h1>\
+                                <h1 class="ellipsis">选择考勤人员</h1>\
                                </div>\
                               </div>\
+                               <div class="select-user-list-w list">\
+                                \
+                              </div>\
                               <div class="select-user-list-c list">\
-                                <div class="list-w">\
+                                <div class="list-w"></div>\
                               </div>\
                               <div class="select-user-select hide"></div>\
                             </div>')
                 UserList.css({ left: clientW + 'px', width: clientW + 'px' })
                 $('body').append(UserList);
                 UserList.stop().animate({ left: 0 });
-                UserList.delegate('.back', 'click', function(){
+                UserList.delegate('.back', 'click', function() {
+                     this.trigger('save');
                     UserList.remove();
                 })
                 UserList.delegate('.save', 'click', function() {
-                    UserList.remove();
+                    UserList.remove();                   
                 })
                 self.container = UserList.find('.list-w');
-                self.collection.reset([{ id: '1111', name: '22222', checked: false }])
-                    // self.collection.fetch({success:function(collection,resp){
-                    // console.log(resp)
-                    // }})
-          UserList.css({left:clientW+'px',width:clientW+'px'})
-          $('body').append(UserList);
-          UserList.stop().animate({left:0});
-          UserList.delegate('.back','click',function(){
-            UserList.remove();
-          })
-          UserList.delegate('.save','click',function(){
-            UserList.remove();
-          })
-          self.container = UserList.find('.list-w');
-          self.collection.reset([{id:'1111',name:'22222',checked:false}])
-          // self.collection.fetch({success:function(collection,resp){
-            // console.log(resp)
-          // }})
-       
-
+                self.collection.fetch();               
             })
         }
     })
+    Components.Form.editors.selectWorkSystem_view = Backbone.View.extend({
+        className: 'list-item',
+        initialize: function() {},
+        render: function() {
+
+            this.$el.html('<div class="list-item-w">\
+                        <label>' + this.model.get("name") + '</label>\
+                        <div class="radio-w">\
+                          <input type="radio" id="' + this.model.get("id") + '-radio-1" name="radio-1"/>\
+                          <label for="' + this.model.get("id") + '-radio-1"></label>\
+                         </div>\
+                      </div>');
+            this._init_bind()
+            return this;
+        },
+        _init_bind: function() {
+            var self = this;
+            this.checkbox = this.$el.find('input');
+            this.checkbox.bind('change', function(evt) {
+                var target = $(evt.currentTarget);
+                var data = 0;
+                if (target[0]['checked']) {
+                    data = 1;
+                }
+                self.model.set({ checked: data })
+            })
+        }
+    })
+    Components.Form.editors.selectWorkSystem_commection = Backbone.Collection.extend({})
+    Components.Form.editors.selectWorkSystem = Components.Form.editors.Base.extend({
+        className: 'select-work',
+        initialize: function() {
+            _.bindAll(this, 'addOne', 'addAll')
+            this.collection = new Components.Form.editors.selectWorkSystem_commection();
+            this.collection.bind('add', this.addOne);
+            this.collection.bind('reset', this.addAll);
+        },
+        addOne: function(model) {
+            var view = new Components.Form.editors.selectWorkSystem_view({ model: model });
+            this.container.append(view.render().el)
+        },
+        addAll: function() {
+            this.container.html('');
+            this.collection.each(this.addOne);
+        },
+        render: function() {
+            var self = this;
+            this.$container = $('<div class="select-w">\
+                              <div class="select-worksystem-list">\
+                              </div>\
+                              <div class="select-user-c"></div>\
+                            </div>')
+            self.container = this.$container.find('.select-worksystem-list');
+            self.collection.reset([{ id: '1111', name: '自由班制', checked: false }, { id: '222', name: '固定班制', checked: false }, { id: '3333', name: '流水班制', checked: false }, ])
+
+            this._init_bindEvent();
+            setTimeout(function() {
+                self.$el.append(self.$container);
+            }, 0)
+        },
+        _init_bindEvent: function() {
+            var self = this;
+        }
+    })
+
+
     Components.Form.editors.Date = Components.Form.editors.Base.extend({
         className: 'Form-date',
         render: function() {
@@ -1969,16 +2043,14 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
             this._init_bindEvent();
         },
         _init_bindEvent: function() {
-
             var self = this;
             this.input = this.$el.find('input');
-             this.dateSelect = this.$el.find('.date-select');
+            this.dateSelect = this.$el.find('.date-select');
             var data = this.formateData(Date.parse(new Date()) / 1000);
             this.input.val(data);
             this.input.on('change', function() {
                 self.model.set(self.key, self.getValue());
             })
-
             this.dateSelect.on('click', function() {
                 console.log(123);
                 var currYear = (new Date()).getFullYear();
@@ -2019,33 +2091,33 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
     });
 
     Components.Form.editors.FormSelect = Components.Form.editors.Base.extend({
-      className:'form-select',
-      render:function(){
-        console.log(this)
-        // <option value ="volvo">Volvo</option>\
-        var html = _.map(this.schema.list,function(i){
-            return '<option value="'+i["key"]+'">'+i["val"]+'</option>'
-        }).join('')
-        this.$el.html('<select class="form-select-w">'+html+'</select>')
-        this._init_bindEvent();
-      },
-      _init_bindEvent:function(){
-        this.select = this.$el.delegate('.form-select-w');
-        // this.select.val(this.model.get(this.key) || this.schema.list[0]['key']);
+        className: 'form-select',
+        render: function() {
+            console.log(this)
+                // <option value ="volvo">Volvo</option>\
+            var html = _.map(this.schema.list, function(i) {
+                return '<option value="' + i["key"] + '">' + i["val"] + '</option>'
+            }).join('')
+            this.$el.html('<select class="form-select-w">' + html + '</select>')
+            this._init_bindEvent();
+        },
+        _init_bindEvent: function() {
+            this.select = this.$el.delegate('.form-select-w');
+            // this.select.val(this.model.get(this.key) || this.schema.list[0]['key']);
 
-        // $("#sel  option[value='s2'] ").attr("selected",true)
-        // console.log(this.model.get(this.key))
-        this.select.find('option[value='+(this.model.get(this.key) || this.schema.list[0]['key'])+']').attr("selected",true)
+            // $("#sel  option[value='s2'] ").attr("selected",true)
+            // console.log(this.model.get(this.key))
+            this.select.find('option[value=' + (this.model.get(this.key) || this.schema.list[0]['key']) + ']').attr("selected", true)
 
-        this.select.on('change',function(evt){
-            self.trigger('change')
-        })
-      },
-      getValue: function() {
-        return this.select.val()
-      },
-      setValue: function(value) {
-        this.select.val(value)
-      }
+            this.select.on('change', function(evt) {
+                self.trigger('change')
+            })
+        },
+        getValue: function() {
+            return this.select.val()
+        },
+        setValue: function(value) {
+            this.select.val(value)
+        }
     })
 });

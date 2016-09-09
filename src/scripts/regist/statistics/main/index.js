@@ -19,7 +19,6 @@ Jma.module('Regist.Statistics', function(Statistics, Jma, Backbone, Marionette, 
 					self.listView = new Statistics.View.listView({
 						collection:self.collection
 					})
-
 					var form = new Jma.Components.Form.editors.FormSelect({
 			      model:self.model,
 			      key:'date',

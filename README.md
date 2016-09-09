@@ -45,8 +45,9 @@
  gulp
 
     
-```
+
 ####各安装包版本号
+
     backbone:v1.1.2
 
     Marionette:v2.4.7

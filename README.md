@@ -93,73 +93,73 @@
 
 * entities.js  数据文件,请求后台数据，根据需要在该文件中设置请求数据的地址,view层中数据的渲染均来源该文件。
 
-	`Entities.Collection = Backbone.Collection.extend({
-		url:'/api/zhailei',
-		parse:function(data){
-			return data['data'];
-		}
-	})`
+    `Entities.Collection = Backbone.Collection.extend({
+	     	url:'/api/zhailei',
+		    parse:function(data){
+		    	return data['data'];
+		    }
+	   })`
 	url:数据请求地址,parrse:返回数据
 
 * views.js  是用来显示entities.js中model或者collection的数据到页面的,同时它也可用来监听DOM上的事件然后做出响应。
 
 	通过template指定视图的模板还可以通过regions绑定view到不同的html区域,通过index.js文件show 方渲染  
 
-	`View.LayoutView = Marionette.LayoutView.extend({
-        template:Statistics.Templates.LayoutView,
-        regions:{
-            title:'.regist-list-title',
-            container:'.regist-list-c'
-        },`
-       ` templateHelpers:function(){
-            return {
-                initUser:function(){
-                    return this.user
-                }
-            }
-        },`
-       ` onShow:function(){
-            this.addRegion('date',this.$el.find('.regist-list-changeDate'))
-            this.addRegion('container',this.$el.find('.regist-list-c'))
-        }`
+    	`View.LayoutView = Marionette.LayoutView.extend({
+            template:Statistics.Templates.LayoutView,
+            regions:{
+               title:'.regist-list-title',
+                container:'.regist-list-c'
+            },`
+          ` templateHelpers:function(){
+                return {
+                    initUser:function(){
+                        return this.user
+                   }
+               }
+            },`
+           ` onShow:function(){
+                this.addRegion('date',this.$el.find('.regist-list-changeDate'))
+                this.addRegion('container',this.$el.find('.regist-list-c'))
+            }`
     })`
-    如果view当中需要渲染数据,通过函数tempalteHelpers来返回数据（此数据为model中数据,在index.js中,会通过相关声明指定view的model 
 
-     或collection）,例如上述,只需在数据需要显示区,调用<=%initUser()=>即可
+     如果view当中需要渲染数据,通过函数tempalteHelpers来返回数据（此数据为model中数据,在index.js中,会通过相关声明指定view的model 
+
+    或collection）,例如上述,只需在数据需要显示区,调用<=%initUser()=>即可
  
 
 * router.js    路由文件 ,如果想通过改变路由展示页面指定内容,可操作路由文件		
 
-	`Router.Router = Jma.AppRouter.extend({
-		appRoutes:{
-			'':'forward',
-			'app/Attendance':'Attendance',
-			.
-			.
-			.
-		}
-	})`
-	`Router.Controller = Marionette.Controller.extend({
-			forward: function(){
-			Jma.module('app').StartApp();//启动项目或者是子项目			
-		}`,
-		Attendance: function(){
-			Jma.module('Regist.Attendance').StartApp();//同上
-		}
-	})`
+	   `Router.Router = Jma.AppRouter.extend({
+	     	appRoutes:{
+		    	'':'forward',
+		    	'app/Attendance':'Attendance',
+			
+	     	}
+	   })`
+
+	   `Router.Controller = Marionette.Controller.extend({
+	   		forward: function(){
+	   		Jma.module('app').StartApp();//启动项目或者是子项目			
+	   	}`,
+	   	Attendance: function(){
+	   		Jma.module('Regist.Attendance').StartApp();//同上
+	   	}
+	   })`
 
 * index.js    主文件
 
-	实例化collection,model,view,渲染页面
+	   实例化collection,model,view,渲染页面
 
 3. 若模块中含有子模块,执行. createModulejs.sh x （模块）xx (子模块）xxx  生成项目模块的子模块xxx	
 
-	├──app   
-      ├── main              
-      ├── project
-            ├── main    
-            ├── subproject    
-                    ├── main			
+    	├──app   
+         ├── main              
+         ├── project
+               ├── main    
+               ├── subproject    
+                        ├── main			
 
 4. 通过mobilecsscomponents中关联组件,实现view层样式
 
@@ -179,57 +179,57 @@
 			      }
 			    })`
 
-* select组件
+*select组件
 
- `var form = new Jma.Components.Form.editors.FormSelect({
-      model:model,
-      key:'select',
-      schema:{
-        editorAttrs:{readonly:"readonly"},
-        list:[
-            {key:1,val:'2016-01'},
-            {key:2,val:'2016-02'},
-            {key:3,val:'2016-03'},
-            {key:4,val:'2016-04'},
-            {key:5,val:'2016-05'},
-            {key:6,val:'2016-06'},
-            {key:7,val:'2016-07'},
-            {key:8,val:'2016-08'},
-            {key:9,val:'2016-09'},
-            {key:10,val:'2016-10'},
-            {key:11,val:'2016-11'},
-            {key:12,val:'2016-12'}
-          ]
-      }
-    })`
+     `var form = new Jma.Components.Form.editors.FormSelect({
+          model:model,
+          key:'select',
+         schema:{
+            editorAttrs:{readonly:"readonly"},
+            list:[
+               {key:1,val:'2016-01'},
+                {key:2,val:'2016-02'},
+               {key:3,val:'2016-03'},
+               {key:4,val:'2016-04'},
+               {key:5,val:'2016-05'},
+               {key:6,val:'2016-06'},
+               {key:7,val:'2016-07'},
+               {key:8,val:'2016-08'},
+               {key:9,val:'2016-09'},
+               {key:10,val:'2016-10'},
+               {key:11,val:'2016-11'},
+               {key:12,val:'2016-12'}
+              ]
+         }
+       })`
 
 
 *弹出框
 
-  $('.xxxxx')触发事件,实例化Jma.Dialog.confirm
+     $('.xxxxx')触发事件,实例化Jma.Dialog.confirm
 
-`$('.xxxxx').click(function(){
-      new Jma.Dialog.confirm({
-        content:'xxxxx',
-        hasClose:true,
-        buttons:[
-          {
-            label: '确定',
-            cssClass: 'btn-accppt',
-            action: function () {
-              console.log('xxxx');
-            }
-          },
-          {
-            label: '确定',
-            cssClass: 'btn-reject',
-            action: function () {
-              console.log('xxxx');
-            }
-          }
-        ]
-      })
-    })`
+    `$('.xxxxx').click(function(){
+         new Jma.Dialog.confirm({
+            content:'xxxxx',
+             hasClose:true,
+            buttons:[
+             {
+                label: '确定',
+               cssClass: 'btn-accppt',
+                action: function () {
+                  console.log('xxxx');
+               }
+              },
+              {
+                label: '确定',
+               cssClass: 'btn-reject',
+               action: function () {
+                 console.log('xxxx');
+               }
+             }
+           ]
+          })
+       })`
 
 
 

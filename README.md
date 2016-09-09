@@ -43,8 +43,26 @@
  bower inistall
     
  gulp
+
     
 ```
+####各安装包版本号
+    backbone:v1.1.2
+
+    Marionette:v2.4.7
+
+    Underscore:v1.8.3
+
+    moment:v2.8.4
+
+    bootstrap-switch:v3.3.2
+
+    bootstrap:v3.3.1
+
+    backbone-forms:v0.14.0
+    
+   
+
 
 ####项目主要功能
 

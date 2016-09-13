@@ -44,7 +44,14 @@
   padding-left: 0px;
   line-height: 45px;
   font-size: 14px; }
-  .select .goback {
+  .select .cancel {
+    display: inline-block;
+    margin-left: 30px; }
+  .select .save {
+    position: absolute;
+    right: 30px;
+    top: 0px;
+    display: inline-block;
     padding-left: 30px;
     cursor: pointer; }
   .select .select-work-system {
@@ -55,10 +62,8 @@
         margin-top: 5px;
         float: right; }
 
-.more-setting .list {
-  margin-left: 20px; }
-  .more-setting .list .bootstrap-switch {
-    width: 80px !important; }
+.more-setting {
+  padding-left: 20px; }
 
 .select-user,
 .select-work-system {

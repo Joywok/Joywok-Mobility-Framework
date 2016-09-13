@@ -20,27 +20,20 @@ Jma.module('Addgroup.Views', function(Views, Jma, Backbone, Marionette, $, _) {
             this.addRegions({ moreSetting: this.$el.find('.more-setting') })
             this.addRegions({ goBack: this.$el.find('.goback') })
         },
-        // events: {
-        //     'click .goback': 'goback'
-        // },
-        // goback: function() {
-        //     console.log(12);
-        //     Jma.module('Setting.Addgroup').stop();
-
-        // }
-    });
-
-    Views.itemView = Marionette.ItemView.extend({
-        template: Jma.Addgroup.Templates.BackTemplate,
         events: {
-            'click .go-back': 'goback'
+            'click .save': 'save',
+            'click .cancel': 'cancel'
         },
-        goback: function() {
-            console.log(123);
-            Jma.module('Setting.Addgroup').StopApp();
+        save: function() {
+            this.trigger('save');
+            Jma.module("Setting.Addgroup").StopApp();
+        },
+        cancel: function() {
+            Jma.module("Setting.Addgroup").StopApp();
 
         }
-    })
+    });
+
 
 
 })

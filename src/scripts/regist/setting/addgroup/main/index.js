@@ -22,58 +22,66 @@ Jma.module('Setting.Addgroup', function(Addgroup, Jma, Backbone, Marionette, $, 
         layoutrender: function() {
             var self = this;
             self.layoutview.on('show', function() {
-                self.layoutview.goBack.show(new Jma.Addgroup.Views.itemView());
                 self.selectMemberRender();
                 self.selectWorkSystemRender();
                 self.moreSettingRender();
             })
+
         },
+        // 选择考勤人员
         selectMemberRender: function() {
-            var self=this;
+            var self = this;
+            this.model = new Jma.Addgroup.Entities.selectUser_commectionModel();
             this.form = new Jma.Components.Form.editors.selectUser({
-                key: 'user',
-                schema: {
-                    editorAttrs: { readonly: "readonly" }
-                }
-            })
+                model: this.model
+            });
             this.layoutview.selectMember.show(this.form);
-            this.layoutview.on('save',function(){
-                self.form.commit();
-            })
         },
+        // 选择上班制度
         selectWorkSystemRender: function() {
-            var model = new Backbone.Model();
-            var self=this;
+            var self = this;
+            this.model = new Jma.Addgroup.Entities.selectWorkSystem_model();
             this.form = new Jma.Components.Form.editors.selectWorkSystem({
-                model: model,
-                key: 'user',
-                schema: {
-                    editorAttrs: { readonly: "readonly" }
-                }
-            })
-            this.layoutview.workSystem.show(this.form);
-            this.layoutview.on('save',function(){
+                    model: self.model,
+                    key: 'checked',
+                    schema: {
+                        editorAttrs: { readonly: "readonly" }
+                    }
+                })
+            self.layoutview.workSystem.show(this.form);
+            self.layoutview.on('save', function() {
                 self.form.commit();
+                // self.model.save();
             })
         },
+        // OpenBar组件
         moreSettingRender: function() {
-            var model = new Backbone.Model();
-            this.form = new Jma.Components.Form.editors.OpenBar({
-                model: model,
-                key: 'aaa',
-                schema: {
-                    editorAttrs: { title: '消息提醒', readonly: "readonly" },
+            var self = this;
+            this.model = new Jma.Addgroup.Entities.messegeNotify();
+            this.model.fetch({
+                success: function() {
+                    self.form = new Jma.Components.Form.editors.OpenBar({
+                        model: self.model,
+                        key: 'messegenotify',
+                        schema: {
+                            editorAttrs: { title: '消息提醒', readonly: "readonly" },
+                        }
+                    })
+                    self.layoutview.moreSetting.show(self.form);
                 }
             })
-            this.layoutview.moreSetting.show(this.form)
+            self.layoutview.on('save', function(){
+                console.log(111111);
+                self.form.commit();
+                self.model.save();
+            })
         }
     });
     Addgroup.StartApp = function(options) {
         Addgroup.Controllers = new Addgroup.Controller(options);
     };
     Addgroup.StopApp = function(options) {
-        console.log(this.app.Views)       
+        $('.add-container').remove();
         Addgroup.Controllers = null;
     };
-
 })

@@ -49,7 +49,15 @@
     padding-left: 0px;
     line-height: 45px;
     font-size: 14px;
-    .goback {
+    .cancel {
+        display: inline-block;
+        margin-left: 30px;
+    }
+    .save {
+        position: absolute;
+        right: 30px;
+        top: 0px;
+        display: inline-block;
         padding-left: 30px;
         cursor: pointer;
     }
@@ -66,14 +74,11 @@
         }
     }
 }
-.more-setting{
-    .list{
-        margin-left: 20px;
-        .bootstrap-switch{
-            width:80px!important;
-        }
-    }
+
+.more-setting {
+    padding-left: 20px;
 }
+
 .select-user,
 .select-work-system {
     padding: 5px 20px;
@@ -147,10 +152,6 @@
         }
     }
 }
-
-
-
-
 
 .Form-date {
     width: 150px;

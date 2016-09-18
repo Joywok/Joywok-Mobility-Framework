@@ -1776,42 +1776,100 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
     });
 
 
-//switch  组件
+    //switch  组件
 
-    Components.Form.editors.OpenBar = Components.Form.editors.Base.extend({
+    // Components.Form.editors.OpenBar = Components.Form.editors.Base.extend({
+    //     className: 'togger',
+    //     render: function() {
+    //         var self = this;
+    //         // console.log(this.model);
+    //         this.checkbox = $('\
+    //             <input type="checkbox" class="togger-btn toggle-green" id="togger-' + this.key + '"/>')
+    //         this.$container = $('<label for="togger-' + this.key + '"> <i></i></label>')
+    //         self.$el.append(this.checkbox).append(self.$container);
+    //         setTimeout(function() {
+    //             console.log(self.model.get(self.key));
+    //             if (self.model.get(self.key)) {
+    //                 self.checkbox.attr({ checked: 'checked' });
+    //             }
+    //             self._init_bindEvent();
+    //         }, 0)
+    //     },
+    //     _init_bindEvent: function() {
+    //         var self = this;
+    //         self.checkbox.click(function() {
+    //             var data = 0;
+    //             if (self.checkbox[0].checked) {
+    //                 data = 1;
+    //             }
+    //             console.log(data);
+    //             self.value = data;
+    //         })
+    //     },
+    //     getValue: function() {
+    //         // console.log('这里触发了么',this.value,'123123')
+    //         return this.value;
+    //     },
+    //     setValue: function(value) {
+    //         this.value = value;
+    //         if (value) {
+    //             this.checkbox.attr({ checked: true });
+    //         } else {
+    //             this.checkbox.removeAttr({ checked: true })
+    //         }
+    //     },
+    // })
+
+
+  Components.Form.editors.OpenBar = Components.Form.editors.Base.extend({
         className: 'togger',
         render: function() {
             var self = this;
-            // console.log(this.model);
-            this.checkbox = $('\
-                <input type="checkbox" class="togger-btn toggle-green" id="togger-' + this.key + '"/>')
-            this.$container = $('<label for="togger-' + this.key + '"> <i></i></label>')
-            self.$el.append(this.checkbox).append(self.$container);
+            this.$container = $('\
+                <div class="list">\
+                  <div class=list-w>\
+                    <div class="list-item list-item-file">\
+                         <div class="toggle green">\
+                               <p>\
+                               <input type="checkbox" style="z-index:1;" name="my-checkbox"  class="togger-btn" id="togger-' + this.key + '"/>\
+                                             </p>\
+                         </div>\
+                         <div class="list-item-w">\
+                           <div class="list-item-val ellipsis">' + this.schema.editorAttrs.title + '</div>\
+                         </div>\
+                        </div>\
+                       </div>\
+                      </div>')
+            this.checkbox = this.$container.find('.togger-btn');
+            if (this.model.get(this.key)) {
+                this.checkbox.attr({ checked: 'checked' });
+                this.checkbox.bootstrapSwitch();
+            }
+            this.checkbox.bootstrapSwitch();
+            this._init_bindEvent();
             setTimeout(function() {
-                console.log(self.model.get(self.key));
-                if (self.model.get(self.key)) {
-                    self.checkbox.attr({ checked: 'checked' });
-                }
-                self._init_bindEvent();
+                self.$el.append(self.$container);
             }, 0)
         },
         _init_bindEvent: function() {
             var self = this;
-            self.checkbox.click(function() {
+            var data = 0;
+            if (self.checkbox[0].checked) data = 1;
+            self.value = data;
+            this.checkbox.on('click', function() {
                 var data = 0;
-                if (self.checkbox[0].checked) {
-                    data = 1;
-                }
-                console.log(data);
+                if (self.checkbox[0].checked) data = 1;
                 self.value = data;
+                self.model.set('messegenotify', data)
+                console.log(self.model);
             })
         },
         getValue: function() {
-            console.log('这里触发了么',this.value,'123123')
             return this.value;
         },
         setValue: function(value) {
             this.value = value;
+
             if (value) {
                 this.checkbox.attr({ checked: true });
             } else {
@@ -1819,6 +1877,10 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
             }
         },
     })
+
+
+
+
 
     Components.Form.editors.selectUser_view = Backbone.View.extend({
         className: 'list-item',
@@ -1929,6 +1991,9 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
             })
         }
     })
+
+
+
     Components.Form.editors.selectWorkSystem_view = Backbone.View.extend({
         className: 'list-item',
         initialize: function() {},
@@ -1953,8 +2018,17 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
                 if (target[0]['checked']) {
                     data = 1;
                 }
+                // console.log(self.model);
+                // self.model.set('checked', data);
+                _.map(self.model.collection.models, function(model) {
 
-                self.model.set('checked', data)
+                    if (model == self.model){
+                        self.model.set('checked', data);
+                    }else{
+                        model.set('checked',0);
+                    }
+                })
+                console.log(self.model.collection);
             })
         }
     });
@@ -1999,7 +2073,6 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
         }
     })
 
-
     Components.Form.editors.Date = Components.Form.editors.Base.extend({
         className: 'Form-date',
         render: function() {
@@ -2033,64 +2106,6 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
             this.input.val(data);
         }
     })
-    Components.Form.editors.calendarPicker = Components.Form.editors.Base.extend({
-        className: 'Form-date',
-        render: function() {
-            this.$el.html('<div class="Form-date-w">\
-                             <div class="date-select">\
-                                  <input  value="" class="" readonly="readonly" name="appDate" id="appDate" type="text">\
-                                  <i class="fa fa-chevron-down" aria-hidden="true"></i>\
-                             </div>\
-                           </div>')
-            this._init_bindEvent();
-        },
-        _init_bindEvent: function() {
-            var self = this;
-            this.input = this.$el.find('input');
-            this.dateSelect = this.$el.find('.date-select');
-            var data = this.formateData(Date.parse(new Date()) / 1000);
-            this.input.val(data);
-            this.input.on('change', function() {
-                self.model.set(self.key, self.getValue());
-            })
-            this.dateSelect.on('click', function() {
-                console.log(123);
-                var currYear = (new Date()).getFullYear();
-                var opt = {};
-                opt.date = {
-                    preset: 'date'
-                };
-                opt.default = {
-                    theme: 'android-ics light', //皮肤样式
-                    display: 'modal', //显示方式 
-                    mode: 'scroller', //日期选择模式
-                    dateFormat: 'yyyy-mm-dd',
-                    lang: 'zh',
-                    showNow: true,
-                    nowText: "今天",
-                    startYear: currYear - 10, //开始年份
-                    endYear: currYear + 10 //结束年份
-                };
-
-                $("#appDate").mobiscroll($.extend(opt['date'], opt['default']));
-            })
-        },
-        formateData: function(time) {
-            var date = new Date(time * 1000);
-            var yyyy = date.getFullYear();
-            var mm = date.getMonth() + 1;
-            var dd = date.getDate();
-            return (yyyy + "-" + (mm < 10 ? '0' + mm : mm) + "-" + (dd < 10 ? '0' + dd : dd))
-        },
-        getValue: function() {
-            var data = Date.parse(new Date(this.input)) / 1000;
-            return data
-        },
-        setValue: function(value) {
-            var data = this.formateData(Date.parse(new Date(value)) / 1000);
-            this.input.val(data);
-        }
-    });
 
     Components.Form.editors.FormSelect = Components.Form.editors.Base.extend({
         className: 'form-select',

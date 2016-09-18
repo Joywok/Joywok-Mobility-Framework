@@ -124,8 +124,6 @@
          next()
      })
 
-
-
  router.route('/api/zhailei')
      .all(function(req, res, next) { next() })
      .get(function(req, res, next) {
@@ -257,32 +255,36 @@
          })
          next()
      })
-     .put(function(req, res, next) {
-         res.writeHead(200, { 'Content-Type': 'application/json' });
-         var data = fs.readFileSync('routers/files/messegeNotify.json');
-         console.log(data);
-         res.end(JSON.stringify(eval("(" + data + ")")));
-         next();
-     })
      // .put(function(req, res, next) {
+     //     res.writeHead(200, { 'Content-Type': 'application/json' });
+     //     var data = fs.readFileSync('routers/files/messegeNotify.json');
+     //     //你这里是直接读取的这个json文件里面写死的数据呀。。。读取了，直接下面返回给前端了。你那个文件里面写死了是1.。。就是前端传啥 返回的不都是1
 
-     //     req.on('data', function(data) {
-     //         var datas = eval("(" + data + ")");
-     //         var DataList = eval('(' + fs.readFileSync('routers/files/messegeNotify.json') + ')');
-     //         var nowData = _.clone(DataList);
-     //         _.each(nowData, function(item) {
-     //             if (item["id"] == datas["id"]) {
-     //                 _.extend(item, datas)
-     //             }
-     //         })
-     //         DataList= nowData
-     //         Backdatas = _.clone(datas);
-     //         fs.writeFile('routers/files/messegeNotify.json', JSON.stringify(_.clone(DataList)), function(err) {
-     //             if (err) console.log(err)
-     //         })
-     //     })
-     //     req.on('end', function(data) {
-     //         res.writeHead(200, { 'Content-Type': 'application/json' });
-     //         res.end(JSON.stringify({ data: Backdatas }));
-     //     })
+     //     console.log(data);
+     //     res.end(JSON.stringify(eval("(" + data + ")")));
+     //     next();
      // })
+      .put(function(req, res, next) {
+         var url = req.url.split('/');
+         var id = url[url.length - 1];
+         req.on('data', function(data) {
+             var datas = eval("(" + data + ")");
+             var DataList = eval('(' + fs.readFileSync('routers/files/messegeNotify.json') + ')');
+             var nowData = _.clone(DataList);
+             _.each(nowData, function(item) {
+                 if (item["id"] == datas["id"]) {
+                     _.extend(item, datas)
+                 }
+             })
+             DataList = nowData
+             Backdatas = _.clone(datas);
+             fs.writeFile('routers/files/messegeNotify.json', JSON.stringify(_.clone(DataList)), function(err) {
+                 if (err) console.log(err)
+             })
+         })
+         req.on('end', function(data) {
+            console.log(data);
+             res.writeHead(200, { 'Content-Type': 'application/json' });
+             res.end(JSON.stringify({ data: Backdatas }));
+         })
+     })

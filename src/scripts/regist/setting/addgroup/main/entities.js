@@ -8,7 +8,7 @@ Jma.module('Addgroup.Entities', function(Entities, Jma, Backbone, Marionette, $,
     Entities.messegeNotify = Backbone.Model.extend({
         url: '/api/messegeNotify',
         parse: function(resp) {
-            return resp;
+            return resp['data'];
         }
     });
     Entities.selectUser_commectionModel = Backbone.Model.extend({

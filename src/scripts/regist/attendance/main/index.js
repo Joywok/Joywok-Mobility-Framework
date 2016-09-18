@@ -49,15 +49,7 @@ Jma.module('Regist.Attendance', function(Attendance, Jma, Backbone, Marionette, 
             })
         },
         renderForm: function() {
-            // var form = new Jma.Components.Form.editors.Date({
-            //     model: new Jma.Attendance.Entities.formModel(),
-            //     key: 'date',
-            //     schema: {
-            //         editorAttrs: { readonly: "readonly" }
-            //     }
-            // });
-            // this.layoutView.date.show(form);
-             var form = new Jma.Components.Form.editors.calendarPicker({
+            var form = new Jma.Components.Form.editors.Date({
                 model: new Jma.Attendance.Entities.formModel(),
                 key: 'date',
                 schema: {

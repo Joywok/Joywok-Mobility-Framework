@@ -40,18 +40,21 @@ Jma.module('Setting.Addgroup', function(Addgroup, Jma, Backbone, Marionette, $, 
         // 选择上班制度
         selectWorkSystemRender: function() {
             var self = this;
-            this.model = new Jma.Addgroup.Entities.selectWorkSystem_model();
-            this.form = new Jma.Components.Form.editors.selectWorkSystem({
-                    model: self.model,
-                    key: 'checked',
-                    schema: {
-                        editorAttrs: { readonly: "readonly" }
-                    }
-                })
-            self.layoutview.workSystem.show(this.form);
+            this.workmodel = new Jma.Addgroup.Entities.selectWorkSystem_model();
+            this.WorkSystem = new Jma.Components.Form.editors.selectWorkSystem({
+                model: this.workmodel,
+                key: 'checked',
+                schema: {
+                    editorAttrs: { readonly: "readonly" }
+                }
+            })
+            self.layoutview.workSystem.show(this.WorkSystem);
             self.layoutview.on('save', function() {
-                self.form.commit();
-                // self.model.save();
+                self.WorkSystem.commit();
+                _.each(self.WorkSystem.collection.models, function(model) {
+                    model.save();
+                    console.log(model);
+                })
             })
         },
         // OpenBar组件
@@ -62,15 +65,16 @@ Jma.module('Setting.Addgroup', function(Addgroup, Jma, Backbone, Marionette, $, 
                 success: function() {
                     self.form = new Jma.Components.Form.editors.OpenBar({
                         model: self.model,
+                        template:Jma.Addgroup.Templates.toggleTemplate,
                         key: 'messegenotify',
                         schema: {
-                            editorAttrs: { title: '消息提醒', readonly: "readonly" },
+                            editorAttrs: { title:'消息提醒',readonly: "readonly" },
                         }
                     })
                     self.layoutview.moreSetting.show(self.form);
                 }
             })
-            self.layoutview.on('save', function(){
+            self.layoutview.on('save', function() {
                 console.log(111111);
                 self.form.commit();
                 self.model.save();

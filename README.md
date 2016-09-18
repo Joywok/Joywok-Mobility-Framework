@@ -2,7 +2,7 @@
 
 
 ####项目说明
-此项目为Joywok手机端项目开发框架，定期更新手机端模块,用于实现快速开发,如项目中使用jQuery作为底层库,可直接使用,提供基础的样式选择
+此项目为移动端H5,用于实现快速开发
 
 
 ####结构说明
@@ -21,8 +21,8 @@
 
 ├── fonts                  #Font-awasome字体文件
 ├── scripts                #主要开发代码
-    ├── apps                   #子模块代码文件
-    ├── main                   #基础框架代码文件
+    ├── apps               #子模块代码文件
+    ├── main               #基础框架代码文件
 ├── scss                   #css编译前代码
 ├── styles                 #css编译后代码
 └── index.html             #主要入口文件
@@ -74,10 +74,11 @@
 
 ####使用方法		
 
-1. 当创建一个新项目时,  通过执行. createModulejs.sh x 生成项目  
+1. 新建项目:. createModulejs.sh x 
 
+  参数说明: x  项目名称 
 
-例如:创建项目app,通过执行. createModulejs.sh app 即可, 每一个创建项目都会生成一个main文件夹,该文件夹包含以下文件
+  . createModulejs.sh app 生成以下结构
 
     ├─app        
         ├─ main             
@@ -85,35 +86,37 @@
             ├── entities.js    #数据文件      
             ├── index.js       #主要入口文件    
             ├── router.js      #路由文件 用来控制同一页面不同内容的跳转    
-            ├── templates.js  ＃模板文件   
+            ├── templates.js   #模板文件   
             ├── views.js       #视图文件  
   
   
 
-2.  根据项目模块,执行 . createModulejs.sh x (模块）xx 生成项目模块xx
+2.  新建子项目或模块:. createModulejs.sh x xx 
+
+    参数说明: x  (项目名称) xx (模块名称)  
 
 
-	   例如:. createModulejs.sh  app  project   同样每一个模块当中也会有一个main文件                  
+	 . createModulejs.sh  app  project  结构如下                 
 ```
      ├──app    
         ├─ main     
         ├─ project    
             ├─ main     
             
-
+```
 * templates.js文件,就是页面中需要展示的布局,在tempaltes文件中声明不同的模板,将在view层中展示
 
 * entities.js  数据文件,请求后台数据，根据需要在该文件中设置请求数据的地址,view层中数据的渲染均来源该文件。    
 ```
     `Entities.Collection = Backbone.Collection.extend({          
-            url:'/api/zhailei',         
-           parse:function(data){         
-           return data['data']; 
-              }        
+        url:'/api/zhailei',         
+        parse:function(data){         
+        return data['data']; 
+         }        
            
       })`             
 
-     url:数据请求地址,parse:返回数据
+    参数说明: url(数据请求地址),parse(返回数据)
 
 * views.js  是用来显示entities.js中model或者collection的数据到页面的,同时它也可用来监听DOM上的事件然后做出响应。
 
@@ -147,7 +150,7 @@
 
 	    `Router.Router = Jma.AppRouter.extend({
 	          	appRoutes:{
-		       	'':'forward',
+		       	  '':'forward',
 		        	'app/Attendance':'Attendance',
 			
 	        	}
@@ -185,7 +188,7 @@
 
 *日期组件
 
-	`var form = new Jma.Components.Form.editors.FormSelect({
+	`var form = new Jma.Components.Form.editors.Date({
 			      model:model,
 			      key:'date',
 			      schema:{
@@ -195,10 +198,10 @@
 
 *select组件
 
-     `var form = new Jma.Components.Form.editors.FormSelect({
+    `var form = new Jma.Components.Form.editors.FormSelect({
           model:model,
           key:'select',
-         schema:{
+          schema:{
             editorAttrs:{readonly:"readonly"},
             list:[
                {key:1,val:'2016-01'},

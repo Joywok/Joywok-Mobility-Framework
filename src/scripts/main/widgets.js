@@ -133,3 +133,75 @@ Jma.Dialog.alert = function(options){
   })
 }
 Jma.Dialog.confirm = Jma.Dialog.alert
+
+
+Jma.Loading = {};
+
+//type:1,2,3,4,5
+
+Jma.Loading.template = {
+  1:'<div class="loading-1"></div>',
+  2:'<div class="loading-2">\
+      <div class="loading-2-bounce1"></div>\
+      <div class="loading-2-bounce2"></div>\
+     </div>',
+  3:'<div class="loading-3">\
+      <div class="rect1"></div>\
+      <div class="rect2"></div>\
+      <div class="rect3"></div>\
+      <div class="rect4"></div>\
+      <div class="rect5"></div>\
+     </div>',
+  4:'<div class="loading-4">\
+      <div class="bounce1"></div>\
+      <div class="bounce2"></div>\
+      <div class="bounce3"></div>\
+     </div>',
+  5:'<div class="loading-5">\
+      <div class="sk-circle1 sk-circle"></div>\
+      <div class="sk-circle2 sk-circle"></div>\
+      <div class="sk-circle3 sk-circle"></div>\
+      <div class="sk-circle4 sk-circle"></div>\
+      <div class="sk-circle5 sk-circle"></div>\
+      <div class="sk-circle6 sk-circle"></div>\
+      <div class="sk-circle7 sk-circle"></div>\
+      <div class="sk-circle8 sk-circle"></div>\
+      <div class="sk-circle9 sk-circle"></div>\
+      <div class="sk-circle10 sk-circle"></div>\
+      <div class="sk-circle11 sk-circle"></div>\
+      <div class="sk-circle12 sk-circle"></div>\
+     </div>'
+}
+
+Jma.Loading.main = Backbone.View.extend({
+  initialize:function(options){
+    _.extend(this,options)
+    this.$el = $('<div class="loading-specail">\
+                    <div class="loading-specail-w"></div>\
+                   </div>')
+    this._init_render();
+    this._init_value();
+
+    if(this.specailClassName){
+      this.$el.addClass(this.specailClassName);
+    }
+
+
+    if(this.region){
+      this.region.append(this.$el)
+    }
+  },
+  _init_render:function(){
+    this.$el.find('.loading-specail-w').append(Jma.Loading.template[this.type])
+  },
+  _init_value:function(){
+    if(this.value){
+      this.$el.append('<div class="loading-specail-value">'+this.value+'</div>');
+    }
+  },
+  close:function(){
+    this.$el.remove();
+  }
+})
+
+

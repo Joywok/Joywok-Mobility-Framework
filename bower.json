@@ -21,7 +21,8 @@
     "underscore": "~1.8.2",
     "uploader": "~0.9.1",
     "bootstrap-select": "^1.11.0",
-    "bootstrap-datepicker-mobile": "^0.0.1"
+    "bootstrap-datepicker-mobile": "^0.0.1",
+    "loadcss": "^1.2.0"
   },
   "devDependencies": {}
 }

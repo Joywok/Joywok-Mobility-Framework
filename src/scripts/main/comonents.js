@@ -1725,7 +1725,6 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
             return false
         }
     });
-
     Components.DataList = Jma.Views.Layout.extend({
         className: 'data-list',
         template: Jma.Templates.datalist,
@@ -2120,4 +2119,6 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
             this.select.val(value)
         }
     })
+
+
 });

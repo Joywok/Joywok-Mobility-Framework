@@ -459,12 +459,11 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
             _.bindAll(this, 'fileAdd', 'fileRemove', 'fileInvalid', 'tooManyFile', 'beforeUpload', 'uploadStart', 'uploadAbort', 'uploadComplete', 'uploadError', 'uploadProgress', 'render', '_showAttaches', 'initUploader');
             Components.Form.editors.Base.prototype.initialize.apply(this, arguments);
             _.extend(this, this.defaults, _.pick(options.schema, 'url', 'title', 'params', 'multiple', 'collectionName', 'viewsName', 'button', 'dropZone'));
-            if (!this.button) throw new Error("Upload button must be specified.");
-
-            this.collectionName = this.collectionName || Juggler.Entities.Collection;
-            this.viewsName = this.viewsName || Juggler.Views.AttachesView;
-            // this.template = this.template || Juggler.Entities.Collection;
-            // this.collection = new Juggler.Entities.Collection(this.model.get(this.key));
+            // if (!this.button) throw new Error("Upload button must be specified.");
+            this.collectionName = this.collectionName || Backbone.Collection;
+            this.viewsName = this.viewsName || Jma.Views.AttachesView;
+            // this.template = this.template || Jma.Entities.Collection;
+            // this.collection = new Jma.Entities.Collection(this.model.get(this.key));
             this.collection = new this.collectionName(this.model.get(this.key));
             this.collection.on('add remove reset', this._showAttaches);
             this.initUploader();
@@ -1824,6 +1823,7 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
             }
         },
     })
+    Components.Form.editors.Toggle = Components.Form.editors.OpenBar
     Components.Form.editors.selectUser_view = Backbone.View.extend({
         className: 'list-item',
         initialize: function() {},

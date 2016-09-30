@@ -17,6 +17,8 @@ var path = require('path');
 var minimist = require('minimist');
 var pkg = require('./package.json');
 
+var concat = require('gulp-concat');
+
 var AUTOPREFIXER_BROWSERS = [
   'ie >= 10',
   'ie_mob >= 10',
@@ -97,6 +99,33 @@ gulp.task('js', function () {
 });
 
 
+gulp.task('public:css',function(){
+  gulp.src(['bower_components/bootstrap/dist/css/bootstrap.css','bower_components/font-awesome/css/font-awesome.css','bower_components/bootstrap-select/dist/css/bootstrap-select.css','mobilecsscomponents/joywok-mobile.css'])
+    .pipe(concat('index.css'))
+    .pipe(gulp.dest('.'))
+    .pipe($.size({title:'index.css'}));
+})
+
+gulp.task('public:js:framework',function(){
+  gulp.src(['bower_components/jquery/dist/jquery.js','bower_components/bootstrap/dist/js/bootstrap.min.js','bower_components/underscore/underscore.js','bower_components/backbone/backbone.js','bower_components/backbone.wreqr/lib/backbone.wreqr.js','bower_components/backbone.babysitter/lib/backbone.babysitter.js','bower_components/marionette/lib/core/backbone.marionette.js','bower_components/backbone-forms/distribution/backbone-forms.js','bower_components/moment/moment.js','bower_components/bootstrap3-dialog/dist/js/bootstrap-dialog.js','bower_components/remarkable-bootstrap-notify/dist/bootstrap-notify.js','bower_components/bootstrap-select/dist/js/bootstrap-select.js','bower_components/backbone-forms/distribution/backbone-forms.js','bower_components/uploader/uploader.js'])
+    .pipe(concat('framework.js'))
+    .pipe(gulp.dest('.'))
+    .pipe($.size({title:'framework.js'}));
+})
+
+gulp.task('public:js:index',function () {
+  gulp.src(['src/scripts/main/index.js'])
+    .pipe(gulp.dest('.'))
+    .pipe($.size({title:'index.js'}));
+
+  gulp.src(['src/scripts/main/dicts.js','src/scripts/main/funcs.js','src/scripts/main/templates.js','src/scripts/main/entities.js','src/scripts/main/views.js','src/scripts/main/fix.js','src/scripts/main/comonents.js','src/scripts/main/widgets.js','src/scripts/main/start.js'])
+    .pipe(concat('components.js'))
+    .pipe(gulp.dest('.'))
+    .pipe($.size({title:'components.js'}));
+})
+gulp.task('public',['public:css','public:js:framework'],function () {
+
+})
 
 
 gulp.task('serve',['css','concatRoutes'],function(){

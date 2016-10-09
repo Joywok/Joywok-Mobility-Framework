@@ -13,43 +13,16 @@
     <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css" >
     <link rel="stylesheet" type="text/css" href="/mobilecsscomponents/joywok-mobile.css">
 
-
     <link rel="stylesheet" href="/bower_components/loadcss/src/loadCs.js">
 
     <link rel="stylesheet" type="text/css" href="/mobilecsscomponents/build/styles/joywok-mobile.css">
     <link rel="stylesheet" type="text/css" href="/build/css/select.css">
-    <link rel="stylesheet" type="text/css" href="/build/css/regist.css">
     <link rel="stylesheet" type="text/css" href="/bower_components/mobile-datepicker/mobiscroll.css">
-    <link rel="stylesheet" type="text/css" href="/build/css/regist-zhailei.css">
 
 </head>
 <style type="text/css">
 </style>
 <body>
-    <nav id="nav">
-        <div class="regist-nav">
-            <div class="nav-tabs">
-                <a class="tabs-Attendance item " href="#regist/Attendance">
-                    <div class="Attendance-icon ">
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                    </div>
-                    <div class="Attendance-val">打卡</div>
-                </a>
-                <a class="tabs-statistics item" href="#regist/statistics">
-                    <div class="statistics-icon ">
-                       <i class="fa fa-bar-chart" aria-hidden="true"></i>
-                    </div>
-                    <div class="statistics-val">统计</div>
-                </a>
-                <a class="tabs-setting item" href="#regist/setting">
-                    <div class="setting-icon ">
-                        <i class="fa fa-cog" aria-hidden="true"></i>
-                    </div>
-                    <div class="setting-val">设置</div>
-                </a>
-            </div>
-        </div>
-    </nav>
     <header id="header"></header>
     <main id="main" class="main"></main>
     <div id="footer"></div>
@@ -85,116 +58,12 @@
     <script type="text/javascript" src="/scripts/main/widgets.js"></script>
     <script type="text/javascript" src="/scripts/main/start.js"></script>
     <!-- 项目文件-->
-    <script type="text/javascript" src="/src/scripts/regist/main/dicts.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/main/entities.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/main/router.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/main/templates.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/main/views.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/main/index.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/attendance/main/dicts.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/attendance/main/funcs.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/attendance/main/entities.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/attendance/main/router.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/attendance/main/templates.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/attendance/main/views.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/attendance/main/index.js"></script>
-
-    <script type="text/javascript" src="/src/scripts/regist/setting/main/dicts.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/setting/main/entities.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/setting/main/router.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/setting/main/templates.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/setting/main/views.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/setting/main/index.js"></script>
-
-     <script type="text/javascript" src="/src/scripts/regist/setting/addgroup/main/dicts.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/setting/addgroup/main/entities.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/setting/addgroup/main/router.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/setting/addgroup/main/templates.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/setting/addgroup/main/views.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/setting/addgroup/main/index.js"></script>
-
-    <script type="text/javascript" src="/src/scripts/regist/statistics/main/dicts.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/statistics/main/entities.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/statistics/main/router.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/statistics/main/templates.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/statistics/main/views.js"></script>
-    <script type="text/javascript" src="/src/scripts/regist/statistics/main/index.js"></script>
 </body>
 <script type="text/javascript">
 $(function() {
-
     $('#nav').find('.item').on('click', function() {
         $(this).addClass('active').siblings().removeClass('active');
     })
-
-// 
-
-
-    // $('.xxxxx').click(function(){
-    //   new Jma.Dialog.confirm({
-    //     content:'xxxxx',
-    //     hasClose:true,
-    //     buttons:[
-    //       {
-    //         label: '确定',
-    //         cssClass: 'btn-accppt',
-    //         action: function () {
-    //           console.log('xxxx');
-    //         }
-    //       },
-    //       {
-    //         label: '确定',
-    //         cssClass: 'btn-reject',
-    //         action: function () {
-    //           console.log('xxxx');
-    //         }
-    //       }
-    //     ]
-    //   })
-    // })
-
-    
-    //    var form = new Jma.Components.Form.editors.OpenBar({
-    //      model:model,
-    //      key:'aaa',
-    //      schema:{
-    //        editorAttrs:{readonly:"readonly"},
-    //      }
-    //    })
-    // var form = new Jma.Components.Form.editors.selectUser({
-    //   model:model,
-    //   key:'user',
-    //   schema:{
-    //     editorAttrs:{readonly:"readonly"}
-    //   }
-    // })
-    // var model = new Backbone.Model();
-    // var form = new Jma.Components.Form.editors.FormSelect({
-    //   model:model,
-    //   key:'select',
-    //   schema:{
-    //     editorAttrs:{readonly:"readonly"},
-    //     list:[
-    //         {key:1,val:'2016-01'},
-    //         {key:2,val:'2016-02'},
-    //         {key:3,val:'2016-03'},
-    //         {key:4,val:'2016-04'},
-    //         {key:5,val:'2016-05'},
-    //         {key:6,val:'2016-06'},
-    //         {key:7,val:'2016-07'},
-    //         {key:8,val:'2016-08'},
-    //         {key:9,val:'2016-09'},
-    //         {key:10,val:'2016-10'},
-    //         {key:11,val:'2016-11'},
-    //         {key:12,val:'2016-12'}
-    //       ]
-    //   }
-    // })
-    // setTimeout(function(){
-    //     Jma.mainRegion.show(form)    
-    // },100)
-    
 })
 </script>
-
 </html>

@@ -1928,7 +1928,6 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
         className: 'list-item',
         initialize: function() {},
         render: function() {
-
             this.$el.html('<div class="list-item-w">\
                         <label>' + this.model.get("name") + '</label>\
                         <div class="radio-w">\

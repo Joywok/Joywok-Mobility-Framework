@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JSSDK-Demo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" id="View">
+<meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
+<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
+<link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.css" />
+<link rel="stylesheet" type="text/css" href="../mobilecsscomponents/joywok-mobile.css">
+<script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src='../bower_components/underscore/underscore.js'></script>
+<script type="text/javascript" src="../build/public/jssdk.js"></script>
+</head>
+<body>
+<div class="main">
+  <div class="bar bar-header">
+    <div class="bar-w">
+      <button type="button" class="btn back">返回</button>
+      <button type="button" class="btn right next">下一步</button>
+      <h1 class="ellipsis">标题</h1>
+    </div>
+  </div>
+	<div class="main-w">
+		<div class="main-t">这个页面可以打开一个新页面，点击下一步，也可以返回上一级,也可以设置页面的标题<span class="btn-setting">设置</span>，隐藏HideBar<span class="btn-hider">隐藏</span>，也可以获取当前用户的信息<span class="btn-get-info">获取</span></div>
+    <div class="main-info">
+
+    </div>
+
+	</div>
+	<div class="footer">
+	 <div class="footer-bg"></div>
+	 <div class="footer-w">
+	  <div class="tabs">
+	   <div class="tabs-w">
+	    <a class="tabs-item">
+	      <div class="tabs-item-w">123</div>
+	    </a>
+	    <a class="tabs-item">
+	      <div class="tabs-item-w">123</div>
+	    </a>
+	    <a class="tabs-item">
+	       <div class="tabs-item-w">123</div>
+	    </a>
+	    <a class="tabs-item">
+	       <div class="tabs-item-w">123</div>
+	    </a>
+	   </div>
+	  </div>
+	 </div>
+	</div>
+</div>
+<style type="text/css">
+	.main{
+		position: absolute;top:0;right: 0;bottom: 0;left: 0;
+	}
+	.main .main-w{
+		position: absolute;top:44px;left: 0;right: 0;bottom: 50px;padding:20px;
+	}
+  .main .main-w{
+    line-height:25px;
+  }
+  .btn-setting,.btn-hider,.btn-get-info{
+    font-weight:bolder;
+    color: #bf0404;
+    cursor: pointer;
+  }
+
+  .main-info{
+    margin-top: 40px;
+  }
+  .main-info div{
+    margin-top: 10px;
+  }
+</style>
+</body>
+<script type="text/javascript">
+  $(function(){
+    $('.back').click(function(){
+      jw.closeWebView();
+    })
+
+    $('.btn.next').click(function(){
+      var url = window.location.origin;
+      jw.pushWebView('http://www.baidu.com')
+    })
+
+    $('.btn-setting').click(function(){
+      jw.setTitle({title:"这是页面标题:"+Math.random()*100});
+    })
+
+    $('.btn-hider').click(function(){
+      jw.hideTabs();
+    })
+
+    $('.btn-get-info').click(function(){
+      jw.getInfo({
+        success: function(res) {
+          var info = res['info'];
+          var data = _.map(info,function(i,index){
+            return ('<div class="">'+index+':'+i+'</div>')
+          }).join('')
+
+          $('.main-info').html('用户的信息:'+data)
+        }
+      })
+  })
+
+  })
+	(function(){
+    jw.config({
+      debug: true,
+      appid: 'appid_abcdefg',
+      timestamp: (new Date()).getTime()
+    });
+  }());
+</script>
+</html>

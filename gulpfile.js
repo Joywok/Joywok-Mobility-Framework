@@ -100,7 +100,7 @@ gulp.task('js', function () {
 
 
 gulp.task('public:css',function(){
-  gulp.src(['bower_components/bootstrap/dist/css/bootstrap.css','bower_components/font-awesome/css/font-awesome.css','bower_components/bootstrap-select/dist/css/bootstrap-select.css','mobilecsscomponents/joywok-mobile.css'])
+  gulp.src(['bower_components/bootstrap/dist/css/bootstrap.css','bower_components/font-awesome/css/font-awesome.css','bower_components/bootstrap-select/dist/css/bootstrap-select.css'])
     .pipe(concat('index.css'))
     .pipe(gulp.dest('build/public/'))
     .pipe($.size({title:'index.css'}));

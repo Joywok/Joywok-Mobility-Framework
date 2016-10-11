@@ -10,7 +10,6 @@ Jma.module('Demo', function(Demo, Jma, Backbone, Marionette, $, _){
 		initialize: function(options){
 			var self = this;
 			this.options = options;
-
 			/*****************
 			*****假数据伪造*****
 			*****************/

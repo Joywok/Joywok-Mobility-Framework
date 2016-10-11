@@ -8578,7 +8578,7 @@ input, select {
 
 .icon {
   display: inline-block;
-  background: url(/build/images/icons.png);
+  background: url(../images/icons.png);
   background-size: 200px;
   vertical-align: middle;
 }
@@ -9359,6 +9359,7 @@ input:focus {
 }
 .list .list-w .list-item .list-item-w {
   overflow: hidden;
+  line-height: 48px;
   border-top: 1px solid #dddddd;
 }
 .list .list-w .list-item .list-item-w label {
@@ -9814,7 +9815,7 @@ input:focus {
 .checkbox-w input[type="checkbox"] + label {
   width: 20px;
   height: 20px;
-  background: url(/build/images/icons.png) no-repeat;
+  background: url(../images/icons.png) no-repeat;
   background-size: 300px;
   background-position: -80px -460px;
   cursor: pointer;
@@ -9822,7 +9823,7 @@ input:focus {
 }
 .checkbox-w input[type="checkbox"]:checked + label {
   border: none;
-  background: url(/build/images/icons.png) no-repeat;
+  background: url(../images/icons.png) no-repeat;
   background-size: 200px;
   background-position: -20px -100px;
 }
@@ -9830,7 +9831,7 @@ input:focus {
 .radio {
   width: 20px;
   height: 20px;
-  background: url(/build/images/icons.png) no-repeat;
+  background: url(../images/icons.png) no-repeat;
   background-size: 300px;
   background-position: -20px -100px;
   cursor: pointer;
@@ -9838,8 +9839,8 @@ input:focus {
 
 .radio.active {
   border: none;
-  background: url(/build/images/icons.png) no-repeat;
-  background-size: url(/build/images/icons.png) no-repeat;
+  background: url(../images/icons.png) no-repeat;
+  background-size: url(../images/icons.png) no-repeat;
   background-position: -20px -100px;
 }
 
@@ -9850,14 +9851,14 @@ input:focus {
   display: block;
   width: 20px;
   height: 20px;
-  background: url(/build/images/icons.png) no-repeat no-repeat;
+  background: url(../images/icons.png) no-repeat no-repeat;
   background-size: 300px;
   background-position: -80px -460px;
   cursor: pointer;
 }
 .radio-w input[type="radio"]:checked + label {
   border: none;
-  background: url(/build/images/icons.png) no-repeat;
+  background: url(../images/icons.png) no-repeat;
   background-size: 200px;
   background-position: -20px -100px;
 }
@@ -11334,7 +11335,7 @@ ul, li {
   text-align: center;
   vertical-align: middle;
   margin: 30px auto;
-  background: url(/build/images/icons.png) no-repeat;
+  background: url(../images/icons.png) no-repeat;
   background-size: 300px;
   vertical-align: middle;
 }

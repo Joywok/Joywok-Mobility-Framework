@@ -106,6 +106,7 @@ gulp.task('public:css',function(){
     .pipe($.size({title:'index.css'}));
 })
 
+
 gulp.task('public:js:framework',function(){
   gulp.src(['bower_components/jquery/dist/jquery.js','bower_components/bootstrap/dist/js/bootstrap.min.js','bower_components/underscore/underscore.js','bower_components/backbone/backbone.js','bower_components/backbone.wreqr/lib/backbone.wreqr.js','bower_components/backbone.babysitter/lib/backbone.babysitter.js','bower_components/marionette/lib/core/backbone.marionette.js','bower_components/backbone-forms/distribution/backbone-forms.js','bower_components/moment/moment.js','bower_components/bootstrap3-dialog/dist/js/bootstrap-dialog.js','bower_components/remarkable-bootstrap-notify/dist/bootstrap-notify.js','bower_components/bootstrap-select/dist/js/bootstrap-select.js','bower_components/backbone-forms/distribution/backbone-forms.js','bower_components/uploader/uploader.js'])
     .pipe(concat('framework.js'))

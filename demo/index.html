@@ -31,7 +31,13 @@
 <!--<article id="section-w">-->
   <!---->
 <!--</article>-->
-<header>Demo List</header>
+<div class="bar bar-header">
+  <div class="bar-w">
+    <a href="/mobilecss/index.html"><button type="button" class="btn">Css组件</button></a>
+    <a href="/javascript/index.html"><button type="button" class="btn right">Js组件</button></a>
+    <h1 class="ellipsis">JMF-Demo-List</h1>
+  </div>
+</div>
 <div class="list">
   <div class="list-h"></div>
   <div class="list-w">
@@ -73,6 +79,13 @@
     color: #fff;
   }
 
+  .list{
+    position: absolute;
+    top:45px;
+    right:0;
+    bottom:0;
+    left:0;overflow-y: auto;
+  }
   .list-item-w .fa-angle-right{
     float: right;
     margin-top: 16px;

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mobile-Demo</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" id="View">
+  <!-- <link rel="stylesheet" href="../build/public/index.css" /> -->
+  <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="../bower_components/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap-select/dist/css/bootstrap-select.css">
+  <link rel="stylesheet" href="../mobilecsscomponents/joywok-mobile.css" />
+  <script type="text/javascript" src="../build/public/framework.js"></script>
+  <script type="text/javascript" src="../build/public/jssdk.js"></script>
+  <script type="text/javascript" src="../node_modules/systemjs/dist/system.js"></script>
+  <script type="text/javascript">
+    
+  </script>
+  <script type="text/javascript" src="../src/scripts/main/index.js"></script>
+  <script type="text/javascript" src="../src/scripts/main/dicts.js"></script>
+  <script type="text/javascript" src="../src/scripts/main/funcs.js"></script>
+  <script type="text/javascript" src="../src/scripts/main/templates.js"></script>
+  <script type="text/javascript" src="../src/scripts/main/entities.js"></script>
+  <script type="text/javascript" src="../src/scripts/main/views.js"></script>
+  <script type="text/javascript" src="../src/scripts/main/fix.js"></script>
+  <script type="text/javascript" src="../src/scripts/main/comonents.js"></script>
+  <script type="text/javascript" src="../src/scripts/main/widgets.js"></script>
+  <script type="text/javascript" src="../src/scripts/main/start.js"></script>
+
+  <script type="text/javascript" src="demo/main/dicts.js"></script>
+  <script type="text/javascript" src="demo/main/entities.js"></script>
+  <script type="text/javascript" src="demo/main/templates.js"></script>
+  <script type="text/javascript" src="demo/main/views.js"></script>
+  <script type="text/javascript" src="demo/main/router.js"></script>
+  <script type="text/javascript" src="demo/main/index.js"></script>
+
+  <script type="text/javascript" src="demo/info/main/dicts.js"></script>
+  <script type="text/javascript" src="demo/info/main/entities.js"></script>
+  <script type="text/javascript" src="demo/info/main/templates.js"></script>
+  <script type="text/javascript" src="demo/info/main/views.js"></script>
+  <script type="text/javascript" src="demo/info/main/router.js"></script>
+  <script type="text/javascript" src="demo/info/main/index.js"></script>
+
+</head>
+<body>
+<main id="main" class="main"></main>
+<!--<div class="bar bar-header">-->
+  <!--<div class="bar-w">-->
+    <!--<a href="/mobilecss/index.html"><button type="button" class="btn">Css组件</button></a>-->
+    <!--<a href="/javascript/index.html"><button type="button" class="btn right">Js组件</button></a>-->
+    <!--<h1 class="ellipsis">JMF-Demo-List</h1>-->
+  <!--</div>-->
+<!--</div>-->
+<!--<div class="list">-->
+  <!--<div class="list-h"></div>-->
+  <!--<div class="list-w">-->
+    <!--<div class="list-block">-->
+      <!--<div class="list-block-h"></div>-->
+      <!--<div class="list-block-w">-->
+        <!--<div class="list-item">-->
+          <!--<a href="http://open.joywok.com/javascript/Jma-Framework/demo/list/index.html">-->
+            <!--<div class="list-item-w">-->
+              <!--<i class="fa fa-angle-right"></i>-->
+              <!--<label>List-Demo</label>-->
+            <!--</div>-->
+          <!--</a>-->
+        <!--</div>-->
+        <!--<div class="list-item">-->
+          <!--<a href="http://open.joywok.com/javascript/Jma-Framework/demo/jssdk/jssdk.html">-->
+            <!--<div class="list-item-w">-->
+              <!--<i class="fa fa-angle-right"></i>-->
+              <!--<label>JsSdk-Demo</label>-->
+            <!--</div>-->
+          <!--</a>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+</body>
+<style type="text/css">
+  body{
+    background: #eeeeee;
+  }
+  header{
+    position: relative;
+    height: 45px;
+    background: #b0b0b0;
+    line-height: 45px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    color: #fff;
+  }
+  .list{
+    position: absolute;
+    top:45px;
+    right:0;
+    bottom:0;
+    left:0;overflow-y: auto;
+  }
+  .list-item-w .fa-angle-right{
+    float: right;
+    margin-top: 16px;
+  }
+  .list-item a label{
+    cursor: pointer;
+  }
+  .list-info-main{
+    position: absolute;top:45px;left:0;right: 0;
+    bottom:0;overflow-y: auto;
+  }
+  .list-info-main .list-item{
+  }
+  .list-info-main .list-item-w{
+    display: flex;
+  }
+  .list-item-w label{
+  }
+  .list-item-region{
+    flex:1;
+    background: #fff;
+  }
+  .input-w{
+    margin-top:6px;
+  }
+  .list-item-region .togger{
+    float: right;margin-top: 11px;
+  }
+  .select-list-w .list-item-w{
+    display: block;
+  }
+
+  .list-block-dialog .list-item-w{
+    display: block;
+  }
+  .list-block-dialog .list-item-region{
+    flex:initial;
+    float: right;
+  }
+
+  .list-block-Card-1 .list-block-w{
+    padding:0!important;
+  }
+  .list-block-Card-top-1 .list-block-w{
+    padding:0!important;
+  }
+
+  .list-block-Card-top-2 .list-block-w{
+    padding:0!important;
+  }
+
+  .list-block-tabs-1 .list-block-w{
+    padding:0!important;
+  }
+  .list-block-tabs-2 .list-block-w{
+    padding:0!important;
+  }
+  .list-block-tabs-3 .list-block-w{
+    background: #0ab771!important;
+    padding:10px!important;
+  }
+  .list-block-w .footer{
+    position: relative;top:auto;right: auto;bottom: auto;left: auto;
+  }
+
+  .list-block-w.specail{
+    padding:0!important;
+  }
+  .action{
+   position: relative;top:auto!important;right: auto!important;bottom: auto!important;left: auto!important; 
+  }
+
+</style>
+<script type="text/javascript">
+  $(function(){
+
+//    $('.list-w').html(_.map(data,function(i){
+//      return '<div class="list-block">\
+//                <div class="list-block-h">'+(i['value'])+'</div>\
+//                <div class="list-block-w">\
+//                  '+(_.map(i['child'],function(item){
+//                      return '<div class="list-item">\
+//                                <a href="http://open.joywok.com/javascript/Jma-Framework/demo/jssdk/jssdk.html">\
+//                                  <div class="list-item-w">\
+//                                    <i class="fa fa-angle-right"></i>\
+//                                    <label>JsSdk-Demo</label>\
+//                                  </div>\
+//                                </a>\
+//                              </div>'
+//                  }).join(''))+'\
+//                </div>\
+//              </div>'
+//    }).join(''))
+  })
+</script>
+</html>

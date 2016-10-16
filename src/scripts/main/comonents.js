@@ -230,7 +230,6 @@ Jma.module('Components', function(Components, Jma, Backbone, Marionette, $, _) {
     // BacForm.Field = 
 
 
-
     Components.Form.editors.DatePicker = Components.Form.editors.Text.extend({
         defaultValue: '',
         previousValue: '',

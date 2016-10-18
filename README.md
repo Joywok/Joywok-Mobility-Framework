@@ -478,7 +478,8 @@ tempalteHelpers：返回数据(结合上述templates.js理解)
 *   router.js 
 路由文件，如果想通过改变路由展示页面指定内容，可操作路由文件 。
  
-   ```
+ 
+ ```
 Jma.module('Demo.Router', function(Router, Jma, Backbone, Marionette, $, _){    
     Router.startWithParent = true;    
     Router.Router = Jma.AppRouter.extend({    
@@ -503,22 +504,28 @@ AppRoute( ):路由设置
 appRoutes: 通常用于当用户设置应用直接加载一个特定的端点。
 appRoutes:映射传参方式如下：
  ’ ’:’demo’默认对应的链接为
-
-`<a href="#demo">Load View</a>`
+ 
+```
+<a href="#demo">Load View</a>
+```
 
 'demo':'demo'对应的链接为
-
-`<a href="#demo">Load View</a>`
+```
+<a href="#demo">Load View</a>
+```
 
 "/posts/:id":"getPost", 对应的链接为
 
-
-`<a href="#/posts/id(这里id表示实际id)">Load View</a>`
+```
+<a href="#/posts/id(这里id表示实际id)">Load View</a>
+```
 
 "/route/:action":"loadView",对应的链接为
 
 
-`<a href="#/route/action">Load Route Action View</a> `
+```
+<a href="#/route/action">Load Route Action View</a> 
+```
 
 ‘demo’:’demo’后者对应Router.Controller中args2函数启动一个module 
 *   index.js    主文件

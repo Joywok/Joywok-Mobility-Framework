@@ -42,10 +42,10 @@ gulp.task('css'， function(){
        console.log('read dir error');
     }else{
        files.forEach(function(item){
-    var appsName = item.indexOf('.scss') != -1 ? item.replace  
+        var appsName = item.indexOf('.scss') != -1 ? item.replace  
     ('.scss'，'') ： '';
            if(appsName !== ''){
-    sass(['src/scss/apps/'+item])
+        sass(['src/scss/apps/'+item])
              .on('error'， console.error.bind(console))
              .pipe(concat(appsName+'.css'))
              .pipe(gulp.dest('build/css'))
@@ -83,10 +83,10 @@ gulp.dest('build/css')  文件生成路径
              .pipe(gulp.dest('build/js'));  
              console.log(item+'打包完成');
               }    
-             })
-        }
-          })
-     })
+       })
+    }
+  })
+ })
 ```
 
 相关说明:
@@ -331,11 +331,11 @@ Backbone-form扩展组件，基本应用参考： http://open.joywok.com/javascr
 ├─script        
     ├─demo    
           ├─ main 
-                   ├── dicts.js         #字典文件    
-                   ├── entities.js     #数据文件      
-           ├── index.js        #主要入口文件    
-                   ├── router.js      #路由文件 
-                   ├── templates.js  #模板文件   
+          ├── dicts.js         #字典文件    
+          ├── entities.js     #数据文件      
+          ├── index.js        #主要入口文件    
+          ├── router.js      #路由文件 
+          ├── templates.js  #模板文件   
           ├── views.js        #视图文件 
     ├─ main             
         ├── dicts.js           #字典文件    
@@ -347,10 +347,9 @@ Backbone-form扩展组件，基本应用参考： http://open.joywok.com/javascr
         ├── start.js           #项目启动文件 
         ├── widgets.js      #视图文件 
         ├── comonents.js   #应用组件
-     ```
-   
-   
-*   templates.js模板文件
+```
+
+*  templates.js模板文件
 
 有效地组织页面的结构和底层逻辑。<%=  %>标签来组织和布局页面的结构。在views.js中调用template()函数绑定模板，templateHelpers（）可将数据内容渲染到模板标签中对应的对象属性中，从而实现根据模板绑定数据的页面效果。请结合以下views.js文件详细介绍，便于理解。
 

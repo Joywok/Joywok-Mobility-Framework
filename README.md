@@ -77,7 +77,7 @@ gulp.dest('build/css')  文件生成路径
            if(item != '.DS_Store'){
              gulp.src('src/scripts/'+item+'/**/*.js')
                .pipe(concat(item+'.js')) 
-       .pipe(gulp.dest('build/js')
+         .pipe(gulp.dest('build/js')
                .pipe(rename({suffix： '.min'})) 
                .pipe(uglify())  
              .pipe(gulp.dest('build/js'));  
@@ -87,8 +87,8 @@ gulp.dest('build/css')  文件生成路径
         }
           })
      })
-
 ```
+
 相关说明:
 gulp.src(globs[， options]) globs:处理的文件路径(字符串或者字符串数组)     
 concat(item+'.js') item:文件名 合并所有javascript文件    
@@ -101,7 +101,7 @@ rename({suffix: '.min'}) 压缩后的文件
   gulp.watch(['routers/router/*.js']，['concatRoutes']);
 ```
 当对文件进行更改时，监视任务被用来执行，watch()方法将监听变化并自动运行完成编译。
-* server
+*  server
 server task启动服务器，一般前端开发都是起一个服务器在浏览器里测试。
 
 ```
@@ -127,6 +127,7 @@ git clone https://github.com/Joywok/Jma-Framework.git
  ```
 ####安装依赖  
 执行命令：
+
 ```
 cd Jma-Framework
 npm install
@@ -154,6 +155,7 @@ bower install
 
 ####启动调试环境
 执行命令：
+
 ```
 gulp
 ```
@@ -163,6 +165,7 @@ gulp
 
 
 ####项目运行
+
 ```
 执行命令：$ gulp  
  ```
@@ -172,6 +175,7 @@ gulp
 
 ###文件引入
 ***
+
 ```
 <!--  核心 CSS 文件 -->
 
@@ -207,9 +211,8 @@ comonents.js"></script>
 </script>
 
 
-
-
 ```
+
 ###结构说明
 
 ```
@@ -229,6 +232,7 @@ comonents.js"></script>
 ```
 
 ####主程序入口文件介绍
+
 ```
 ├── scripts                 #主要开发代码
         ├─ main               #基础框架代码文件(主程序入口文件)  
@@ -242,6 +246,7 @@ comonents.js"></script>
         ├── widgets.js      #视图文件 
         ├── comonents.js   #应用组件
 ```
+
 主程序入口文件是使用该框架必不可少的，相关介绍如下：
 *   index.js文件
 
@@ -262,6 +267,7 @@ var Jma = new Marionette.Application()项目命名空间
 Jma.addRegion( )方法绑定视图区域，处理视图的渲染
 Jma.addInitializer( )默认region加载
 Jma.VERSION = '0.0.0'版本号
+
 *   src/script/main/funs.js文件
 
 全局方法集合，这里可以定义一些常用方法，可全局使用。
@@ -327,10 +333,10 @@ Backbone-form扩展组件，基本应用参考： http://open.joywok.com/javascr
           ├─ main 
                    ├── dicts.js         #字典文件    
                    ├── entities.js     #数据文件      
-               ├── index.js        #主要入口文件    
-                    ├── router.js      #路由文件 
-                           ├── templates.js  #模板文件   
-                           ├── views.js        #视图文件 
+           ├── index.js        #主要入口文件    
+                   ├── router.js      #路由文件 
+                   ├── templates.js  #模板文件   
+          ├── views.js        #视图文件 
     ├─ main             
         ├── dicts.js           #字典文件    
         ├── entities.js       # 数据文件      
@@ -342,21 +348,25 @@ Backbone-form扩展组件，基本应用参考： http://open.joywok.com/javascr
         ├── widgets.js      #视图文件 
         ├── comonents.js   #应用组件
      ```
+   
+   
 *   templates.js模板文件
+
 有效地组织页面的结构和底层逻辑。<%=  %>标签来组织和布局页面的结构。在views.js中调用template()函数绑定模板，templateHelpers（）可将数据内容渲染到模板标签中对应的对象属性中，从而实现根据模板绑定数据的页面效果。请结合以下views.js文件详细介绍，便于理解。
 
 ```
-  Templates.demoTemplate = _.template('\
-      <div class="qiandao-info-item">\
-          <div class="qiandao-info-item-c">\
-              <label>时间</label>\
-              <div class="qiandao-info-main">\
-                  <%=demo()%>\
-                </div>\
-          </div>\
-      </div>')
+Templates.demoTemplate = _.template('\
+    <div class="qiandao-info-item">\
+      <div class="qiandao-info-item-c">\
+        <label>时间</label>\
+        <div class="qiandao-info-main">\
+          <%=demo()%>\
+        </div>\
+      </div>\
+    </div>')
 ```
-2）  entities.js  数据文件
+*   entities.js  数据文件
+
     Model是Backbone中所有数据模型的基类，用于封装原始数据，并提供对数据进行操作的方法，我们一般通过继承的方式来扩展和使用它。
 Backbone中的Model就像是映射出来的一个数据对象，它可以对应到数据库中的某一条记录，并通过操作对象，将数据自动同步到服务器数据库。
 Backbone提供了与服务器数据的无缝连接，我们只需要操作本地Model对象，Backbone就会按照规则自动将数据同步到服务器。
@@ -364,86 +374,88 @@ Collection就是一个Model集合。因为Model是一条数据记录，也就是
 
 ```
 Jma.module('Demo.Entities', function(Entities, Jma, Backbone, Marionette, $, _){
-  Entities.demoModel = Backbone.Model.extend({
+    Entities.demoModel = Backbone.Model.extend({
       urlRoot : 'urlPath',
-      parse: function(data){
-    if(data.err){
-         return '请求失败';
-    }else{
-         return data;
+       parse: function(data){
+        if(data.err){
+           return '请求失败';
+          }else{
+           return data;
+       }
      }
-      }
-  });
-  Entities.demoCollection = Backbone.Collection.extend({
+     });
+   Entities.demoCollection = Backbone.Collection.extend({
       url : 'urlPath',
-      model:Entities.demoModel,parse: function(data){
-    if(data.err){
-        return '请求失败';
-    }else{
-         return data;
+     model:Entities.demoModel,
+     parse: function(data){
+        if(data.err){
+         return '请求失败';
+       }else{
+          return data;
+       }
      }
-      }
-  });
+   });
 })
 ```
 参数说明： url(数据请求地址)，parse(返回数据)
 *   views.js 
+
 Backbone的视图对象可以展示Model数据，也可以把用户编辑的Model数据传递到后台，可以通过监听事件操作视图里的DOM元素。创建视图时，可以通过传入model或collection属性和值，将某一模型或集合直接注册到视图中，Backbone视图创建元素时只需要使用tagName、id、className属性。此Backbone视图对象的el属性是一个指向该元素的引用。同时它也用来监听DOM上的事件然后做出响应。
 
 ```
-Jma.module('Demo.Views', function(Views, Jma, Backbone, Marionette, $, _) {
-  Views.demoLayoutView = Marionette.LayoutView.extend({
-        className: 'main-content',
-        template: 'template',
-        regions: {
-            demoRegion: '#demo',
-         ｝
-       triggers: {
-            'click .demo': 'demo',
-        },
-        events: {
-            'click .demo': 'demo'
-        },
-        demo: function() {
-            console.log('demo for events function')
-        }
-    });
-    Views.demomItemView = Marionette.ItemView.extend({
-        template: 'template',
-        initialize: function() {},
-        getTemplate: function() {
-            return '返回逻辑模板';
-        },
-        templateHelpers: function() {
-            var self = this;
-            return {
-                demo: function() {
-                    return 'value';
-                }
-            };
-        },
-        onRender: function() {},
-        modelEvents: {
-            'change': 'render',
-        },
-        triggers: {
-            'change': 'render',
-        }
-    });
-    Views.demomCollectionView = Marionette.CollectionView.extend({
-        template: 'template',
-        tagName: 'div',
-        className: 'classname',
-        childView: Views.demomItemView,
-        emptyView: Views.demoEmptyView,
-        triggers: {
-             'change': 'render',
-      ｝
-｝）
-
-  ｝）
+Jma.module('Demo.Views', function(Views, Jma, Backbone, Marionette, $, _) {  
+  Views.demoLayoutView = Marionette.LayoutView.extend({  
+    className: 'main-content',   
+    template: 'template',  
+    regions: {   
+       demoRegion: '#demo',   
+    ｝   
+    triggers: {   
+      'click .demo': 'demo',    
+    },    
+    events: {   
+       'click .demo': 'demo'    
+     },
+     demo: function() {   
+     console.log('demo for events function')    
+     }    
+    });   
+   Views.demomItemView = Marionette.ItemView.extend({   
+     template: 'template',    
+      initialize: function() {},    
+     getTemplate: function() {    
+     return '返回逻辑模板';   
+       },   
+     templateHelpers: function() {    
+       var self = this;   
+       return {   
+         demo: function() {   
+           return 'value';    
+          }   
+        };    
+      },    
+     onRender: function() {},   
+     modelEvents: {   
+        'change': 'render',   
+     },   
+     triggers: {    
+       'change': 'render',    
+      }   
+    });   
+   Views.demomCollectionView = Marionette.CollectionView.extend({   
+      template: 'template',   
+     tagName: 'div',    
+     className: 'classname',    
+     childView: Views.demomItemView,    
+     emptyView: Views.demoEmptyView,    
+     triggers: {    
+        'change': 'render',   
+     ｝    
+   ｝）   
+｝）    
 ```
 相关说明：
+
 * Marionette.LayoutView
 用来画布局的view，还会创建区域管理器来管理其内部的regions。   
 参数说明：
@@ -466,69 +478,68 @@ childView:指定子视图
 tempalteHelpers：返回数据(结合上述templates.js理解)
 *   router.js 
 路由文件，如果想通过改变路由展示页面指定内容，可操作路由文件 。
-代码示例：
+ 
    ```
-Jma.module('Demo.Router', function(Router, Jma, Backbone, Marionette, $, _){
-    Router.startWithParent = true;
-    Router.Router = Jma.AppRouter.extend({
-        appRoutes:{
-      'demo':'demo',
-      }
-  });
-    Router.Controller = Marionette.Controller.extend({
-        demo: function(){
-      Jma.module('Demo').StartApp();
-      }
-  });
-    Router.on('start', function(){
-        new Router.Router({
-      controller: new Router.Controller
-        });
-    });
-});
+Jma.module('Demo.Router', function(Router, Jma, Backbone, Marionette, $, _){    
+    Router.startWithParent = true;    
+    Router.Router = Jma.AppRouter.extend({    
+      appRoutes:{   
+          'demo':'demo',    
+        }   
+      });   
+    Router.Controller = Marionette.Controller.extend({    
+      demo: function(){   
+         Jma.module('Demo').StartApp();   
+       }    
+    });   
+    Router.on('start', function(){    
+      new Router.Router({   
+       controller: new Router.Controller    
+      });   
+    });   
+});   
 ```
 函数说明：
 AppRoute( ):路由设置
 appRoutes: 通常用于当用户设置应用直接加载一个特定的端点。
 appRoutes:映射传参方式如下：
  ’ ’:’demo’默认对应的链接为
- 
-```
-<a href="#demo">Load View</a>
-```
+
+`<a href="#demo">Load View</a>`
+
 'demo':'demo'对应的链接为
-```
-<a href="#demo">Load View</a>
-```
+
+`<a href="#demo">Load View</a>`
+
 "/posts/:id":"getPost", 对应的链接为
 
-```
-<a href="#/posts/id(这里id表示实际id)">Load View</a>
-```
+
+`<a href="#/posts/id(这里id表示实际id)">Load View</a>`
+
 "/route/:action":"loadView",对应的链接为
 
-```
-<a href="#/route/action">Load Route Action View</a> 
-```
+
+`<a href="#/route/action">Load Route Action View</a> `
+
 ‘demo’:’demo’后者对应Router.Controller中args2函数启动一个module 
 *   index.js    主文件
 Backbonem Module允许创建模块化封装逻辑。他们可以用来将大型应用程序分成多个文件，并构建应用程序的单个应用。
  
 ```
 Jma.module('Demo', function(Demo, Jma, Backbone, Marionette, $, _){
-  Demo.Controller = Marionette.Controller.extend({
-      initialize: function(options){
-          this.options = options;
-            this.collectionview=newJma.Demo.Views.demoLayoutView ()
-Jma.mainRegion.show(this.demoLayoutView);
-    },
-       });
+   Demo.Controller = Marionette.Controller.extend({
+    initialize: function(options){
+      this.options = options;
+      this.collectionview=newJma.Demo.Views.demoLayoutView ()
+      Jma.mainRegion.show(this.demoLayoutView);
+     },
+  });
   Demo.StartApp =  function(options){
     Demo.Controllers = new Demo.Controller(options);
-  };
-  Demo.StopApp = function(options){
+    };
+   Demo.StopApp = function(options){
     console.log('stop');
-  };
+    };
 })
 ```
 相关说明：
@@ -566,50 +577,50 @@ js组件使用方法访问  [http://open.joywok.com/javascript/index.html](http:
 
 ```
 var CustomEditor = Backbone.Form.editors.Base.extend({
-    tagName: 'input',
-    events: {
-        'change': function() {
-            // The 'change' event should be triggered whenever something     
-            // happens that affects the result of `this.getValue()`. 
-            this.trigger('change', this);
-        },
-        'focus': function() {
-            // The 'focus' event should be triggered whenever an input
-            // within this editor becomes the `document.activeElement`.
-            this.trigger('focus', this);
-            // This call automatically sets `this.hasFocus` to `true`.
-        },
-        'blur': function() {
-             // The 'blur' event should be triggered whenever an input            
-            //within this editor stops being the `document.activeElement`.
-            this.trigger('blur', this);
-            // This call automatically sets `this.hasFocus` to `false`.
-        }
+  tagName: 'input',
+  events: {
+      'change': function() {
+        // The 'change' event should be triggered whenever something     
+        // happens that affects the result of `this.getValue()`. 
+        this.trigger('change', this);
+      },
+    'focus': function() {
+      // The 'focus' event should be triggered whenever an input
+      // within this editor becomes the `document.activeElement`.
+      this.trigger('focus', this);
+      // This call automatically sets `this.hasFocus` to `true`.
     },
-    initialize: function(options) {
-        // Call parent constructor
-        Backbone.Form.editors.Base.prototype.initialize.call(this, options);
-        // 自定义代码
-        if (this.schema.customParam) this.doSomething();
+    'blur': function() {
+       // The 'blur' event should be triggered whenever an input            
+      //within this editor stops being the `document.activeElement`.
+      this.trigger('blur', this);
+      // This call automatically sets `this.hasFocus` to `false`.
+      }
     },
-    render: function() {
-        this.setValue(this.value);
-        return this;
-    },
-    getValue: function() {
-        return this.$el.val();
-    },
-    setValue: function(value) {
-        this.$el.val(value);
-    },
-    focus: function() {
-        if (this.hasFocus) return;
-        this.$el.focus();
-    },
-    blur: function() {
-        if (!this.hasFocus) return;
-        this.$el.blur();
-    }
+  initialize: function(options) {
+    // Call parent constructor
+    Backbone.Form.editors.Base.prototype.initialize.call(this, options);
+    // 自定义代码
+    if (this.schema.customParam) this.doSomething();
+  },
+  render: function() {
+    this.setValue(this.value);
+    return this;
+  },
+  getValue: function() {
+    return this.$el.val();
+  },
+  setValue: function(value) {
+    this.$el.val(value);
+  },
+  focus: function() {
+    if (this.hasFocus) return;
+    this.$el.focus();
+  },
+  blur: function() {
+    if (!this.hasFocus) return;
+    this.$el.blur();
+  }
 });
 ```
    如想要了解更多关于backbone-forms的知识可以访问  [https://github.com/powmedia/backbone-forms](https://github.com/powmedia/backbone-forms) 

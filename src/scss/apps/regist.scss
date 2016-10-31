@@ -266,3 +266,55 @@ html {
             }
         }
     }
+
+     //
+    .Tabs {
+        .tabs-default {
+            .tabs-w {
+                height: 50px;
+                line-height: 50px;
+                display: -webkit-box;
+                display: -moz-box;
+                display: -ms-box;
+                display: box;
+                width: 100%;
+                background-color: #ebebeb;
+                .tabs-item {
+                    background: #0ab771;
+                    display: -webkit-box;
+                    display: -moz-box;
+                    display: -ms-box;
+                    display: box;
+                    -webkit-box-flex: 1;
+                    -moz-box-flex: 1;
+                    text-align: center;
+                    border-left: 1px solid #fff;
+                    .tabs-item-w {
+                        text-align: center;
+                        cursor: pointer;
+                        text-align: center;
+                        // line-height: 50px;
+                        -webkit-box-flex: 1;
+                        -moz-box-flex: 1;
+                        label {
+                            background-color: #0ab771;
+                            color: #fff;
+                            display: block;
+                            -webkit-box-flex: 1;
+                            -moz-box-flex: 1;
+                            text-align: center;
+                            line-height: 50px;
+                        }
+                        input:checked + label {
+                            background: #fff;
+                            color: #0ab771;
+                            cursor: default;
+                        }
+                        input {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }

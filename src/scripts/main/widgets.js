@@ -204,4 +204,43 @@ Jma.Loading.main = Backbone.View.extend({
   }
 })
 
+//collapse 
+
+Jma.Collapse = {};
+
+Jma.Collapse.template = function(options) {
+    var el = $('\
+       ' + (_.map(options, function(item) {
+        return '<div class="panel panel-default">\
+                         <div class="panel-heading">\
+                            <h4 class="panel-title">\
+                              <a data-toggle="collapse" data-parent="#accordion" \
+                                 href="#' + item["id"] + '">\
+                                ' + item["desc"] + '\
+                              </a>\
+                            </h4>\
+                          </div>\
+                          <div id="' + item["id"] + '" class="panel-collapse collapse ' + (item["expanded"] == 'yes' ? 'in' : '') + ' ">\
+                            <div class="panel-body">\
+                             ' + item["content"] + '\
+                            </div>\
+                          </div>\
+                        </div>'
+    }).join("")) + '\
+          ')
+    return el;
+}
+Jma.Collapse.View = Backbone.View.extend({
+    initialize: function(options) {
+        _.extend(this, options)
+        this.$el = $('<div><div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true"></div></div>')
+        this._init_render();
+        if (this.region) {
+            this.region.append(this.$el)
+        }
+    },
+    _init_render: function() {
+        this.$el.find('.panel-group').append(Jma.Collapse.template(this.collapseItem));
+    }
+})
 

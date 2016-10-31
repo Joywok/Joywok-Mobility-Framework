@@ -281,3 +281,70 @@ Jma.Tabs.View = Backbone.View.extend({
 
 })
 
+//Actionsheet组件
+
+Jma.ActionSheet = function(options) {
+    // $('.custom-alert').remove();
+    var clientH = document.documentElement.clientHeight || document.body.clientHeight;
+    var el = $('<div class="actionsheet ' + (options["actions"].length > 1 ? 'custom-confirm' : '') + '">\
+            <div class="actionsheet-bg"></div>\
+              <div class="actionsheet-w visiHide">\
+                <div class="actionsheet-cell">\
+                  <div class="action' + (options["type"] ? ' sheet-' + options["type"] : '') + '">\
+                    <div class="action-w">\
+                     ' + (options["content"] ? '<div class="action-h">\
+                     <span>' + options["content"] + '</span>\
+                  </div>' : '') + '\
+                     <div class="action-block">\
+                      <div class="action-block-w">\
+                     ' + (_.map(options["actions"], function(item) {
+        return '<div class="action-item">\
+                               <div class="action-item-w">\
+                                ' + (item["icon"] ? ' \
+                                ' + item["icon"] : '') + '\
+                                <div class="action-item-c ' + item["cssClass"] + ' ">' + item["label"] + '</div>\
+                               </div>\
+                            </div>'
+    }).join("")) + '\
+                      </div>\
+                     </div>\
+                   </div>\
+                  </div>\
+                 </div>\
+               </div>\
+             </div>');
+
+    var container = el.find('.action');
+    $('body').append(el);
+    $('.actionsheet-bg').stop().animate({ opacity: 0.6 }, 200)
+    setTimeout(function() {
+        console.log(container.height(), clientH);
+        if (options['type'] === 2) {
+            if (container.height() > clientH) {
+                container.find('.custom-alert-c').css({ maxHeight: clientH - 30 - 30 + 'px', overflowY: 'auto' })
+                container.css({ top: 0, bottom: container.height() + 'px' });
+                container.stop().animate({ bottom: 0 });
+            } else {
+                container.stop().animate({ bottom: (clientH - container.height()) / 2 + 'px' }, 200);
+            }
+        } else {
+            container.css({ bottom: -container.height() + 'px' });
+            container.stop().animate({ bottom: 0 }, 200);
+        }
+    }, 0)
+    el.delegate('.actionsheet-bg', 'click', function() {
+        el.remove();
+    })
+    _.each(options["actions"], function(i) {
+        el.delegate('.' + i["cssClass"], 'click', function() {
+            if (i['action']) {
+                this.className += ' color-assertive';
+                i['action'](); //回调函数
+                setTimeout(function() {
+                    el.remove();
+                }, 100)
+            }
+        })
+    })
+}
+

@@ -244,3 +244,40 @@ Jma.Collapse.View = Backbone.View.extend({
     }
 })
 
+
+//tabs
+Jma.Tabs = {};
+Jma.Tabs.DefaultTemplate = function(options) {
+    var el = $('\
+               <div class="tabs-default">\
+                  <div class="tabs-w">\
+       ' + (_.map(options, function(item) {
+        return '\
+                              <a class="tabs-item ' + item["bgColor"] + '">\
+                                  <div class="tabs-item-w">\
+                                      <input type="radio"  ' + (item["checked"] == 'checked' ? 'checked' : '') + ' name="light_group" id="' + item["idName"] + '">\
+                                      <label for="' + item["idName"] + '">' + item["label"] + '</label>\
+                                  </div>\
+                              </a>'
+    }).join("")) + '\
+         </div></div> ')
+    return el;
+}
+
+Jma.Tabs.View = Backbone.View.extend({
+
+    initialize: function(options) {
+        _.extend(this, options)
+        this.$container = $('<div><div class="Tabs"></div></div>')     
+        this._init_render();
+        if (this.region) {
+            this.region.append(this.$container)
+        }
+    },
+    _init_render: function() {
+        this.$container.find('.Tabs').append(Jma.Tabs.DefaultTemplate(this.TabsItems) );
+        
+    },
+
+})
+

@@ -219,3 +219,50 @@ html {
         }
     }
 }
+
+
+ .actionsheet-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #e7e7e7;
+        z-index: 100;
+        opacity: 0.6;
+    }
+    
+    .actionsheet-w {
+        .actionsheet-cell {
+            .action-h {
+                background-color: #fff;
+            }
+            .action {
+                position: absolute;
+                left: 0;
+                right: 0;
+                z-index: 100;
+                top: auto;
+                bottom: -1000px;
+                .action-item {
+                    background: #ffffff;
+                }
+            }
+            .action.sheet-2 {
+                margin: 0 5%;
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 100;
+                background: #ffffff;
+            }
+            .action.sheet-3 {
+                .action-w {
+                    .action-item:last-child {
+                        margin-top: 15px;
+                    }
+                }
+            }
+        }
+    }

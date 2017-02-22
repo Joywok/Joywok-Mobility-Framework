@@ -1,3 +1,0 @@
-$(function(argument) {
-  Jma.start();
-});

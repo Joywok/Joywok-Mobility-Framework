@@ -1,0 +1,70 @@
+.header {
+  background: black;
+  height: 30px;
+  width: 100%;
+  min-width: 1000px;
+}
+
+.network {
+  float: left;
+  color: #b0b0b0;
+}
+
+.network ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.network ul li {
+  float: left;
+  line-height: 27px;
+  margin-left: 20px;
+}
+
+.network ul li.selected {
+  color: #fff;
+  border-bottom: 3px solid #bf0404;
+}
+
+.setting {
+  float: right;
+}
+
+.setting .setting_n {
+  float: right;
+}
+
+.setting .setting_r {
+  margin: 0 20px;
+}
+
+.setting .setting_r .set_icon {
+  float: right;
+  display: block;
+  margin: 6px 8px 0 9px;
+  cursor: pointer;
+  width: 17px;
+  height: 17px;
+}
+
+.setting .setting_r .set_exit {
+  background-image: url(/images/hdr-exit.png);
+  background-size: cover;
+}
+
+.setting .setting_r .set_set {
+  background-image: url(/images/hdr-set.png);
+  background-size: cover;
+}
+
+.setting .setting_r .set_help {
+  background-image: url(/images/hdr-help.png);
+  background-size: cover;
+}
+
+.line {
+  line-height: 20px;
+  border-left: 2px solid #2B2B2B;
+  margin-top: 5px;
+}

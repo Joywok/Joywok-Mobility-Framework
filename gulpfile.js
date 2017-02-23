@@ -13,14 +13,14 @@ gulp.task('styles:sass', ()=>{
         precision: 10
         })
     .on('error', console.error.bind(console))
-    .pipe(gulp.dest('public/styles'))
-    .pipe($.size({title:'public/styles'}));
+    .pipe(gulp.dest('build/styles'))
+    .pipe($.size({title:'build/styles'}));
 });
 gulp.task('styles', ['styles:sass']);
 gulp.task('html', function() {
   return gulp.src('src/template/*.html')
     .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest('public/template/'));
+    .pipe(gulp.dest('build/template/'));
 });
 gulp.task('mini',function(){
 	return gulp.src('src/images/**/*')
@@ -29,7 +29,7 @@ gulp.task('mini',function(){
 			svgoPlugins: [{removeViewBox: false}],
 			use: [pngquant()]
 		}))
-		.pipe(gulp.dest('public/images'));
+		.pipe(gulp.dest('build/images'));
 })
 gulp.task('default',["html","styles"],function(){
   gulp.watch(['src/template/*.html'],['html']);

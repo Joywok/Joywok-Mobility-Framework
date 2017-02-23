@@ -5,7 +5,7 @@ import errors from './Error.css';
 
 function Error({ location }) {
   return (
-    <div className={errors.error}>
+    <div className="error">
     	这是不对的不对的不对的路由
     </div>
   );

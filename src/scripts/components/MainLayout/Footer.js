@@ -5,7 +5,7 @@ import footers from './Footer.css';
 
 function Footer({ location }) {
   return (
-    <div className={footers.footer}>create by joywok</div>
+    <div className="footer">create by joywok</div>
   );
 }
 

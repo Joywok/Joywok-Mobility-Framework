@@ -4,10 +4,6 @@ import Header from './Header';
 import Footer from './Footer';
 import Nav from './Nav';
 
-
-
-
-
 function MainLayout({ children, location }) {
   return (
     <div className={styles.normal}>

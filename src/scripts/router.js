@@ -1,8 +1,7 @@
 import React from 'react';
 import { Router, Route,hashHistory} from 'dva/router';
-import IndexPage from './routes/IndexPage';
-import Error from "./routes/Error";
-
+import IndexPage from './routers/IndexPage/IndexPage';
+import Error from "./routers/Error/Error";
 // function RouterConfig({ hashHistory }) {
 //   return (
 //     <Router history={hashHistory}>

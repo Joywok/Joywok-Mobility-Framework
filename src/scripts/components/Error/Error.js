@@ -1,7 +1,7 @@
 import React from 'react';
 import { Menu, Icon } from 'antd';
 import { Link } from 'dva/router';
-import errors from './Error.css';
+import errors from './../../../styles/Error.css';
 
 function Error({ location }) {
   return (

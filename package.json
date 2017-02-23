@@ -6,7 +6,7 @@
     "webpackWatch": "webpack --progress --colors --watch",
     "start": "roadhog server",
     "build": "roadhog build",
-    "test": "roadhog test",
+    "test": "roadhog test"
   },
   "engines": {
     "install-node": "6.9.2"

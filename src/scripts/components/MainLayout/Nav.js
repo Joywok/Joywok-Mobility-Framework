@@ -1,7 +1,7 @@
 import React from 'react';
 import { Menu, Icon } from 'antd';
 import { Link } from 'dva/router';
-import navs from './Nav.css';
+import navs from './../../../styles/Nav.css';
 
 function Nav({ location }) {
   return (

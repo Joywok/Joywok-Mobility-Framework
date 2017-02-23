@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './MainLayout.css';
+import styles from './../../../styles/MainLayout.css';
 import Header from './Header';
 import Footer from './Footer';
 import Nav from './Nav';

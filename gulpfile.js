@@ -8,12 +8,13 @@ let $ = require('gulp-load-plugins')();
 gulp.task('styles:sass', ()=>{
   var sass = require('gulp-ruby-sass');
   var concat = require('gulp-concat');
-   sass(['src/styles/*.scss'],{
+   sass(['src/scss/*.scss'],{
         style: 'expanded',
         precision: 10
         })
     .on('error', console.error.bind(console))
     .pipe(gulp.dest('build/styles'))
+    .pipe(gulp.dest('src/styles'))
     .pipe($.size({title:'build/styles'}));
 });
 gulp.task('styles', ['styles:sass']);

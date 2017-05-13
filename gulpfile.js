@@ -5,6 +5,9 @@ let imagemin = require('gulp-imagemin');
 let pngquant = require('imagemin-pngquant');
 let htmlmin = require('gulp-htmlmin');
 let $ = require('gulp-load-plugins')();
+let express = require('express');
+let router = express.Router();
+
 gulp.task('styles:sass', ()=>{
   var sass = require('gulp-ruby-sass');
   var concat = require('gulp-concat');
@@ -32,7 +35,14 @@ gulp.task('mini',function(){
 		}))
 		.pipe(gulp.dest('build/images'));
 })
-gulp.task('default',["html","styles"],function(){
+gulp.task('concatRoutes',function(){
+  var concat = require('gulp-concat');
+  gulp.src(['routers/a.js','routers/router/*.js','routers/b.js'])
+    .pipe(concat('router.js'))
+    .pipe(gulp.dest('routers'))
+})
+gulp.task('default',["html","styles",'concatRoutes'],function(){
+  gulp.watch(['routers/router/*.js'],['concatRoutes']);
   gulp.watch(['src/public/*.html'],['html']);
   gulp.watch(['src/styles/*.scss'],['styles:sass']);
 });

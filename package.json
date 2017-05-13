@@ -4,9 +4,8 @@
     "webpackStart": "webpack-dev-server --inline --hot",
     "webpackBuild": "webpack --display-error-details",
     "webpackWatch": "webpack --progress --colors --watch",
-    "start": "roadhog server",
-    "build": "roadhog build",
-    "test": "roadhog test"
+    "start": "webpack-dev-server --inline --hot --host 127.0.0.1",
+    "build": "webpack -p"
   },
   "engines": {
     "install-node": "6.9.2"
@@ -29,6 +28,7 @@
     "dva": "^1.2.1",
     "dva-loading": "^0.2.0",
     "enhanced-resolve": "^3.1.0",
+    "express": "^4.15.2",
     "file-loader": "^0.10.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",

@@ -3,8 +3,6 @@ import { connect } from 'dva';
 import styles from './../../styles/IndexPage.css';
 import MainLayout from './../components/MainLayout/MainLayout';
 
-
-
 class IndexPage extends Component{
   render(){
     return (

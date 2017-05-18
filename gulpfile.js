@@ -20,8 +20,9 @@ gulp.task('styles:sass', ()=>{
       precision: 10
       })
   .on('error', console.error.bind(console))
-  .pipe(gulp.dest('build/styles'))
   .pipe(gulp.dest('src/styles'))
+  .pipe($.size({title:'build/styles'}))
+  .pipe(gulp.dest('build/styles'))
   .pipe($.size({title:'build/styles'}));
 });
 gulp.task('styles', ['styles:sass']);
@@ -51,7 +52,7 @@ gulp.task('public',()=>{
 gulp.task('default',["styles",'concatRoutes'],function(){
   gulp.watch(['routers/router/*.js'],['concatRoutes']);
   gulp.watch(['src/public/*.html'],['html']);
-  gulp.watch(['src/styles/*.scss'],['styles:sass']);
+  gulp.watch(['src/scss/*.scss'],['styles:sass']);
 });
 
 

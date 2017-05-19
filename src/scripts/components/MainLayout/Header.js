@@ -1,6 +1,5 @@
 import React from 'react';
 import { Menu, Icon } from 'antd';
-import Headers from './../../../styles/Headers.css';
 import { Link } from 'dva/router';
 
 function Header({ location }) {

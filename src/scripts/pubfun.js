@@ -10,3 +10,18 @@ function generateMixed(n) {
   }
   return res;
 }
+
+//获取指定时间0:0:0的时间戳
+window.getNowDate = function(data){
+	if(data){
+		var date = new Date(data); //获取当前Date对象
+	}else{
+		var date = new Date(); //获取当前Date对象
+	}
+	//var date = new Date('2020/10/10 11:22:33'); //获取指定时间的Date对象，这里只能用"2020/10/10"格式，其他格式如"2020-10-10"浏览器兼容性不好
+	date.setHours(0);
+	date.setMinutes(0);
+	date.setSeconds(0);
+	date.setMilliseconds(0);
+	return (date.getTime()/1000)
+}

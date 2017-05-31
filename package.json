@@ -60,6 +60,7 @@
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1",
     "webpack-visualizer-plugin": "^0.1.6",
+    "whatwg-fetch": "^2.0.3",
     "wolfy87-eventemitter": "^5.1.0"
   },
   "devDependencies": {

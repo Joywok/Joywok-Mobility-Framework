@@ -42,10 +42,10 @@ gulp.task('concatRoutes',function(){
 })
 gulp.task('public',()=>{
   return gulp.src('src/public/index.html')
-    .pipe(useref({searchPath: '.',}))
+    .pipe(useref({searchPath:['src/styles','.']}))
     .pipe(gulpif('*.css', minifycss()))
     .pipe(gulpif('*.js', uglify()))
-    .pipe(htmlmin({collapseWhitespace: true}))
+    // .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest('build/public/'));
 })
 gulp.task('default',["styles",'concatRoutes'],function(){

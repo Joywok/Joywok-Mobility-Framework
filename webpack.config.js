@@ -19,7 +19,7 @@ module.exports = {
     loaders: [
       {test: /\.js$/, exclude: /node_modules/, loader: "babel-loader"},
       {test: /\.css$/,loaders: ['style-loader','css-loader?importLoaders=1','postcss-loader']},
-      {test: /.scss$/, loaders: ['style-loader','css-loader?importLoaders=1','sass-loader']},
+      {test: /\.scss$/, loaders: ['style-loader','css-loader?importLoaders=1','sass-loader']},
       {test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192'},
       {test: /\.json$/,loader: 'json-loader'},
       {test: /\.html$/,loader: 'file?name=/public/[name].[ext]'}, 
@@ -39,15 +39,15 @@ module.exports = {
     new webpack.DefinePlugin({'process.env': {'NODE_ENV': '"production"'}})
   ],
   externals:{
-    'request':'request'
   },
   devServer: {
-    contentBase: "./src",//本地服务器所加载的页面所在的目录
+    contentBase: "./build",//本地服务器所加载的页面所在的目录
     historyApiFallback: true,//不跳转
     hot:true,
     open:true,
     compress:true,
     inline: true,//实时刷新,
+    stats: { colors: true },
     setup: function(app) {
       require('./routers/router')(app,'/api');
     },

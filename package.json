@@ -1,9 +1,5 @@
 {
-  "private": true,
   "scripts": {
-    "webpackStart": "webpack-dev-server --inline --hot",
-    "webpackBuild": "webpack --display-error-details",
-    "webpackWatch": "webpack --progress --colors --watch",
     "start": "webpack-dev-server --inline --hot --host 127.0.0.1",
     "build": "webpack -p"
   },

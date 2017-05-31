@@ -1,8 +1,8 @@
-import dva from 'dva';
+import jff from 'jff';
 import createLoading from 'dva-loading';
-
+console.log(jff);
 // 1. Initialize
-const app = dva();
+const app = jff();
 // 2. Plugins
 // app.use({});
 app.use(createLoading());

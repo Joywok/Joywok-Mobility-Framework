@@ -40,15 +40,12 @@ module.exports = {
       new webpack.DefinePlugin({ "global.GENTLY": false }),
       new webpack.DefinePlugin({'process.env': {'NODE_ENV': '"production"'}})
     ],
-    externals:{
-      jquery: "window.$"
-    },
     devServer: {
-      contentBase: "src/",//本地服务器所加载的页面所在的目录
+      contentBase: "./build",//本地服务器所加载的页面所在的目录
       historyApiFallback: true,//不跳转
-      // publicPath:'src',
       hot:true,
       open:true,
+      compress:true,
       inline: true,//实时刷新,
       setup: function(app) {
         require('./routers/router')(app,'/api');

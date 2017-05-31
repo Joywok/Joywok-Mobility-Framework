@@ -21,7 +21,6 @@ gulp.task('styles:sass', ()=>{
       })
   .on('error', console.error.bind(console))
   .pipe(gulp.dest('src/styles'))
-  .pipe($.size({title:'build/styles'}))
   .pipe(gulp.dest('build/styles'))
   .pipe($.size({title:'build/styles'}));
 });

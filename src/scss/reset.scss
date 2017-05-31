@@ -1,0 +1,119 @@
+@import "./Variables";
+
+
+//== CSS RESET
+//
+//## Style initialization
+
+body{
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  background: $body-bg;
+  //透明度设置为0，去掉点击链接和文本框对象时默认的灰色半透明覆盖层(iOS)或者虚框(Android)
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+body,div, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
+  margin: 0;
+  padding: 0;
+}
+h1, h2, h3, h4, h5, h6{
+  font-size: 100%;
+}
+address, caption, cite, code, dfn, em, var, strong, th {
+  font-style: normal;
+  font-weight:normal;
+}
+code, kbd, pre, samp {
+  font-family: $font-family-monospace;
+}
+ul, ol {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  outline:none;
+  // 设置的tap  A标签的时候出现的黑色高亮
+  -webkit-tap-highlight-color: transparent;
+  // 禁用长按页面时的弹出菜单(iOS下有效) ,img和a标签都要加
+  -webkit-touch-callout:none;
+}
+a:focus {
+  outline:none;
+  -moz-outline:none;
+ }
+sup {
+  vertical-align: text-top;
+}
+sub{
+  vertical-align: text-bottom;
+}
+legend {
+  color: #000;
+}
+fieldset, img {
+  border: 0;
+}
+img{
+  vertical-align: middle;
+  -webkit-touch-callout:none;
+}
+em {
+  font-style: normal;
+}
+button, input, select, textarea {
+  font-size: 100%;
+  outline: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+q:before,q:after {
+  content: '';
+}
+abbr,acronym {
+  border: 0;
+}
+textarea{
+  resize: none;
+}
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+    cursor: pointer
+}
+/* 去除iphone ipad 设备默认按钮样式 */
+input[type="button"], input[type="submit"], input[type="reset"] {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+// 注：以下默认颜色值需由 @齐华锋 整理
+input::-moz-placeholder, textarea::-moz-placeholder { color: #cccccc; }
+input:-ms-input-placeholder, textarea:-ms-input-placeholder { color: #cccccc; }
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { color: #cccccc; }
+
+// 注：h1-h6的color font-size font-weight需由 @齐华锋 整理
+h1{
+
+}
+h2{
+
+}
+h3{
+
+}
+h4{
+
+}
+h5{
+
+}
+h6{
+
+}
+mark{
+
+}

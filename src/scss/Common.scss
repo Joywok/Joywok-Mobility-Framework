@@ -9,7 +9,7 @@
 	display: none;
 }
 // 清除所有浮动
-.clearfix() {
+.clearfix{
   &:before,
   &:after {
     content: " "; // 1

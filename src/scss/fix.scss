@@ -1,14 +1,18 @@
-//== Css FIX
-//
-//## Style compatibility
-// 移动端0.5px的线 垂直
+@import "./Variables";
 
+//
+// CSS FIX
+// --------------------------------------------------
+
+
+//## Style compatibility
+
+// 移动端0.5px的线 垂直
 .border-line-vertical{
   position: relative;
   height: 100%;
   margin: 0 auto;
 }
-
 .border-line-vertical:before{
   content: '';
   position: absolute;
@@ -54,48 +58,3 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-
-
-//== Css base styles
-//
-//## Base public styles
-
-.hide{
-  display: none;
-}
-// 清除所有浮动
-.clear{
-  clear: both;
-}
-
-// 禁止选择，加上此类，文字就不会被选中
-.un-select{
-  moz-user-select: -moz-none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-// div增加此类后，设置的宽高就是实际的宽高，不会因为设置了padding而变大
-.div-ignore-spacing{
-  box-sizing:border-box;
-  -moz-box-sizing:border-box; /* Firefox */
-  -webkit-box-sizing:border-box; /* Safari */
-}
-// 单行省略
-.ellipsis {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-// 多行省略
-.ellipsis-2l {
-  overflow : hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;    /* 数值代表显示几行 */
-  -webkit-box-orient: vertical;
-}
-

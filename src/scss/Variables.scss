@@ -65,16 +65,25 @@ $link-hover-color:      darken($link-color, 15%); // 链接hover时的颜色
 //## Font, line-height, and color for body text, headings, and more.
 
 $font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif; // 无衬线字体（用于移动端）
-$font-family-serif:       Georgia, "Times New Roman", Times, serif; // 衬线字体 (用于web端)
+$font-family-serif:       "PingFang SC", 微软雅黑; // 衬线字体 (用于web端)
+$font-family-english: 		Helvetica; // 英文字体，（视情况使用）
 $font-family-monospace:   couriernew, courier, monospace; // 等宽字体 （如`<code>`, `<kbd>`, and `<pre>`）
 $font-family-base:        $font-family-sans-serif;
 
-//## 注：此字号是移动端规则，web端规则需由 @齐华锋 补充
+
+//## 注：此字号是移动端规则
 $font-size-large:        54px; // 大字号(大标题)
 $font-size-base:         48px;  // 基础字号(全局字号,正文，标题)
 $font-size-secondary:    39px;  // 次级文字( 使用场景待补充 )
 $font-size-small:        36px; // 小字号（注释／小字）
 $font-size-xsmall:       30px; // 超小字号, 辅助类文字（如信息来源，创建时间）
+
+//## 注：此字号是web端规则 web端使用时将此代码块打开，将上方代码块删除
+//$font-size-large:        18px; // 大字号(大标题)
+//$font-size-base:         14px;  // 基础字号(全局字号,正文，标题)
+//$font-size-secondary:    13px;  // 次级文字( 使用场景待补充 )
+//$font-size-small:        12px; // 小字号（注释／小字）
+//$font-size-xsmall:       10px; // 超小字号, 辅助类文字（如信息来源，创建时间）
 
 $font-size-h1:            floor(($font-size-base * 2.6)); // ~36px
 $font-size-h2:            floor(($font-size-base * 2.15)); // ~30px

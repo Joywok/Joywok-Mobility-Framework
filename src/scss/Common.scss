@@ -2,126 +2,22 @@
 // Common styles
 // --------------------------------------------------
 
-@import "./Variables";
 
-
-//== CSS RESET
-//
-//## Style initialization
-
-body{
-	font-family: $font-family-base;
-	font-size: $font-size-base;	
-	background: $body-bg;
-}
-body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { 
-	margin: 0;
-	padding: 0; 
-} 
-h1, h2, h3, h4, h5, h6{ 
-	font-size: 100%; 
-} 
-address, cite, dfn, em, var { 
-	font-style: normal; 
-} 
-code, kbd, pre, samp { 
-	font-family: $font-family-monospace; 
-} 
-ul, ol { 
-	list-style: none; 
-} 
-a { 
-	text-decoration: none; 
-} 
-sup { 
-	vertical-align: text-top; 
-} 
-sub{ 
-	vertical-align: text-bottom; 
-} 
-legend { 
-	color: #000; 
-} 
-fieldset, img { 
-	border: 0;
-} 
-button, input, select, textarea { 
-	font-size: 100%; 
-	outline: none;
-} 
-table { 
-	border-collapse: collapse; 
-	border-spacing: 0; 
-}
-
-
-//== Css FIX
-//
-//## Style compatibility
-
-// 移动端0.5px的线 垂直
-.border-line-vertical{
-	position: relative;
-	height: 100%;
-	margin: 0 auto;
-}
-.border-line-vertical:before{
-	content: '';
-	position: absolute;
-	width: 200%;
-	height: 100%;
-	border-left: 1px solid #e7e7e7;
-	-webkit-transform-origin: 0 0;
-	-moz-transform-origin: 0 0;
-	-ms-transform-origin: 0 0;
-	-o-transform-origin: 0 0;
-	transform-origin: 0 0;
-	-webkit-transform: scale(0.5, 0.5);
-	-ms-transform: scale(0.5, 0.5);
-	-o-transform: scale(0.5, 0.5);
-	transform: scale(0.5, 0.5);
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
-// 移动端0.5px的线 水平
-.border-line-horizontal{
-	position: relative;
-	width:100%;
-	height: 1px;
-	float:left;
-}
-.border-line-horizontal:before{
-	content: '';
-	height: 100%;
-	width: 200%;
-	position: absolute;
-	border-bottom: 1px solid #e7e7e7;
-	-webkit-transform-origin: 0 0;
-	-moz-transform-origin: 0 0;
-	-ms-transform-origin: 0 0;
-	-o-transform-origin: 0 0;
-	transform-origin: 0 0;
-	-webkit-transform: scale(0.5, 0.5);
-	-ms-transform: scale(0.5, 0.5);
-	-o-transform: scale(0.5, 0.5);
-	transform: scale(0.5, 0.5);
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
-
-
-//== Css base styles
-//
 //## Base public styles 
 
 .hide{
 	display: none;
 }
 // 清除所有浮动
-.clear{
-	clear: both;
+.clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
 }
 // 禁止选择，加上此类，文字就不会被选中
 .un-select{

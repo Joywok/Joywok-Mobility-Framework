@@ -25,6 +25,7 @@
     "dva": "^1.2.1",
     "dva-loading": "^0.2.0",
     "enhanced-resolve": "^3.1.0",
+    "events-trigger": "^1.2.5",
     "express": "^4.15.2",
     "file-loader": "^0.10.0",
     "gulp": "^3.9.1",

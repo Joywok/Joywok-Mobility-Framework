@@ -9,9 +9,36 @@ class Schema extends React.Component {
     super(props);
     let self = this;
     let schema = this.props.schema;
+    let _schema = [];
+
+    if(schema[0].element == "Section"){
+      
+      for(let i in schema){
+        if(schema[i].label != "" || schema[i].logo != ""){
+          _schema.push({
+            name: schema[i].name,
+            alias: schema[i].alias,
+            element: schema[i].element,
+            hidden: schema[i].hidden,
+            isAdd: schema[i].isAdd,
+            isPage: schema[i].isPage,
+            label: schema[i].label,
+            logo: schema[i].logo,
+          })
+        }
+        for(let m in schema[i].schema){
+          _schema.push(schema[i].schema[m])
+        }
+      }
+    }else{
+      _schema = schema;
+    }
+
+    console.log()
+
     this.state = {
       formData:{
-        schema: this.props.schema,
+        schema: _schema,
         changeData: function(i, item){
           self.props.events.trigger('formChange:'+item.name, i);
         }
@@ -89,6 +116,7 @@ class Schema extends React.Component {
           schema[i] = self._textarea(self.state.formData.schema[i]);
           break;
         case "Refill":
+          schema[i] = self.state.formData.schema[i];
           break;
         default:
           schema[i] = self.state.formData.schema[i];
@@ -278,8 +306,10 @@ class Schema extends React.Component {
       }
     }
     schema.attr = attr;
-
-    schema.defaultValue = this._parse(item.defaultValue)
+    
+    if(item.defaultValue && item.defaultValue != ""){
+      schema.defaultValue = this._parse(item.defaultValue)
+    }
 
     let className = ["hidden"];
     if(item.hidden && item.hidden == 1){
@@ -304,7 +334,9 @@ class Schema extends React.Component {
     }
     schema.attr = attr;
 
-    schema.defaultValue = this._parse(item.defaultValue)
+    if(item.defaultValue && item.defaultValue != ""){
+      schema.defaultValue = this._parse(item.defaultValue)
+    }
 
     let className = ["hidden"];
     if(item.hidden && item.hidden == 1){
@@ -346,20 +378,20 @@ class Schema extends React.Component {
 
   render(){
 
-  	return(
-    		<div className="form-show-title">
+    return(
+        <div className="form-show-title">
           <Form formData={this.state.formData} ref="formData"/>
         </div>
-  		)
+      )
   } 
-	changeData(data){
-		let dispatch = this.props.dispatch;
-		dispatch({
-			type:'form/changeData',
-			data:{
-				schema:data
-			}
-		})
-	}
+  changeData(data){
+    let dispatch = this.props.dispatch;
+    dispatch({
+      type:'form/changeData',
+      data:{
+        schema:data
+      }
+    })
+  }
 }
 export default connect()(Schema);

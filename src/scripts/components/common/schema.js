@@ -33,14 +33,11 @@ class Schema extends React.Component {
     }else{
       _schema = schema;
     }
-
-    console.log()
-
     this.state = {
       formData:{
         schema: _schema,
-        changeData: function(i, item){
-          self.props.events.trigger('formChange:'+item.name, i);
+        changeData: function(i, item, value){
+          self.props.events.trigger('formChange:'+item.name, i, item, value);
         }
       }
     };
@@ -50,13 +47,11 @@ class Schema extends React.Component {
     // alert(1);
     let self = this;
     let schema = [];
-    console.log(self.state.formData);
     for(let i in self.state.formData.schema){
-      console.log(self.state.formData.schema[i].element);
       switch(self.state.formData.schema[i].element){
         case "Input":
           schema[i] = self._input(self.state.formData.schema[i])
-          if(self.state.formData.schema[i].parents && self.state.formData.schema[i].parents.length > 0){
+          if(self.state.formData.schema[i].parents && self.state.formData.schema[i].parents.length > 0 && self.state.formData.schema[i].url){
             for(let m in self.state.formData.schema[i].parents){
               self.props.events.on('formChange:'+self.state.formData.schema[i].parents[m], function(formData){
                 let flag = true;
@@ -75,7 +70,16 @@ class Schema extends React.Component {
                 self.fetchDataInput(parms, self.state.formData.schema[i]);
               });  
             }
+          }else if(self.state.formData.schema[i].parents && self.state.formData.schema[i].parents.length > 0 && !self.state.formData.schema[i].url){
+            
+            for(let m in self.state.formData.schema[i].parents){
+              self.props.events.on('formChange:'+self.state.formData.schema[i].parents[m], function(formData, schema, value){
+                self.setValue(value, self.state.formData.schema[i]);  
+              })
+            }
+            
           }
+
           break;
         case "Select":
           schema[i] = self._select(self.state.formData.schema[i])
@@ -117,15 +121,42 @@ class Schema extends React.Component {
           break;
         case "Refill":
           schema[i] = self.state.formData.schema[i];
+          self.props.events.on('formChange:'+self.state.formData.schema[i].name+"_refill", function(formData, schema){
+            self.fetchDataRefill(self.state.formData.schema[i], schema.defaultValue);
+          })
           break;
         default:
           schema[i] = self.state.formData.schema[i];
           break;
       }
     } 
-    console.log(schema, "last schema")
     self.state.formData.schema = schema;
     self.setState(self.state);   
+
+  }
+
+  setValue(value, schema){
+    let self = this;
+    for(let i in self.state.formData.schema){
+      if(self.state.formData.schema[i].name == schema.name){
+          self.state.formData.schema[i].defaultValue = value[schema.subKey.split('.')[1]]
+      }
+    }
+    self.setState(self.state);
+
+  }
+
+  fetchDataRefill(schema, value){
+
+    let self = this;
+    async(self._parse(schema.url)).then(function(data){
+      for(let i in self.state.formData.schema){
+        if(self.state.formData.schema[i].name == schema.name){
+            self.state.formData.schema[i].dataList = data.data.list;
+        }
+      }
+      self.setState(self.state);
+    })
 
   }
 
@@ -133,8 +164,7 @@ class Schema extends React.Component {
   fetchDataSelect(parms, schema){
 
     let self = this;
-    async(schema.url).then(function(data){
-      console.log(data, "optionsData");
+    async(self._parse(schema.url)).then(function(data){
       for(let i in self.state.formData.schema){
         if(self.state.formData.schema[i].name == schema.name){
           let options = [];
@@ -153,11 +183,9 @@ class Schema extends React.Component {
   }
 
   fetchDataInput(parms, schema){
-
     let self = this;
     setTimeout(function(){
       async(self._parse(schema.url)).then(function(data){
-        console.log(data);
         for(let i in self.state.formData.schema){
           if(self.state.formData.schema[i].name == schema.name){
             let setData = [];
@@ -271,7 +299,7 @@ class Schema extends React.Component {
 
   _select(item){
 
-    let attrEle = ["value", "placeholder", "disabled"];
+    let attrEle = ["value", "placeholder", "disabled", "dropdownClassName", "cols"];
     let schema = {};
     let attr = {};
     for(var i in item){
@@ -295,7 +323,7 @@ class Schema extends React.Component {
   //Input元素解析方法
   _textarea(item){
     
-    let attrEle = ["value", "autoHeight", "placeholder", "disabled"];
+    let attrEle = ["value", "autoHeight", "placeholder", "disabled", "autosize", "rows"];
     let schema = {};
     let attr = {};
     for(var i in item){
@@ -356,7 +384,6 @@ class Schema extends React.Component {
     let res = str.match(myReg);
     
     for(let i in res){
-      console.log(res[i].indexOf("jw."));
       if(res[i].indexOf("jw.") != -1){
         str = str.replace(res[i], eval(res[i].replace("{", "").replace("}", "")));  
       }else{

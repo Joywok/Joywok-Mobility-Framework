@@ -14,7 +14,7 @@ class Schema extends React.Component {
     if(schema[0].element == "Section"){
       
       for(let i in schema){
-        if(schema[i].label != "" || schema[i].logo != ""){
+        // if(schema[i].label != "" || schema[i].logo != ""){
           _schema.push({
             name: schema[i].name,
             alias: schema[i].alias,
@@ -25,7 +25,7 @@ class Schema extends React.Component {
             label: schema[i].label,
             logo: schema[i].logo,
           })
-        }
+        // }
         for(let m in schema[i].schema){
           _schema.push(schema[i].schema[m])
         }
@@ -318,7 +318,7 @@ class Schema extends React.Component {
 
 
     schema.attr = attr;
-    schema.attr.format = (val) => val.format(item.format.replace("dd", "DD"));
+    schema.attr.format = (val) => val.format(item.format.replace("dd", "DD").replace("yyyy", "YYYY"));
 
     return schema;
   }

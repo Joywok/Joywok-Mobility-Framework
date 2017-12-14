@@ -120,7 +120,7 @@ class Schema extends React.Component {
           schema[i] = self._textarea(self.state.formData.schema[i]);
           break;
         case "Refill":
-          schema[i] = self.state.formData.schema[i];
+          schema[i] = self._refill(self.state.formData.schema[i]);
           self.props.events.on('formChange:'+self.state.formData.schema[i].name+"_refill", function(formData, schema){
             self.fetchDataRefill(self.state.formData.schema[i], schema.defaultValue);
           })
@@ -198,6 +198,32 @@ class Schema extends React.Component {
         self.setState(self.state);
       })
     })
+
+  }
+
+  _refill(item){
+    
+    let attrEle = [];
+    let schema = {};
+    let attr = {};
+    for(var i in item){
+      if(_.indexOf(attrEle, i) != -1){
+        attr[i] = item[i];
+      }else{
+        schema[i] = item[i]
+      }
+    }
+    schema.attr = attr;
+    if(item.defaultValue == ""){
+      schema.defaultValue = [];
+    }
+
+    let className = ["hidden"];
+    if(item.hidden && item.hidden == 1){
+      schema.className = schema.className+" hide";
+    }
+
+    return schema;
 
   }
 
